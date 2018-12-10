@@ -1,0 +1,145 @@
+{
+  "swagger": "2.0",
+  "info" : {
+    "description" : "<h1>userapp Maven Webapp<\/h1>",
+    "version" : "1.0",
+    "title" : "PMK App Web REST API"
+  },
+  "basePath" : "/api/",
+  "schemes" : [],
+  "tags" : [
+    {
+      "name" : "UserEndpoint"
+      ,
+      "description" : "Created by phil on 1/14/2018."
+    }
+  ],
+  "definitions" : {
+    "json_User" : {
+      "type" : "object",
+      "title" : "User",
+          "properties" : {
+            "email" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            },
+            "password" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            }
+          },
+      "example" : {
+  "email" : "...",
+  "password" : "..."
+},
+      "description" : "Created by phil on 1/14/2018."
+    }
+  },
+  "paths": {
+    "\/user" : {
+      "get" : {
+        "tags" : [ "UserEndpoint" ],
+        "description" : "",
+        "operationId" : "getUsers",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+        ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+"description" : "",
+"type" : "file"
+            },
+            "description" : ""
+          }
+        }
+      }
+    }
+    ,
+    "\/user/check-state" : {
+      "get" : {
+        "tags" : [ "UserEndpoint" ],
+        "description" : "",
+        "operationId" : "checkState",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "x-access-token",
+            "in" : "header",
+            "type" : "string",
+            "description" : ""
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+"description" : "",
+"type" : "file"
+            },
+            "description" : ""
+          }
+        }
+      }
+    }
+    ,
+    "\/user/login" : {
+      "post" : {
+        "tags" : [ "UserEndpoint" ],
+        "description" : "",
+        "operationId" : "login",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "body",
+            "in" : "body",
+            "schema" : {
+"$ref" : "#/definitions/json_User"
+            },
+            "description" : ""
+          }
+        ],
+        "responses" : {
+          "201" : {
+            "schema" : {
+"description" : "",
+"type" : "file"
+            },
+            "description" : ""
+          }
+        }
+      }
+    }
+    ,
+    "\/user/register" : {
+      "post" : {
+        "tags" : [ "UserEndpoint" ],
+        "description" : "",
+        "operationId" : "register",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "body",
+            "in" : "body",
+            "schema" : {
+"$ref" : "#/definitions/json_User"
+            },
+            "description" : ""
+          }
+        ],
+        "responses" : {
+          "201" : {
+            "schema" : {
+"description" : "",
+"type" : "file"
+            },
+            "description" : ""
+          }
+        }
+      }
+    }
+  }
+}

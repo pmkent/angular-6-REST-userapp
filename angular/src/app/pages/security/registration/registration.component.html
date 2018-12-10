@@ -1,0 +1,44 @@
+<mat-card>
+    <mat-card-title align='center'>Registration Form</mat-card-title>
+    <mat-card-content align='center'>
+      <form [formGroup]='registrationForm' class='login-form-container'>
+  
+        <mat-form-field [ngClass]="{'error': registrationForm.controls['email'].errors && registrationForm.controls['email'].dirty}">
+          <input matInput type='text' formControlName='email' placeholder='E-Mail' required>
+          <div *ngIf="registrationForm.controls['email'].invalid && (registrationForm.controls['email'].dirty || registrationForm.controls['email'].touched)" class='error-msg'>
+            <div *ngIf="registrationForm.controls['email'].errors.required">Username is required.</div>
+            <div *ngIf="registrationForm.controls['email'].errors.minlength">Username must be at least 2 characters long.</div>
+            <div *ngIf="registrationForm.controls['email'].errors.patternInvalid">Username must be a valid E-Mail address.</div>
+          </div>
+        </mat-form-field>
+  
+        <mat-form-field [ngClass]="{'error': registrationForm.controls['firstName'].errors && registrationForm.controls['firstName'].dirty}">
+            <input matInput type='text' formControlName='firstName' placeholder='First Name' required>
+            <div *ngIf="registrationForm.controls['firstName'].invalid && (registrationForm.controls['firstName'].dirty || registrationForm.controls['firstName'].touched)" class='error-msg'>
+              <div *ngIf="registrationForm.controls['firstName'].errors.required">First Name is required.</div>
+              <div *ngIf="registrationForm.controls['firstName'].errors.minlength">First Name must be at least 2 characters long.</div>
+            </div>
+          </mat-form-field>
+          <mat-form-field [ngClass]="{'error': registrationForm.controls['lastName'].errors && registrationForm.controls['lastName'].dirty}">
+            <input matInput type='text' formControlName='lastName' placeholder='Last Name' required>
+            <div *ngIf="registrationForm.controls['lastName'].invalid && (registrationForm.controls['lastName'].dirty || registrationForm.controls['lastName'].touched)" class='error-msg'>
+              <div *ngIf="registrationForm.controls['lastName'].errors.required">Last Name is required.</div>
+              <div *ngIf="registrationForm.controls['lastName'].errors.minlength">Last Name must be at least 2 characters long.</div>
+            </div>
+          </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput type='password' formControlName='password' placeholder='Password' required>
+          <div *ngIf="registrationForm.controls['password'].invalid && (registrationForm.controls['password'].dirty || registrationForm.controls['password'].touched)" class='error-msg'>
+            <div *ngIf="registrationForm.controls['password'].errors.required">Password is required.</div>
+            <div *ngIf="registrationForm.controls['password'].errors.minlength">Password must be at least 5 characters long.</div>
+            <div *ngIf="registrationForm.controls['password'].errors.maxlength">Password must be at most 10 characters long.</div>
+          </div>
+        </mat-form-field>      
+      </form>
+    </mat-card-content>
+    <mat-card-actions align='right'>
+        <button mat-raised-button color='accent' class='btn' [disabled]='registrationForm.invalid' (click)='onSubmit()'>Register</button>
+        <a mat-raised-button routerLink='/login'>Login</a>
+    </mat-card-actions>
+  </mat-card>

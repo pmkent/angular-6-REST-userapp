@@ -1,0 +1,24 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form-container > * {
+    width: 100%;
+}
+
+.error {
+    color: red;
+}
+.error-msg {
+    display: block;
+    position: absolute;
+    font-size: 75%;
+    bottom: -2em;
+}

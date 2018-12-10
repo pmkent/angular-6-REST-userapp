@@ -1,0 +1,63 @@
+<mat-card>
+    <mat-card-title align='center'>User List</mat-card-title>
+    <mat-card-content align='center'>
+
+        <div *ngIf='dataSource.data.length > 0'>
+            <div class='example-header'>
+                <mat-form-field>
+                <input matInput (keyup)='applyFilter($event.target.value)' placeholder='Filter'>
+                </mat-form-field>
+            </div>
+            <div class='example-container mat-elevation-z8'>
+                <mat-table [dataSource]='dataSource' matSort>
+
+                <ng-container matColumnDef='id'>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+                    <mat-cell *matCellDef='let user'>{{user.id}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef='firstName'>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>First Name</mat-header-cell>
+                    <mat-cell *matCellDef='let user'>{{user.firstName}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef='lastName'>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</mat-header-cell>
+                    <mat-cell *matCellDef='let user'>{{user.lastName}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef='email'>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>E-Mail</mat-header-cell>
+                    <mat-cell *matCellDef='let user'>{{user.email}}</mat-cell>
+                </ng-container>
+            
+                <ng-container matColumnDef="edit">
+                    <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+                    <mat-cell *matCellDef="let user">
+                        <button mat-raised-button (click)='editUser(user)'>
+                            <mat-icon color='primary'>save</mat-icon>
+                        </button>
+                    </mat-cell>
+                </ng-container>
+            
+                <ng-container matColumnDef="delete">
+                    <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+                    <mat-cell *matCellDef="let user">
+                        <button mat-raised-button (click)='deleteUser(user)'>
+                            <mat-icon color='accent'>
+                                <i class="material-icons">remove_circle_outline</i>
+                            </mat-icon>
+                        </button>
+                    </mat-cell>
+                </ng-container>
+            
+                <mat-header-row *matHeaderRowDef='displayedColumns'></mat-header-row>
+                <mat-row *matRowDef='let user; columns: displayedColumns;' [ngClass]="{'highlight': selectedRowIndex == user.id}" (click)='highlightTableRow(user)'></mat-row>
+                </mat-table>
+            </div>
+        </div>
+        
+    </mat-card-content>
+    <mat-card-actions align='right'>
+        <button mat-raised-button color='accent' class='btn' (click)='addUser()'>Add User</button>
+        <a mat-raised-button routerLink='/register'>Register</a>
+    </mat-card-actions>
+  </mat-card>

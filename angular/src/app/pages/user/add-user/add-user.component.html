@@ -1,0 +1,65 @@
+<!--div class="col-md-6">
+  <h2 class="text-center">Add User</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="email">Email address:</label>
+      <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
+    </div>
+
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input formControlName="firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input formControlName="lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName">
+    </div>
+
+    <button class="btn btn-success">Add User</button>
+  </form>
+</div-->
+
+<mat-card>
+    <mat-card-title align='center'>Add User</mat-card-title>
+    <mat-card-content align='center'>
+      <form [formGroup]='addForm' class='login-form-container'>
+  
+        <mat-form-field [ngClass]="{'error': addForm.controls['email'].errors && addForm.controls['email'].dirty}">
+          <input matInput type='text' formControlName='email' placeholder='E-Mail' required>
+          <div *ngIf="addForm.controls['email'].invalid && (addForm.controls['email'].dirty || addForm.controls['email'].touched)" class='error-msg'>
+            <div *ngIf="addForm.controls['email'].errors.required">Username is required.</div>
+            <div *ngIf="addForm.controls['email'].errors.minlength">Username must be at least 2 characters long.</div>
+            <div *ngIf="addForm.controls['email'].errors.patternInvalid">Username must be a valid E-Mail address.</div>
+          </div>
+        </mat-form-field>
+  
+        <mat-form-field [ngClass]="{'error': addForm.controls['firstName'].errors && addForm.controls['firstName'].dirty}">
+            <input matInput type='text' formControlName='firstName' placeholder='First Name' required>
+            <div *ngIf="addForm.controls['firstName'].invalid && (addForm.controls['firstName'].dirty || addForm.controls['firstName'].touched)" class='error-msg'>
+              <div *ngIf="addForm.controls['firstName'].errors.required">First Name is required.</div>
+              <div *ngIf="addForm.controls['firstName'].errors.minlength">First Name must be at least 2 characters long.</div>
+            </div>
+          </mat-form-field>
+          <mat-form-field [ngClass]="{'error': addForm.controls['lastName'].errors && addForm.controls['lastName'].dirty}">
+            <input matInput type='text' formControlName='lastName' placeholder='Last Name' required>
+            <div *ngIf="addForm.controls['lastName'].invalid && (addForm.controls['lastName'].dirty || addForm.controls['lastName'].touched)" class='error-msg'>
+              <div *ngIf="addForm.controls['lastName'].errors.required">Last Name is required.</div>
+              <div *ngIf="addForm.controls['lastName'].errors.minlength">Last Name must be at least 2 characters long.</div>
+            </div>
+          </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput type='password' formControlName='password' placeholder='Password' required>
+          <div *ngIf="addForm.controls['password'].invalid && (addForm.controls['password'].dirty || addForm.controls['password'].touched)" class='error-msg'>
+            <div *ngIf="addForm.controls['password'].errors.required">Password is required.</div>
+            <div *ngIf="addForm.controls['password'].errors.minlength">Password must be at least 5 characters long.</div>
+            <div *ngIf="addForm.controls['password'].errors.maxlength">Password must be at most 10 characters long.</div>
+          </div>
+        </mat-form-field>      
+      </form>
+    </mat-card-content>
+    <mat-card-actions align='right'>
+        <button mat-raised-button color='accent' class='btn' [disabled]='addForm.invalid' (click)='onSubmit()'>Add User</button>
+    </mat-card-actions>
+  </mat-card>

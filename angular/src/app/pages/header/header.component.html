@@ -1,0 +1,33 @@
+<mat-toolbar color='primary'>
+  <mat-icon>home</mat-icon>
+  <span class='spacer'></span>
+  <span>Welcome Home</span>
+  <span class='spacer'></span>
+  <button mat-icon-button [matMenuTriggerFor]='menu'>
+    <mat-icon><i class='material-icons'>view_headline</i></mat-icon>
+  </button>
+
+  <mat-menu #menu='matMenu'>
+    <button mat-menu-item routerLink='/login'>
+      <mat-icon>home</mat-icon>
+      <span>Login</span>
+    </button>
+    <button mat-menu-item routerLink='/list-user'>
+      <mat-icon>list</mat-icon>
+      <span>List Users</span>
+    </button>
+    <button mat-menu-item routerLink='/add-user'>
+      <mat-icon>playlist_add</mat-icon>
+      <span>Add User</span>
+    </button>
+    <button mat-menu-item routerLink='/register'>
+      <mat-icon>spellcheck</mat-icon>
+      <span>Register</span>
+    </button>
+    <button mat-menu-item routerLink='/login'>
+      <i class='material-icons'>settings_power</i>
+      <!--mat-icon>settings_power</mat-icon-->
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
