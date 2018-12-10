@@ -1,0 +1,17 @@
+<enunciate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://enunciate.webcohesion.com/schemas/enunciate-2.0.0-M.4.xsd">
+
+  <title>PMK App Web REST API</title>
+  <description package="com.pmk.app.web.api"/>
+  <copyright>pmkent.com</copyright>
+
+    <api-classes>
+        <include pattern="com.pmk.app.rest.*"/>
+    </api-classes>
+
+    <modules>
+        <docs docsDir="src/main/webapp/restapi" title="PMK App REST API"/>
+		<jackson disabled="true"/>
+		<swagger basePath="/api/"/> <!--swagger basePath="/pmk/api/"/-->
+    </modules>
+
+</enunciate>
