@@ -1,73 +1,97 @@
 package com.pmk.app.util;
 
 import com.pmk.app.model.Credentials;
+import com.pmk.app.model.UserRole;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-
-import javax.crypto.*;
+import javax.ws.rs.core.UriInfo;
+import java.io.UnsupportedEncodingException;
 import java.security.Key;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-import static com.pmk.app.security.PasswordHashingDemo.generateHash;
-
+import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONObject;
 
 /**
  * Created by phil on 1/18/2018.
  */
 public class TokenUtil {
-    public static String issueToken(String login, String uriInfo) {
-        Key key = generateEncryptionSecret();
+
+    private static final String JWT_SECRET = new AppUtil().getSingleProperty("jwt.secret.key");
+    private static final int TOKEN_EXPIRATION_TIME = Integer.parseInt(new AppUtil().getSingleProperty("token.expires.in"));
+    private static final AppUtil APP_UTIL = new AppUtil();
+
+    public static String issueToken(String username, UriInfo uriInfo) {
         String jwtToken = Jwts.builder()
-                .setSubject(login)
-                .setIssuer(uriInfo)
+                .setSubject(username)
+                .setIssuer(uriInfo.getAbsolutePath().toString())
                 .setIssuedAt(new Date())
-                .setExpiration(toDate(LocalDateTime.now().plusMinutes(15L)))
-                .signWith(SignatureAlgorithm.HS512, key)
+                .setExpiration(toDate(LocalDateTime.now().plusMinutes(TOKEN_EXPIRATION_TIME)))
+                .signWith(SignatureAlgorithm.HS512, generateEncryptionSecret())
                 .compact();
-        System.out.println("#### generating token for a key : " + jwtToken + " - " + key);
+        System.out.println("#### generating token");
         return jwtToken;
     }
-    public static boolean verifyToken(String token) {
+
+    /* 2018-1-31 */
+    public static String getUserEmailFromToken(String token) {
         try {
+            Claims claims = Jwts.parser()
+                    .setSigningKey(JWT_SECRET.getBytes("UTF-8"))
+                    .parseClaimsJws(token)
+                    .getBody();
+            return claims.getSubject();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
-            // Validate the token
+    /* 2018-1-31 */
+    public static Set<String> getRolesFromToken(String token, List<UserRole> roles) {
+        Set<String> tokenRoles = new HashSet<>();
+        try {
+            Claims claims = Jwts.parser()
+                    .setSigningKey(JWT_SECRET.getBytes("UTF-8"))
+                    .parseClaimsJws(token)
+                    .getBody();
+            String email = claims.getSubject();
+            for (UserRole r: roles) {
+                for (String uname: r.getUsers()) {
+                    if (uname.equals(email)) tokenRoles.add(r.getName());
+                }
+            }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return tokenRoles;
+    }
+
+    // Validate the token
+    public static boolean validateToken(String token) {
+        try {
             Jwts.parser().setSigningKey(generateEncryptionSecret()).parseClaimsJws(token);
-            System.out.println("#### valid token : " + token);
+            //logger.info("\n#### valid token");// : " + token);
             return true;
-
         } catch (Exception e) {
-            System.out.println("#### invalid token : " + token); // logger.severe("#### invalid token : " + token);
+            System.out.println("\n#### INVALID TOKEN : " + token);
             return false;
         }
     }
 
-    private static SecretKey generateEncryptionSecret() {
-        try {
-            javax.crypto.KeyGenerator generator = javax.crypto.KeyGenerator.getInstance("AES");
-            generator.init(128);
-
-            return generator.generateKey();
-        } catch (NoSuchAlgorithmException ex) {
-            System.out.println("keyutil"+ ex);
-            return null;
-        }
+    private static Key generateEncryptionSecret() {
+        return new SecretKeySpec(JWT_SECRET.getBytes(), 0, JWT_SECRET.getBytes().length, "DES"); //"AES"
     }
 
-    private static Date toDate(LocalDateTime localDateTime) {
-        return Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
-    }
-
-    // Password Hashing
-    public static String getPasswordHash(String password) {
-        String hash = generateHash("my-salt-text" + password); // TODO: Get the salt from a utility?
-        System.out.println("\nTokenUtl:getPasswordHash Creating "+hash+" from "+password);
-        return hash;
-    }
-
+    /**/
     public static Credentials extractCredentials(String authString) {
         JSONObject obj = new JSONObject(authString);
         System.out.println("username: " + obj.getString("username"));
@@ -78,4 +102,34 @@ public class TokenUtil {
         System.out.println("UsrSvc:isUserAuthenticated() username : "+credentials.getUsername()+" password : "+credentials.getPassword());
         return credentials;
     }
+    /**/
+    public static String getPasswordHash(String password) {
+        String hash = generateHash(APP_UTIL.getSingleProperty("jwt.secret.key")+password);
+        System.out.println("\nTokenUtl:getPasswordHash Creating "+hash+" from "+password);
+        return hash;
+    }
+    /**/
+    private static Date toDate(LocalDateTime localDateTime) {
+        return Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+    }
+
+    /**/
+    private static String generateHash(String input) {
+        StringBuilder hash = new StringBuilder();
+
+        try {
+            MessageDigest sha = MessageDigest.getInstance("SHA-1");
+            byte[] hashedBytes = sha.digest(input.getBytes());
+            char[] digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+                    'a', 'b', 'c', 'd', 'e', 'f' };
+            for (byte b : hashedBytes) {
+                hash.append(digits[(b & 0xf0) >> 4]);
+                hash.append(digits[b & 0x0f]);
+            }
+        } catch (NoSuchAlgorithmException e) {
+            // handle error here.
+        }
+        return hash.toString();
+    }
+    /**/
 }

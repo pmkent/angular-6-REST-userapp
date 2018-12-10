@@ -3,7 +3,7 @@
   <mat-card-content align='center'>
     <form [formGroup]='loginForm' class='login-form-container'>
       <mat-form-field  [ngClass]="{'error': loginForm.controls['email'].errors && loginForm.controls['email'].dirty}">
-        <input matInput type='text' formControlName='email' placeholder='Username (E-Mail)' required>
+        <input matInput type='text' formControlName='email' placeholder='userone@gmail.com' required>
         <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)" class='error-msg'>
           <div *ngIf="loginForm.controls['email'].errors.required">Username is required.</div>
           <div *ngIf="loginForm.controls['email'].errors.minlength">Username must be at least 2 characters long.</div>

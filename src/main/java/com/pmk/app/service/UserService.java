@@ -2,10 +2,10 @@ package com.pmk.app.service;
 
 import com.pmk.app.model.Credentials;
 import com.pmk.app.model.User;
+import com.pmk.app.model.UserRole;
 import com.pmk.app.util.TokenUtil;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import javax.ws.rs.core.UriInfo;
 
@@ -14,10 +14,29 @@ import javax.ws.rs.core.UriInfo;
  */
 public class UserService {
 
-    public List<User> getUsers() {
-        System.out.println("\nUserService:getUsers() User[] size : "+userMap.size());
-        return new ArrayList<>(userMap.values());
+    public List<User> getUsers(String jwt) {
+        String token = jwt.replaceAll("Bearer ","");
+        System.out.println("\nUserService:getUsers() User[] size : "+userMap.size()+" token >"+token+"<");
+        Set<String> roles = TokenUtil.getRolesFromToken(token,  new ArrayList<>(userRoles.values())   );
+        String email = TokenUtil.getUserEmailFromToken(token);
+        if (roles.contains("ADMIN")) return new ArrayList<>(userMap.values());
+        else return getUserByRole(email);
     }
+
+    private List<User> getUserByRole(String email) {
+        List<User> userLst = new ArrayList<>();
+        for (Map.Entry<String,User> usrLst: userMap.entrySet()) {
+            System.out.println();
+            if (email.equals(usrLst.getValue().getEmail())) {
+                for (Map.Entry<String,UserRole> role: userRoles.entrySet()) {
+                    if (role.getValue().getName().equals(usrLst.getValue().getEmail()))
+                        userLst.add(usrLst.getValue());
+                }
+            }
+        }
+        System.out.println("UsrSvc:getUsrRoles "+userLst);
+        return userLst;
+    } // end: getUserByRole() method
 
     public User getUserById(String id) {
         User usr = userMap.get(id);
@@ -28,6 +47,10 @@ public class UserService {
     public User addUser(User user) {
         user.setId(getNextKey());
         user.setPassword(TokenUtil.getPasswordHash(user.getPassword()));
+
+        user.setRoles( new HashSet<>(Arrays.asList("ADMIN")) );
+        userRoles.put("ADMIN", new UserRole("ADMIN","ADMIN", Arrays.asList("userone@gmail.com", "usertwo@gmail.com",user.getEmail())));// userRoles.add();
+
         System.out.println("\nUserService:addUser()  : "+user);
         userMap.put(Integer.toString(user.getId()), user);
         return user;
@@ -61,31 +84,36 @@ public class UserService {
 
     // User Authentication
 
-    // 2018-2-01 TODO Create another front end return object without id other than user
+    /**/
     public User authenticate(String userInfo, UriInfo uriInfo) {
         Credentials credentials = TokenUtil.extractCredentials(userInfo);
         User user;
         for (Map.Entry<String, User> usr: userMap.entrySet()) {
             if (usr.getValue().getEmail().equals(credentials.getUsername()) && usr.getValue().getPassword().equals(TokenUtil.getPasswordHash(credentials.getPassword()))) {
                 user = usr.getValue();
-                user.setToken(TokenUtil.issueToken(credentials.getUsername(),uriInfo.toString()));
+                user.setToken(TokenUtil.issueToken(credentials.getUsername(),uriInfo));
 
                 System.out.println("\nUsrSvc:authenticateUser() LOGIN SUCCESS! Logged in as : \n"+user);
                 return user;
             }
         }
-        System.out.println("UsrSvc:authenticateUser() FAILURE! Unable to find user : "+credentials.getUsername()
-        );
         return null;
     }
+    /**/
 
-    // Database
+    // Fake Database
     // TODO Remove after database replacement
-    private static Map<String,User> userMap = new ConcurrentHashMap<>();
+    private static Map<String,User> userMap = new ConcurrentHashMap<>(); // Fake User database
+    private static Map<String,UserRole> userRoles = new ConcurrentHashMap<>(); // Fake User Role database
     static {
-        userMap.put("1", new User(1,"User","One","userone@gmail.com","eb3e2b2b8508e30fffe6a27959fb3b264b2af06b")); // Password: password
-        userMap.put("2", new User(2,"User","Two","usertwo@gmail.com","eb3e2b2b8508e30fffe6a27959fb3b264b2af06b"));
-        userMap.put("3", new User(3,"User","Three","userthree@gmail.com","eb3e2b2b8508e30fffe6a27959fb3b264b2af06b"));
+        userMap.put("1", new User(1,"User","One","userone@gmail.com","bc4c44979100772732ae8c67128802ea8952767d", new HashSet<>(Arrays.asList("ADMIN")))); // Password: password
+        userMap.put("2", new User(2,"User","Two","usertwo@gmail.com","bc4c44979100772732ae8c67128802ea8952767d", new HashSet<>(Arrays.asList("USER", "GUEST"))));
+        userMap.put("3", new User(3,"User","Three","userthree@gmail.com","bc4c44979100772732ae8c67128802ea8952767d", new HashSet<>(Arrays.asList("GUEST"))));
         System.out.println("\nInitialized userMap size "+userMap.size()+" Users.");
+
+        userRoles.put("ADMIN", new UserRole("ADMIN","ADMIN", Arrays.asList("userone@gmail.com", "usertwo@gmail.com")));
+        userRoles.put("USER", new UserRole("USER","USER", Arrays.asList("userone@gmail.com", "usertwo@gmail.com", "userthree@gmail.com")));
+        userRoles.put("GUEST", new UserRole("GUEST","GUEST", Arrays.asList("usertwo@gmail.com", "userthree@gmail.com")));
+        System.out.println("\nInitialized userRoles size "+userRoles.size()+" Roles.");
     }
 }

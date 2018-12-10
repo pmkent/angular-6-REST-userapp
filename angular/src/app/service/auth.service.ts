@@ -47,4 +47,10 @@ export class AuthService {
     console.log('usrSvc : '+message+'');
   }
 
+  public getToken(): string {
+    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    var token = currentUser && currentUser.token;
+    return token ? token : '';
+  }
+
 }

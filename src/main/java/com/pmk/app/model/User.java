@@ -2,6 +2,8 @@ package com.pmk.app.model;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
+import java.util.Set;
+
 /**
  * Created by phil on 1/14/2018.
  */
@@ -15,6 +17,8 @@ public class User {
     private String password;
     private String token;
 
+    private Set<String> roles; // 2018-12-10
+
     public User() {}
 
     public User(String email, String password) {
@@ -22,12 +26,13 @@ public class User {
         this.password = password;
     }
 
-    public User(int id, String firstName, String lastName, String email, String password) {
+    public User(int id, String firstName, String lastName, String email, String password, Set<String> roles) { // 2018-12-10
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.roles = roles; // 2018-12-10
     }
 
     public String getEmail() { return email; }
@@ -47,6 +52,9 @@ public class User {
 
     public String getToken() { return token; }
     public void setToken(String token) { this.token = token; }
+
+    public Set<String> getRoles() { return roles; } // 2018-12-10
+    public void setRoles(Set<String> roles) { this.roles = roles; } // 2018-12-10
 
     @Override
     public String toString() {

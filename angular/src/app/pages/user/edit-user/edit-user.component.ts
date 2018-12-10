@@ -43,7 +43,8 @@ export class EditUserComponent implements OnInit {
         lastName: ['', [Validators.required, Validators.minLength(2)]],
         email: ['', [Validators.required, patternValidator(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
         password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
-        token: ['']
+        token: [''],
+        roles: [{}]
       }
     );
 

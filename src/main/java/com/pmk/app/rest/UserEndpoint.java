@@ -29,8 +29,9 @@ public class UserEndpoint {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getUsers() {
-        return Response.ok(getUserService().getUsers()).build();
+    public Response getUsers(@HeaderParam("Authorization") String authorization) {
+        System.out.println("UserEndPoint:getUsers: jwt : >"+authorization+"<");
+        return Response.ok(getUserService().getUsers(authorization)).build();
     }
 
     @POST

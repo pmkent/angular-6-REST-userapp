@@ -233,8 +233,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-//import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'; // Remove later after testing
-//import { InMemoryDataService } from './service/in-memory-data.service'; // Remove later after testing
 
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -257,7 +255,7 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_12__["ReactiveFormsModule"],
                 _angular_material_module__WEBPACK_IMPORTED_MODULE_13__["AngularMaterialModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_16__["HttpClientModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_16__["HttpClientModule"]
             ],
             providers: [_service_user_service__WEBPACK_IMPORTED_MODULE_11__["UserService"], _service_auth_service__WEBPACK_IMPORTED_MODULE_18__["AuthService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
@@ -401,7 +399,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\n  <mat-card-title align='center'>Login</mat-card-title>\n  <mat-card-content align='center'>\n    <form [formGroup]='loginForm' class='login-form-container'>\n      <mat-form-field  [ngClass]=\"{'error': loginForm.controls['email'].errors && loginForm.controls['email'].dirty}\">\n        <input matInput type='text' formControlName='email' placeholder='Username (E-Mail)' required>\n        <div *ngIf=\"loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)\" class='error-msg'>\n          <div *ngIf=\"loginForm.controls['email'].errors.required\">Username is required.</div>\n          <div *ngIf=\"loginForm.controls['email'].errors.minlength\">Username must be at least 2 characters long.</div>\n          <div *ngIf=\"loginForm.controls['email'].errors.patternInvalid\">Username must be a valid E-Mail address.</div>\n        </div>\n      </mat-form-field>\n      <mat-form-field [ngClass]=\"{'error': loginForm.controls['password'].errors && loginForm.controls['password'].dirty}\">\n        <input matInput type='password' formControlName='password' placeholder='Password' required>\n        <div *ngIf=\"loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)\" class='error-msg'>\n          <div *ngIf=\"loginForm.controls['password'].errors.required\">Password is required.</div>\n          <div *ngIf=\"loginForm.controls['password'].errors.minlength\">Password must be at least 5 characters long.</div>\n          <div *ngIf=\"loginForm.controls['password'].errors.maxlength\">Password must be at most 10 characters long.</div>\n        </div>\n      </mat-form-field>\n    </form>\n  </mat-card-content>\n  <mat-card-actions align='right'>\n      <button mat-raised-button color='accent' class='btn' [disabled]='loginForm.invalid' (click)='login()'>Login</button>\n      <a mat-raised-button routerLink='/register'>Register</a>\n  </mat-card-actions>\n</mat-card>\n\n<!--p>Form Value: {{loginForm.value | json }}</p>\n<p>Form status: {{loginForm.status | json }}</p>\n<p>Name value: {{loginForm.get('email').value }}</p>\n\n<p>Username errors : {{loginForm.controls['email'].errors && loginForm.controls['email'].dirty}}</p>\n<p>Username is valid : {{loginForm.controls['email'].valid}}</p>\n<p>Email pattern invalid : {{loginForm.controls['email'].errors.patternInvalid}}</p>\n\n<p>Pwd show errors : {{loginForm.controls['password'].errors && loginForm.controls['password'].dirty}}</p>\n<p>Pwd required : {{loginForm.controls['password'].errors.required}}</p>\n<p>Pwd valid : {{loginForm.controls['password'].valid}}</p-->"
+module.exports = "<mat-card>\n  <mat-card-title align='center'>Login</mat-card-title>\n  <mat-card-content align='center'>\n    <form [formGroup]='loginForm' class='login-form-container'>\n      <mat-form-field  [ngClass]=\"{'error': loginForm.controls['email'].errors && loginForm.controls['email'].dirty}\">\n        <input matInput type='text' formControlName='email' placeholder='userone@gmail.com' required>\n        <div *ngIf=\"loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)\" class='error-msg'>\n          <div *ngIf=\"loginForm.controls['email'].errors.required\">Username is required.</div>\n          <div *ngIf=\"loginForm.controls['email'].errors.minlength\">Username must be at least 2 characters long.</div>\n          <div *ngIf=\"loginForm.controls['email'].errors.patternInvalid\">Username must be a valid E-Mail address.</div>\n        </div>\n      </mat-form-field>\n      <mat-form-field [ngClass]=\"{'error': loginForm.controls['password'].errors && loginForm.controls['password'].dirty}\">\n        <input matInput type='password' formControlName='password' placeholder='Password' required>\n        <div *ngIf=\"loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)\" class='error-msg'>\n          <div *ngIf=\"loginForm.controls['password'].errors.required\">Password is required.</div>\n          <div *ngIf=\"loginForm.controls['password'].errors.minlength\">Password must be at least 5 characters long.</div>\n          <div *ngIf=\"loginForm.controls['password'].errors.maxlength\">Password must be at most 10 characters long.</div>\n        </div>\n      </mat-form-field>\n    </form>\n  </mat-card-content>\n  <mat-card-actions align='right'>\n      <button mat-raised-button color='accent' class='btn' [disabled]='loginForm.invalid' (click)='login()'>Login</button>\n      <a mat-raised-button routerLink='/register'>Register</a>\n  </mat-card-actions>\n</mat-card>\n\n<!--p>Form Value: {{loginForm.value | json }}</p>\n<p>Form status: {{loginForm.status | json }}</p>\n<p>Name value: {{loginForm.get('email').value }}</p>\n\n<p>Username errors : {{loginForm.controls['email'].errors && loginForm.controls['email'].dirty}}</p>\n<p>Username is valid : {{loginForm.controls['email'].valid}}</p>\n<p>Email pattern invalid : {{loginForm.controls['email'].errors.patternInvalid}}</p>\n\n<p>Pwd show errors : {{loginForm.controls['password'].errors && loginForm.controls['password'].dirty}}</p>\n<p>Pwd required : {{loginForm.controls['password'].errors.required}}</p>\n<p>Pwd valid : {{loginForm.controls['password'].valid}}</p-->"
 
 /***/ }),
 
@@ -730,7 +728,8 @@ var EditUserComponent = /** @class */ (function () {
             lastName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2)]],
             email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, Object(_util_patternValidator__WEBPACK_IMPORTED_MODULE_6__["patternValidator"])(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
             password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(5), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(20)]],
-            token: ['']
+            token: [''],
+            roles: [{}]
         });
         this.userService.getUserById(+userId)
             .subscribe(function (data) {
@@ -972,6 +971,11 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.log = function (message) {
         console.log('usrSvc : ' + message + '');
     };
+    AuthService.prototype.getToken = function () {
+        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        var token = currentUser && currentUser.token;
+        return token ? token : '';
+    };
     AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
@@ -1000,15 +1004,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./auth.service */ "./src/app/service/auth.service.ts");
+
 
 
 
 
 
 var UserService = /** @class */ (function () {
-    function UserService(http, router) {
+    function UserService(http, router, authSvc) {
         this.http = http;
         this.router = router;
+        this.authSvc = authSvc;
         this.usrUrl = 'api/user';
     }
     UserService.prototype.getHeaders = function () {
@@ -1016,7 +1023,8 @@ var UserService = /** @class */ (function () {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+                'Authorization': 'Bearer ' + this.authSvc.getToken()
             })
         };
         return httpOptions;
@@ -1060,7 +1068,8 @@ var UserService = /** @class */ (function () {
             providedIn: 'root'
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"]])
     ], UserService);
     return UserService;
 }());
