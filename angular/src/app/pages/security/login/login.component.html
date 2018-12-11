@@ -1,3 +1,7 @@
+<div *ngIf='errorMsg' [ngClass]="{'error': errorMsg}">
+  {{errorMsg}}
+</div>
+
 <mat-card>
   <mat-card-title align='center'>Login</mat-card-title>
   <mat-card-content align='center'>
@@ -32,8 +36,6 @@
 
 <p>Username errors : {{loginForm.controls['email'].errors && loginForm.controls['email'].dirty}}</p>
 <p>Username is valid : {{loginForm.controls['email'].valid}}</p>
-<p>Email pattern invalid : {{loginForm.controls['email'].errors.patternInvalid}}</p>
 
 <p>Pwd show errors : {{loginForm.controls['password'].errors && loginForm.controls['password'].dirty}}</p>
-<p>Pwd required : {{loginForm.controls['password'].errors.required}}</p>
 <p>Pwd valid : {{loginForm.controls['password'].valid}}</p-->

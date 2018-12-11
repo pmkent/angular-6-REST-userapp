@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   invalidLogin: boolean = false;
 
   loading = false;
+  errorMsg: any; // 2018-12-11
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -40,11 +41,13 @@ export class LoginComponent implements OnInit {
     this.authSvc.login(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value)
       .subscribe(
         data => {
+          this.errorMsg = null; // 2018-12-11
           console.log('Login: '+this.loginForm.controls['email'].value+' Logged in!!');
           this.router.navigate(['list-user']);
         },
         error => { 
-          console.log('Login: '+this.loginForm.controls['email'].value+' Logged FAILURE!!');
+          this.errorMsg = 'Username and/or password do not match!'; // 2018-12-11
+          console.log('Login: '+this.loginForm.controls['email'].value+' '+this.loginForm.controls['password'].value+' :=> '+this.errorMsg); // 2018-12-11
           this.router.navigate(['login']);
           this.loading = false;
          }
