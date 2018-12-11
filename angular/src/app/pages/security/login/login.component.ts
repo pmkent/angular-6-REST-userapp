@@ -24,13 +24,12 @@ export class LoginComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-    // reset login status
-    this.authSvc.logout();
+    this.authSvc.logout(); // reset login status
 
     this.loginForm = this.formBuilder.group(
       {
         email: ['', [Validators.required, patternValidator(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/), , Validators.minLength(2)]],
-        password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]]
+        password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]]
       }
     );
   }

@@ -1,7 +1,7 @@
 <mat-toolbar color='primary'>
   <mat-icon>home</mat-icon>
   <span class='spacer'></span>
-  <span>Welcome Home</span>
+  <span>Angular User CRUD</span>
   <span class='spacer'></span>
   <button mat-icon-button [matMenuTriggerFor]='menu'>
     <mat-icon><i class='material-icons'>view_headline</i></mat-icon>
@@ -25,9 +25,9 @@
       <span>Register</span>
     </button>
     <button mat-menu-item routerLink='/login'>
-      <i class='material-icons'>settings_power</i>
-      <!--mat-icon>settings_power</mat-icon-->
+      <mat-icon>settings_power</mat-icon>
       <span>Logout</span>
     </button>
+    <button mat-menu-item (click)='toggleTheme()'>Toggle Theme</button>
   </mat-menu>
 </mat-toolbar>

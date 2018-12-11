@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'userapp';
+  isAlternateTheme = false;
+
+  togleTheme() {
+    this.isAlternateTheme = !this.isAlternateTheme;
+  }
 }

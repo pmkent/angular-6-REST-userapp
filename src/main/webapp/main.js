@@ -149,7 +149,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<router-outlet></router-outlet>\n<app-footer></app-footer>\n"
+module.exports = "<section [class.alternate-theme]='isAlternateTheme'>\n    <app-header></app-header>\n    <router-outlet></router-outlet>\n    <app-footer></app-footer>\n</section>\n\n\n"
 
 /***/ }),
 
@@ -170,7 +170,11 @@ __webpack_require__.r(__webpack_exports__);
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.title = 'userapp';
+        this.isAlternateTheme = false;
     }
+    AppComponent.prototype.togleTheme = function () {
+        this.isAlternateTheme = !this.isAlternateTheme;
+    };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-root',
@@ -343,7 +347,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color='primary'>\n  <mat-icon>home</mat-icon>\n  <span class='spacer'></span>\n  <span>Welcome Home</span>\n  <span class='spacer'></span>\n  <button mat-icon-button [matMenuTriggerFor]='menu'>\n    <mat-icon><i class='material-icons'>view_headline</i></mat-icon>\n  </button>\n\n  <mat-menu #menu='matMenu'>\n    <button mat-menu-item routerLink='/login'>\n      <mat-icon>home</mat-icon>\n      <span>Login</span>\n    </button>\n    <button mat-menu-item routerLink='/list-user'>\n      <mat-icon>list</mat-icon>\n      <span>List Users</span>\n    </button>\n    <button mat-menu-item routerLink='/add-user'>\n      <mat-icon>playlist_add</mat-icon>\n      <span>Add User</span>\n    </button>\n    <button mat-menu-item routerLink='/register'>\n      <mat-icon>spellcheck</mat-icon>\n      <span>Register</span>\n    </button>\n    <button mat-menu-item routerLink='/login'>\n      <i class='material-icons'>settings_power</i>\n      <!--mat-icon>settings_power</mat-icon-->\n      <span>Logout</span>\n    </button>\n  </mat-menu>\n</mat-toolbar>\n"
+module.exports = "<mat-toolbar color='primary'>\n  <mat-icon>home</mat-icon>\n  <span class='spacer'></span>\n  <span>Angular User CRUD</span>\n  <span class='spacer'></span>\n  <button mat-icon-button [matMenuTriggerFor]='menu'>\n    <mat-icon><i class='material-icons'>view_headline</i></mat-icon>\n  </button>\n\n  <mat-menu #menu='matMenu'>\n    <button mat-menu-item routerLink='/login'>\n      <mat-icon>home</mat-icon>\n      <span>Login</span>\n    </button>\n    <button mat-menu-item routerLink='/list-user'>\n      <mat-icon>list</mat-icon>\n      <span>List Users</span>\n    </button>\n    <button mat-menu-item routerLink='/add-user'>\n      <mat-icon>playlist_add</mat-icon>\n      <span>Add User</span>\n    </button>\n    <button mat-menu-item routerLink='/register'>\n      <mat-icon>spellcheck</mat-icon>\n      <span>Register</span>\n    </button>\n    <button mat-menu-item routerLink='/login'>\n      <mat-icon>settings_power</mat-icon>\n      <span>Logout</span>\n    </button>\n    <button mat-menu-item (click)='toggleTheme()'>Toggle Theme</button>\n  </mat-menu>\n</mat-toolbar>\n"
 
 /***/ }),
 
@@ -359,12 +363,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../app.component */ "./src/app/app.component.ts");
+
 
 
 var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent() {
+    function HeaderComponent(appComponent) {
+        this.appComponent = appComponent;
     }
-    HeaderComponent.prototype.ngOnInit = function () {
+    HeaderComponent.prototype.ngOnInit = function () { };
+    HeaderComponent.prototype.toggleTheme = function () {
+        this.appComponent.togleTheme();
     };
     HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -372,7 +381,7 @@ var HeaderComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./header.component.html */ "./src/app/pages/header/header.component.html"),
             styles: [__webpack_require__(/*! ./header.component.css */ "./src/app/pages/header/header.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]])
     ], HeaderComponent);
     return HeaderComponent;
 }());
@@ -435,11 +444,10 @@ var LoginComponent = /** @class */ (function () {
         this.loading = false;
     }
     LoginComponent.prototype.ngOnInit = function () {
-        // reset login status
-        this.authSvc.logout();
+        this.authSvc.logout(); // reset login status
         this.loginForm = this.formBuilder.group({
             email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, Object(_util_patternValidator__WEBPACK_IMPORTED_MODULE_4__["patternValidator"])(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/), , _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2)]],
-            password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(5), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(10)]]
+            password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(5), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(20)]]
         });
     };
     LoginComponent.prototype.login = function () {
@@ -549,7 +557,7 @@ var RegistrationComponent = /** @class */ (function () {
             firstName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2), forbiddenNameValidator(/bob/i)]],
             lastName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2)]],
             email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, Object(_util_patternValidator__WEBPACK_IMPORTED_MODULE_4__["patternValidator"])(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
-            password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(5), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(10)]]
+            password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(5), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(20)]]
         });
     };
     RegistrationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
