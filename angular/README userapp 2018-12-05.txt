@@ -1,47 +1,46 @@
 2018-12-09
 
--Login page if your user information is already in the 
--Fake database using Java Map of user objects.
--Jetty app server is created from jar files on the fly by a Maven command [ mvn jetty:run ]. It starts then deploys the userapp web application from the files in the webapp folder.
--To access the deployed application, on a browser go to the URL http://localhost:8080 This will bring you to the login page since you are not yet logged. There is a Register button to register a new user if you want to log in as yourself.
--Log in as Email: userone@gmail.com Password: password or click on the 'Register' button to register a new user using email, first name, last name and a password. You can then log in as this user you have just registered.
--The Menu button on the top right gives you the ability to go to the Login, Register, Add User, Edit User, User list, Logout. Note that, when you are not logged in you can only access the Login and Registration pages.
--To test the REST backend endpoints user the Html UI created using http://localhost:8080/restapi/ui Make sure to run the command [ mvn clean package -Penunciate ] from the userapp application root folder to create the REST UI.
--Once logged in you can view the users in the database in a list, edit a user, delete a user. You can also Add a new user, logout. The menu on the top right gives you the ability to navigate to different app pages.
+User CRUD application built using Angular 6 front end Java REST backend. This userapp starts off with a login and user registration pages that are not restricted. Once logged in you'll able to view user list, add a user, delete a user, logout.
+
+* Login page if your user information already exists in the database. Otherwise, login as userone@gmail.com : password
+* Currently the application uses a fake database using Java Map of user objects. There is plans in the future to use a MongoDB user collection database.
+* The Jetty application server is created from jar files on the fly by a Maven command [ mvn jetty:run ]. It starts then deploys the userapp web application from the files in the webapp folder.
+* To access the deployed application, on a browser go to the URL http://localhost:8080 This will bring you to the login page since you are not yet logged. There is a Register button to register a new user if you want to log in as yourself.
+* Log in as Email: userone@gmail.com Password: password or click on the 'Register' button to register a new user using email, first name, last name and a password. You can then log in as this user you have just registered.
+* The Menu button on the top right gives you the ability to go to the Login, Register, Add User, Edit User, User list, Logout. Note that, when you are not logged in you can only access the Login and Registration pages.
+* To test the REST backend endpoints user the Html UI created using http://localhost:8080/restapi/ui Make sure to run the command [ mvn clean package -Penunciate ] from the userapp application root folder to create the REST UI.
+* Once logged in you can view the users in the database in a list, edit a user, delete a user. You can also Add a new user, logout. The menu on the top right gives you the ability to navigate to different app pages.
+* All users can toggle between two theme colors by using the menu item 'Toggle Theme'
 
 How it works:
--Jetty server starts, deployes the Angular front end and the Java REST endpoints.
--When a user interracts with the front end for instance logging in, a rest call with the url pattern http://localhost:8080/api/user is invoked that calls the backend for authentication, user data.
+* The Jetty application server is started from CLI. Jetty starts, deploys the Angular 6 front end and the Java REST endpoints.
+* When a user interacts with the front end for instance logging in, a rest call with the url pattern http://localhost:8080/api/user is invoked that calls the backend for authentication, user data.
+* Authenticated users can view, add, edit user(s). Non authenticated users can only interract with the login and the register screens.
 
 Build:
--Build the Angular 6 front end and the Java backend separately
--To build the Angular 6 Front end use the command < ng build --base-href / > . This creates a folder /dist/userapp that contains all the files required to run the application. This can also be accomplished by invoking the built.bat batch file. Copy these files into the Jetty /webapp folder.
--To build the Java code run the command [ mvn clean package ]. This running build.bat on commandline from the userapp root directory invokes the same command.
--To run the entire application use the command [ mvn jetty:run ]. This command can simply be invoked from the 
+* Build the Angular 6 front end and the Java backend separately
+* To build the Angular 6 Front end use the command < ng build --base-href / > . This creates a folder /dist/userapp that contains all the files required to run the application. This can also be accomplished by invoking the built.bat batch file. Copy these files into the Jetty /webapp folder.
+* To build the Java code run the command [ mvn clean package ]. This running build.bat on commandline from the userapp root directory invokes the same command.
+* To run the entire application use the command [ mvn jetty:run ]. This command can simply be invoked from the 
 
 Next Steps:
--Replace hard coded data with database calls with a MongoDB user collection.
--Theme color toggle control.
--Protect REST service with a call filter that only allows permission to get to the backend or returns the call back to the front end and displays the login page. Note that page security through Angular front end is already implements. This is an extra layer of security.
--Unix .sh files evivalent of the batch files for building and running the applications.
+* Replace hard coded data with database calls with a MongoDB user collection.
+* Theme color toggle control.
+* Protect REST service with a call filter that only allows permission to get to the backend or returns the call back to the front end and displays the login page. Note that page security through Angular front end is already implements. This is an extra layer of security.
+* Unix .sh files evivalent of the batch files for building and running the applications.
 
 Tools:
--Jetty Web Application Server
--Enunciate REST service test Url
--SHA-256 message digest password one way encryption
--Chrome browser Development tools
+* Jetty Web Application Server
+* Enunciate REST service test Url
+* SHA-256 message digest password one way encryption
+* Chrome browser Development tools
 
 Technologies:
-Angular 6
-Angular Material Design
-Java 8
-
-IDEs
--Visual Studio Code
--IntelliJ IDEA
--Editplus
--Windows 10 CLI
--Chrome google browser development tools
+* Angular 6
+* Angular Material Design
+* Java 8
+* JWT Security
+* JAVA Jersey REST services.
 
 Commands used to develop the application(s):
 

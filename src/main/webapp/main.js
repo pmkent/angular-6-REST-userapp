@@ -444,7 +444,7 @@ var LoginComponent = /** @class */ (function () {
         this.loading = false;
     }
     LoginComponent.prototype.ngOnInit = function () {
-        this.authSvc.logout(); // reset login status
+        this.authSvc.logout(); // First reset login status
         this.loginForm = this.formBuilder.group({
             email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, Object(_util_patternValidator__WEBPACK_IMPORTED_MODULE_4__["patternValidator"])(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/), , _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2)]],
             password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(5), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(20)]]
@@ -460,7 +460,7 @@ var LoginComponent = /** @class */ (function () {
             _this.router.navigate(['list-user']);
         }, function (error) {
             console.log('Login: ' + _this.loginForm.controls['email'].value + ' Logged FAILURE!!');
-            _this.router.navigate(['register']);
+            _this.router.navigate(['login']);
             _this.loading = false;
         });
     };

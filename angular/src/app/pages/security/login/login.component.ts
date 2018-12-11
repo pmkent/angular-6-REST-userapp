@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-    this.authSvc.logout(); // reset login status
+    this.authSvc.logout(); // First reset login status
 
     this.loginForm = this.formBuilder.group(
       {
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         },
         error => { 
           console.log('Login: '+this.loginForm.controls['email'].value+' Logged FAILURE!!');
-          this.router.navigate(['register']);
+          this.router.navigate(['login']);
           this.loading = false;
          }
       );

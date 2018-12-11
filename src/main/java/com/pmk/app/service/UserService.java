@@ -49,8 +49,11 @@ public class UserService {
         user.setPassword(TokenUtil.getPasswordHash(user.getPassword()));
 
         user.setRoles( new HashSet<>(Arrays.asList("ADMIN")) );
-        userRoles.put("ADMIN", new UserRole("ADMIN","ADMIN", Arrays.asList("userone@gmail.com", "usertwo@gmail.com",user.getEmail())));// userRoles.add();
-
+        //System.out.println("\nUsrSvc:addUser roles "+userRoles.get("ADMIN"));
+        List<String> emails = new ArrayList<>( userRoles.get("ADMIN").getUsers() );
+        emails.add(user.getEmail());
+        userRoles.put("ADMIN", new UserRole("ADMIN","ADMIN", emails));
+        //System.out.println("\nUsrSvc:addUser THEN roles "+userRoles.get("ADMIN"));
         System.out.println("\nUserService:addUser()  : "+user);
         userMap.put(Integer.toString(user.getId()), user);
         return user;
