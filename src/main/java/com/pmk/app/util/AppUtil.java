@@ -9,7 +9,6 @@ import java.util.Properties;
  */
 public class AppUtil {
 
-    //private Logger logger = Logger.getLogger("AppUtil");
     private Properties props = new Properties();
 
     public String getSingleProperty(String prop) {

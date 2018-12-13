@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { User } from '../model/user';
 
+import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +13,7 @@ export class AuthService {
 
   private loginUrl = 'api/user/login';
 
-  constructor(private http: HttpClient,) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   getHeaders(): { headers: HttpHeaders } {
     var httpOptions = {
@@ -40,6 +42,7 @@ export class AuthService {
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
+    // this.router.navigate(['login']);
     console.log('AuthSvc: logout currentUser '+localStorage.getItem('currentUser'));
   }
 

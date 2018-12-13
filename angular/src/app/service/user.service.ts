@@ -1,12 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { User } from '../model/user';
-import { Router } from '@angular/router';
 
-import { Observable } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { AuthService } from './auth.service';
+
+import {Observable, throwError} from 'rxjs';
+
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +19,9 @@ export class UserService {
 
   constructor(
     private http: HttpClient,
-    private router: Router,
-    private authSvc: AuthService
+    private authSvc: AuthService,
+    private router: Router
+    // private injector: Injector
   ) {}
 
   getHeaders(): { headers: HttpHeaders } {
@@ -31,14 +34,37 @@ export class UserService {
       })
     };
     return httpOptions;
-  }  
+  }
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.usrUrl, this.getHeaders())
       .pipe(
-        tap(users => this.log(`fetched ${users.length} users`))
+        tap(
+          users => this.log(`fetched ${users.length} users`)),
+          // catchError(this.handleError)
       );
   }
+
+  // private handleError(error: HttpErrorResponse) {
+  //   //const router = Router;
+  //   if (error.error instanceof ErrorEvent) {
+  //     // A client-side or network error occurred. Handle it accordingly.
+  //     console.error('An error occurred:', error.error.message);
+  //   } else {
+  //     // The backend returned an unsuccessful response code.
+  //     // The response body may contain clues as to what went wrong,
+  //     console.error(
+  //       `Backend returned code ${error.status}, ` +
+  //       `body was: ${error.error}`);
+  //       // this.router.navigate(['login']);
+  //       this.router.navigateByUrl('/login');
+  //   }
+  //   // return an observable with a user-facing error message
+  //   return throwError('Something bad happened; please try again later.');
+  // };
+  // public get router(): Router { //this creates router property on your service.
+  //     return this.injector.get(Router);
+  // }
 
   deleteUser(user: User | string): Observable<User> {
     const id = typeof user === 'string' ? user : user.id;
@@ -79,39 +105,5 @@ export class UserService {
   private log(message: string) {
     console.log('usrSvc : '+message+'');
   }
-
-    // Overrides the genId method to ensure that a hero always has an id.
-  // If the heroes array is empty,
-  // the method below returns the initial number (11).
-  // if the heroes array is not empty, the method below returns the highest
-  // hero id + 1.
-  // genId(heroes: User[]): number {
-  //   return heroes.length > 0 ? Math.max(...heroes.map(hero => hero.id)) + 1 : 11;
-  // }
-
-  /*
-  private baseUrl = 'api/users';
-
-  constructor(private http: HttpClient) { }
-
-  getUsers() {
-    return this.http.get<User[]>(this.baseUrl);
-  }
-
-  getUserById(id: number) {
-    return this.http.get<User>(this.baseUrl + '/' + id);
-  }
-
-  createUser(user: User) {
-    return this.http.post(this.baseUrl, user);
-  }
-
-  updateUser(user: User) {
-    return this.http.put(this.baseUrl + '/' + user.id, user);
-  }
-
-  deleteUser(id: number) {
-    return this.http.delete(this.baseUrl + '/' + id);
-  }
-  */
+  
 }

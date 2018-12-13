@@ -1,3 +1,91 @@
+2018-12-11
+
+Angular CRUD Example Tutorial
+
+Assumptions:
+1. Your environment is set up correctly. If your environment is not set up correctly, and you are having issues installing your environmment, please comment below and I'll respond and help you.
+2. Node.js and NPM. On your command line type the following to install Node.js : npm install -g npm@latest
+3. Angular CLI is installed. Once Node.js is installed you can accomplish this by typing the following command into your command line interface: npm install -g @angular/cli
+
+Step 1: Create and run a new Angular project using the following comands
+
+ng new userapp
+-To create a new Angular application named userapp. Note that this will take a long time. Be patient. At the end of the process you should see a message on your CLI similar to this: added 1125 packages from 1176 contributors and audited 40177 packages in 162.408s
+
+cd userapp
+-To switch to the new application root directory
+
+ng serve --open
+-The newly created app opens a new browser at the the URL: http://localhost:4200
+
+Step 2: Install Angular Material
+-The best documentation on this topic can be found at the URL : https://material.angular.io/guide/getting-started
+-Run the following command on CLI
+
+npm install --save @angular/material @angular/cdk @angular/animations
+-This will install both angular material and the angular animations module. You need to then perform the following two steps:
+1. Import BrowserAnimationsModule into your app/app.module.ts file and export it. Take a look at this application module file to see how this is done.
+2. Create a separate NgModule to contain all Angular material imports. To do that, run the following command:
+
+ng generate module angular-material --flat --module=app
+-This creates the file app/angular-material.module 
+
+3. You'll be importing into the generated angular-material.module all Angular Material component modules, for example MatButtonModule, MatCheckboxModule. Note that all the imports here will start with 'Mat' prefix and end with 'Module' postfix. Take a look at the file to see what I'm talking about.
+
+4. Include a theme into the userapp application buy entering the following line of code into the /src/styles.css CSS file:
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+5. Install and import hammerjs - Hammer is a open-source library that can recognize gestures made by touch, mouse and pointerEvents. Run the following command to do that:
+
+npm install --save hammerjs
+This will install the hammerjs Javascript into the userapp/node_modules folder.
+
+To use hammerjs in the userapp add the following line of code into the /src/main.ts file:
+
+import 'hammerjs';
+-Take a look at the main.ts file to see how this is done.
+
+Step 3: Start creating components.
+
+ng generate class model/user
+
+ng generate service service/user --module=app
+
+ng generate component pages/security/login --module=app
+ng generate component pages/security/registration --module=app
+
+ng generate component pages/user/add-user --module=app
+ng generate component pages/user/edit-user --module=app
+ng generate component pages/user/list-user --module=app
+
+ng generate component pages/header --module=app
+ng generate component pages/footer --module=app
+
+ng generate service service/auth-guard --module=app
+ng generate service service/auth --module=app
+
+Step 4: Configure Routing
+
+Configure the following 7 routes:
+const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegistrationComponent },
+  { path: 'add-user', component: AddUserComponent, canActivate: [AuthGuardService] },
+  { path: 'list-user', component: ListUserComponent, canActivate: [AuthGuardService] },
+  { path: 'edit-user', component: EditUserComponent, canActivate: [AuthGuardService] },
+  { path: '', component: LoginComponent, canActivate: [AuthGuardService] },
+  { path: '**', redirectTo: '' }
+];
+
+Note that all the user paths are secured using AuthGuard service to prevent access from unauthorized users.
+
+Next, register the AppRoutingModule in your /src/app/app.module.ts file as an import.
+
+Finally include <router-outlet> inside the app.component.html file.
+
+Step 5. Add header and footer
+
 2018-12-09
 
 User CRUD application built using Angular 6 front end Java REST backend. This userapp starts off with a login and user registration pages that are not restricted. Once logged in you'll able to view user list, add a user, delete a user, logout.
@@ -34,6 +122,9 @@ Tools:
 * Enunciate REST service test Url
 * SHA-256 message digest password one way encryption
 * Chrome browser Development tools
+* Jersey JAVA REST services
+* Visual Studio Code for Angular development
+* IntelliJ IDEA IDE for Java REST backend development
 
 Technologies:
 * Angular 6
@@ -41,8 +132,28 @@ Technologies:
 * Java 8
 * JWT Security
 * JAVA Jersey REST services.
+* Angular ReactiveForms
+* Angular Material theming.
 
 Commands used to develop the application(s):
+
+Thursday, December 13, 2018
+
+ng generate class util/CachingInterceptor
+
+ng generate service service/message --module=app (MessageService)
+
+ng generate class util/LoggingInterceptor
+ng generate class util/AuthInterceptor
+
+Wednesday, December 12, 2018
+
+ng generate class util/index
+ng generate class util/ErrorInterceptor
+
+ng generate class util/ErrorsHandler
+
+$$$$$$$$$$$
 
 ng generate service service/auth-guard --module=app
 ng generate service service/auth --module=app

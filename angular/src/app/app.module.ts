@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Injector } from '@angular/core';
+import { NgModule, Injector, ErrorHandler } from '@angular/core';
 
 import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,6 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './pages/security/registration/registration.component';
 
 import { AuthService } from './service/auth.service';
+// import { ErrorsHandler } from './util/errors-handler';
+import { httpInterceptorProviders } from './util/index';
 
 
 @NgModule({
@@ -43,7 +45,12 @@ import { AuthService } from './service/auth.service';
     BrowserAnimationsModule, // bug fix
     HttpClientModule    
   ],
-  providers: [ UserService, AuthService ],
+  providers: [
+    UserService,
+    AuthService,
+    // { provide: ErrorHandler, useClass: ErrorsHandler },
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

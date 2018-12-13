@@ -61,7 +61,7 @@ public class TokenUtil {
         try {
             Claims claims = Jwts.parser()
                     .setSigningKey(JWT_SECRET.getBytes("UTF-8"))
-                    .parseClaimsJws(token)
+                    .parseClaimsJws(token) // io.jsonwebtoken.ExpiredJwtException: JWT expired at 2018-12-11T21:28:54Z. Current time: 2018-12-11T21:29:03Z, a difference of 9864 milliseconds.  Allowed clock skew: 0 milliseconds.
                     .getBody();
             String email = claims.getSubject();
             for (UserRole r: roles) {
@@ -77,14 +77,17 @@ public class TokenUtil {
 
     // Validate the token
     public static boolean validateToken(String token) {
+//        boolean tokenIsValid;
         try {
             Jwts.parser().setSigningKey(generateEncryptionSecret()).parseClaimsJws(token);
-            //logger.info("\n#### valid token");// : " + token);
+//            tokenIsValid = true;
             return true;
         } catch (Exception e) {
             System.out.println("\n#### INVALID TOKEN : " + token);
+//            tokenIsValid = false;
             return false;
         }
+//        return tokenIsValid;
     }
 
     private static Key generateEncryptionSecret() {
@@ -121,13 +124,13 @@ public class TokenUtil {
             MessageDigest sha = MessageDigest.getInstance("SHA-1");
             byte[] hashedBytes = sha.digest(input.getBytes());
             char[] digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-                    'a', 'b', 'c', 'd', 'e', 'f' };
+                'a', 'b', 'c', 'd', 'e', 'f'
+            };
             for (byte b : hashedBytes) {
                 hash.append(digits[(b & 0xf0) >> 4]);
                 hash.append(digits[b & 0x0f]);
             }
-        } catch (NoSuchAlgorithmException e) {
-            // handle error here.
+        } catch (NoSuchAlgorithmException e) { // handle error here.
         }
         return hash.toString();
     }

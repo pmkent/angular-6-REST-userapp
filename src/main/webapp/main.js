@@ -219,6 +219,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _pages_security_registration_registration_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./pages/security/registration/registration.component */ "./src/app/pages/security/registration/registration.component.ts");
 /* harmony import */ var _service_auth_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./service/auth.service */ "./src/app/service/auth.service.ts");
+/* harmony import */ var _util_index__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./util/index */ "./src/app/util/index.ts");
 
 
 
@@ -237,6 +238,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+// import { ErrorsHandler } from './util/errors-handler';
 
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -261,7 +264,12 @@ var AppModule = /** @class */ (function () {
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_16__["HttpClientModule"]
             ],
-            providers: [_service_user_service__WEBPACK_IMPORTED_MODULE_11__["UserService"], _service_auth_service__WEBPACK_IMPORTED_MODULE_18__["AuthService"]],
+            providers: [
+                _service_user_service__WEBPACK_IMPORTED_MODULE_11__["UserService"],
+                _service_auth_service__WEBPACK_IMPORTED_MODULE_18__["AuthService"],
+                // { provide: ErrorHandler, useClass: ErrorsHandler },
+                _util_index__WEBPACK_IMPORTED_MODULE_19__["httpInterceptorProviders"]
+            ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
         })
     ], AppModule);
@@ -442,17 +450,30 @@ var LoginComponent = /** @class */ (function () {
         this.submitted = false;
         this.invalidLogin = false;
         this.loading = false;
+        this.initLoginForm();
     }
-    LoginComponent.prototype.ngOnInit = function () {
-        this.authSvc.logout(); // First reset login status
+    LoginComponent.prototype.initLoginForm = function () {
+        //this.authSvc.logout(); // First reset login status
         this.loginForm = this.formBuilder.group({
             email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, Object(_util_patternValidator__WEBPACK_IMPORTED_MODULE_4__["patternValidator"])(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/), , _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2)]],
             password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(5), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(20)]]
         });
+        this.authSvc.logout(); // First reset login status
+    };
+    LoginComponent.prototype.ngOnInit = function () {
+        //   //this.authSvc.logout(); // First reset login status
+        //   this.loginForm = this.formBuilder.group(
+        //     {
+        //       email: ['', [Validators.required, patternValidator(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/), , Validators.minLength(2)]],
+        //       password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]]
+        //     }
+        //   );
+        //   this.authSvc.logout(); // First reset login status
+        // this.initLoginForm();
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
-        console.log('LoginComponent: login() : ' + this.loginForm.value + ' email ' + this.loginForm.controls['email'].value + ' password ' + this.loginForm.controls['password'].value); //+' returnUrl '+this.returnUrl);
+        console.log('LoginComponent: login() : email ' + this.loginForm.controls['email'].value + ' password ' + this.loginForm.controls['password'].value); //+' returnUrl '+this.returnUrl);
         this.loading = true;
         this.authSvc.login(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value)
             .subscribe(function (data) {
@@ -945,13 +966,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 
 
 var AuthService = /** @class */ (function () {
-    function AuthService(http) {
+    function AuthService(http, router) {
         this.http = http;
+        this.router = router;
         this.loginUrl = 'api/user/login';
     }
     AuthService.prototype.getHeaders = function () {
@@ -976,6 +1000,7 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.logout = function () {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
+        // this.router.navigate(['login']);
         console.log('AuthSvc: logout currentUser ' + localStorage.getItem('currentUser'));
     };
     AuthService.prototype.log = function (message) {
@@ -990,7 +1015,7 @@ var AuthService = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], AuthService);
     return AuthService;
 }());
@@ -1012,9 +1037,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./auth.service */ "./src/app/service/auth.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./auth.service */ "./src/app/service/auth.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 
 
 
@@ -1022,10 +1047,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var UserService = /** @class */ (function () {
-    function UserService(http, router, authSvc) {
+    function UserService(http, authSvc, router
+    // private injector: Injector
+    ) {
         this.http = http;
-        this.router = router;
         this.authSvc = authSvc;
+        this.router = router;
         this.usrUrl = 'api/user';
     }
     UserService.prototype.getHeaders = function () {
@@ -1042,30 +1069,50 @@ var UserService = /** @class */ (function () {
     UserService.prototype.getUsers = function () {
         var _this = this;
         return this.http.get(this.usrUrl, this.getHeaders())
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (users) { return _this.log("fetched " + users.length + " users"); }));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (users) { return _this.log("fetched " + users.length + " users"); }));
     };
+    // private handleError(error: HttpErrorResponse) {
+    //   //const router = Router;
+    //   if (error.error instanceof ErrorEvent) {
+    //     // A client-side or network error occurred. Handle it accordingly.
+    //     console.error('An error occurred:', error.error.message);
+    //   } else {
+    //     // The backend returned an unsuccessful response code.
+    //     // The response body may contain clues as to what went wrong,
+    //     console.error(
+    //       `Backend returned code ${error.status}, ` +
+    //       `body was: ${error.error}`);
+    //       // this.router.navigate(['login']);
+    //       this.router.navigateByUrl('/login');
+    //   }
+    //   // return an observable with a user-facing error message
+    //   return throwError('Something bad happened; please try again later.');
+    // };
+    // public get router(): Router { //this creates router property on your service.
+    //     return this.injector.get(Router);
+    // }
     UserService.prototype.deleteUser = function (user) {
         var _this = this;
         var id = typeof user === 'string' ? user : user.id;
         var url = this.usrUrl + "/" + id;
         return this.http.delete(url, this.getHeaders())
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("deleted user id=" + id); }));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (_) { return _this.log("deleted user id=" + id); }));
     };
     UserService.prototype.getUserById = function (id) {
         var _this = this;
         var url = this.usrUrl + "/" + id;
         return this.http.get(url, this.getHeaders())
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("fetched user id=" + id); }));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (_) { return _this.log("fetched user id=" + id); }));
     };
     UserService.prototype.updateUser = function (user) {
         var _this = this;
         return this.http.put(this.usrUrl, user, this.getHeaders())
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("updated user username=" + user.email); }));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (_) { return _this.log("updated user username=" + user.email); }));
     };
     UserService.prototype.addUser = function (user) {
         var _this = this;
         return this.http.post(this.usrUrl, user, this.getHeaders())
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (user) { return _this.log("added user username=" + user.email); }));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (user) { return _this.log("added user username=" + user.email); }));
     };
     UserService.prototype.createUser = function (user) {
         return this.http.post(this.usrUrl, user);
@@ -1078,10 +1125,124 @@ var UserService = /** @class */ (function () {
             providedIn: 'root'
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-            _auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"]])
+            _auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]
+            // private injector: Injector
+        ])
     ], UserService);
     return UserService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/util/error-interceptor.ts":
+/*!*******************************************!*\
+  !*** ./src/app/util/error-interceptor.ts ***!
+  \*******************************************/
+/*! exports provided: ErrorInterceptor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorInterceptor", function() { return ErrorInterceptor; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
+
+
+
+
+var ErrorInterceptor = /** @class */ (function () {
+    function ErrorInterceptor(injector) {
+        this.injector = injector;
+    }
+    ErrorInterceptor.prototype.intercept = function (req, next) {
+        var _this = this;
+        // return next.handle(req);
+        return next.handle(req)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (event) {
+            if (event instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpResponse"]) {
+                // if the token is valid
+            }
+        }, function (error) {
+            // if the token has expired.
+            if (error instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpErrorResponse"]) {
+                if (error.status === 401) {
+                    // this is where you can do anything like navigating  
+                }
+                if (error.status === 500) {
+                    _this.router.navigateByUrl('/login');
+                }
+                console.error("ErrIntercept: Backend returned code " + error.status + ", " +
+                    ("body was: " + error.error));
+            }
+        }));
+    };
+    Object.defineProperty(ErrorInterceptor.prototype, "router", {
+        // handleError(error: HttpErrorResponse) {
+        //     if (error.error instanceof ErrorEvent) {
+        //       // A client-side or network error occurred. Handle it accordingly.
+        //       console.error('An error occurred:', error.error.message);
+        //     } else {
+        //       // The backend returned an unsuccessful response code.
+        //       // The response body may contain clues as to what went wrong,
+        //       console.error(
+        //         `Backend returned code 3333 ${error.status}, ` +
+        //         `body was: ${error.error}`);
+        //         // this.router.navigate(['login']);
+        //         this.router.navigateByUrl('/login');
+        //     }
+        //     // return an observable with a user-facing error message
+        //     return throwError(
+        //       '222:Something bad happened; please try again later.');
+        //   };
+        get: function () {
+            return this.injector.get(_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ErrorInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
+    ], ErrorInterceptor);
+    return ErrorInterceptor;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/util/index.ts":
+/*!*******************************!*\
+  !*** ./src/app/util/index.ts ***!
+  \*******************************/
+/*! exports provided: httpInterceptorProviders, Index */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "httpInterceptorProviders", function() { return httpInterceptorProviders; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Index", function() { return Index; });
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _error_interceptor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./error-interceptor */ "./src/app/util/error-interceptor.ts");
+
+
+/** Http Interceptor providers in outside-in order */
+var httpInterceptorProviders = [
+    {
+        provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HTTP_INTERCEPTORS"], useClass: _error_interceptor__WEBPACK_IMPORTED_MODULE_1__["ErrorInterceptor"], multi: true
+    }
+];
+var Index = /** @class */ (function () {
+    function Index() {
+    }
+    return Index;
 }());
 
 
@@ -1160,7 +1321,7 @@ if (_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].produc
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["enableProdMode"])();
 }
 Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_2__["AppModule"])
-    .catch(function (err) { return console.error(err); });
+    .catch(function (err) { return console.error('Main: >>> : ' + err); });
 
 
 /***/ }),

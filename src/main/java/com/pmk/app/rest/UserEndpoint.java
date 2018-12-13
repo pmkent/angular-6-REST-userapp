@@ -9,6 +9,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
+import java.util.List;
 
 
 /**
@@ -30,8 +31,12 @@ public class UserEndpoint {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUsers(@HeaderParam("Authorization") String authorization) {
-        System.out.println("UserEndPoint:getUsers: jwt : >"+authorization+"<");
-        return Response.ok(getUserService().getUsers(authorization)).build();
+        System.out.println("UsrREST:getUsers: jwt : >"+authorization+"<");
+        List<User> usrLst = getUserService().getUsers(authorization);
+        if ( (usrLst.size() == 1) && (usrLst.get(0).getId() == 0) ) // Poor error handling
+            return Response.status(500).entity("io.jsonwebtoken.ExpiredJwtException: JWT expired").build();
+        else
+            return Response.ok(usrLst).build();
     }
 
     @POST
@@ -55,7 +60,7 @@ public class UserEndpoint {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addUser(User user) {
-        System.out.println("UserEndpoint:addUser() Creating new use : "+user);
+        System.out.println("UsrREST:addUser() Creating new use : "+user);
         User newUser = getUserService().addUser(user);
         System.out.println("Just created new user : "+newUser);
 
@@ -66,7 +71,7 @@ public class UserEndpoint {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateUser(User user) {
-        System.out.println("UserEndpoint:updateUser() : "+user);
+        System.out.println("UsrREST:updateUser() : "+user);
         getUserService().updateUser(user);
         return Response.ok().build();
     }
