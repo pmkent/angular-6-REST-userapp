@@ -3,6 +3,7 @@ package com.pmk.app.util;
 import com.pmk.app.model.Credentials;
 import com.pmk.app.model.UserRole;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import javax.ws.rs.core.UriInfo;
@@ -75,19 +76,15 @@ public class TokenUtil {
         return tokenRoles;
     }
 
-    // Validate the token
-    public static boolean validateToken(String token) {
-//        boolean tokenIsValid;
+    /**/
+    public static Jws validateToken(String token) {
+        Jws jws = null;
         try {
-            Jwts.parser().setSigningKey(generateEncryptionSecret()).parseClaimsJws(token);
-//            tokenIsValid = true;
-            return true;
+            jws = Jwts.parser().setSigningKey(generateEncryptionSecret()).parseClaimsJws(token);
         } catch (Exception e) {
             System.out.println("\n#### INVALID TOKEN : " + token);
-//            tokenIsValid = false;
-            return false;
         }
-//        return tokenIsValid;
+        return jws;
     }
 
     private static Key generateEncryptionSecret() {

@@ -42,7 +42,6 @@ export class AuthService {
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
-    // this.router.navigate(['login']);
     console.log('AuthSvc: logout currentUser '+localStorage.getItem('currentUser'));
   }
 

@@ -22,3 +22,8 @@
     font-size: 75%;
     bottom: -2em;
 }
+
+.hint-msg {
+    color: blueviolet;
+    font-size: 52%;
+}

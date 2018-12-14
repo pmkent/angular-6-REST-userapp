@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {}
 
   toggleTheme() {
-    this.appComponent.togleTheme();
+    this.appComponent.toggleTheme();
   }
 
 }

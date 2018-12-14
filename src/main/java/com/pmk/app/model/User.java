@@ -16,6 +16,7 @@ public class User {
     private String email;
     private String password;
     private String token;
+    private String showpassword; // 2018-12-13 Bug fix - Angular form Error: Must supply a value for form control with name: 'showpassword'.
 
     private Set<String> roles; // 2018-12-10
 
@@ -55,6 +56,9 @@ public class User {
 
     public Set<String> getRoles() { return roles; } // 2018-12-10
     public void setRoles(Set<String> roles) { this.roles = roles; } // 2018-12-10
+
+    public String getShowpassword() { return showpassword; }
+    public void setShowpassword(String showpassword) { this.showpassword = showpassword; }
 
     @Override
     public String toString() {

@@ -21,8 +21,7 @@ export class AuthGuardService implements CanActivate {
     if (localStorage.getItem('currentUser')) {
       return true;
     }
-    this.router.navigate(
-      ['/login'],
+    this.router.navigate(['/login'],
       {
         queryParams: { returnUrl: state.url }
       }

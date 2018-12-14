@@ -39,7 +39,7 @@ public class JWTSecurityFilter implements ContainerRequestFilter {
         }
 
         // Extract the token from the HTTP Authorization header
-        if (!TokenUtil.validateToken(authorizationHeader.substring("Bearer".length()).trim())) {
+        if (TokenUtil.validateToken(authorizationHeader.substring("Bearer".length()).trim()) == null) { //  if (!TokenUtil.validateToken(authorizationHeader.substring("Bearer".length()).trim())) {
             System.out.println("JWTSecurityFilter: INVALID TOKEN");
             throw new WebApplicationException(Response.Status.UNAUTHORIZED);
         }

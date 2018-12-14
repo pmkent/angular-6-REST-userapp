@@ -22,7 +22,7 @@ public class UserService {
 
         // Handle expired token
         List<User> errorUser;
-        if (!TokenUtil.validateToken(token)) {
+        if (TokenUtil.validateToken(token) == null) { // if (!TokenUtil.validateToken(token)) {
             errorUser = new ArrayList<>();
             errorUser.add(new User(0,"Bad","Token","bad@token.com","bc4c44979100772732ae8c67128802ea8952767d", new HashSet<>(Collections.singletonList("ERROR"))));
             return errorUser;
@@ -74,7 +74,8 @@ public class UserService {
     public void updateUser(User user) {
         System.out.println("\nUsrSvc:updateUser() user : "+user);
         int id = user.getId();
-        user.setPassword(TokenUtil.getPasswordHash(user.getPassword()));
+        if (user.getPassword().length() < 20)//     !"password".equals(user.getPassword())) // TODO test
+            user.setPassword(TokenUtil.getPasswordHash(user.getPassword()));
         user.setToken(TOKEN);
         userMap.put(Integer.toString(id),user);
     }

@@ -13,7 +13,6 @@ export class FooterComponent implements OnInit {
     this.buildDate = new Date();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

@@ -5,7 +5,6 @@ import { UserService } from '../../../service/user.service';
 import { User } from '../../../model/user';
 
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
-// import { Component, AfterViewInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-list-user',
@@ -32,9 +31,7 @@ export class ListUserComponent implements OnInit {
   private populateUserTable() {
     const users: User[] = [];
     this.userService.getUsers()
-      .subscribe(
-        users => this.dataSource.data = users
-      );
+      .subscribe(users => this.dataSource.data = users);
     this.dataSource = new MatTableDataSource(users);
     this.selectedUser = undefined;
   }

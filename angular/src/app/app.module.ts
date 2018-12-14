@@ -22,7 +22,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './pages/security/registration/registration.component';
 
 import { AuthService } from './service/auth.service';
-// import { ErrorsHandler } from './util/errors-handler';
 import { httpInterceptorProviders } from './util/index';
 
 

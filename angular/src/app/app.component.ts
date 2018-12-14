@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'userapp';
   isAlternateTheme = false;
 
-  togleTheme() {
+  toggleTheme() {
     this.isAlternateTheme = !this.isAlternateTheme;
   }
 }
