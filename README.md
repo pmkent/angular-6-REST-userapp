@@ -3,6 +3,8 @@ User CRUD application built using Angular 6 front end Java REST backend. This us
 
 For a blog on this application, please visit http://pmkent.com/index.php/angular-6-java-rest-user-crud-application/
 
+This tutorial will combine several topics of interest including Angular 6 login example, Angular 6 Http client example, Angular 6 CRUD example, Angular 6 Observable example, Angular 6 list example, Angular 6 add example, Angular 6 edit example, Angular 6 CLI example and Angular 6 Material Design tutorial.
+
 * Login page if your user information already exists in the database. Otherwise, login as userone@gmail.com : password
 * Currently the application uses a fake database using Java Map of user objects. There is plans in the future to use a MongoDB user collection database.
 * The Jetty application server is created from jar files on the fly by a Maven command [ mvn jetty:run ]. It starts then deploys the userapp web application from the files in the webapp folder.
