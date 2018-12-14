@@ -15,16 +15,24 @@ How it works:
 * The Jetty application server is started from CLI. Jetty starts, deploys the Angular 6 front end and the Java REST endpoints.
 * When a user interacts with the front end for instance logging in, a rest call with the url pattern http://localhost:8080/api/user is invoked that calls the backend for authentication, user data.
 * Authenticated users can view, add, edit user(s). Non authenticated users can only interract with the login and the register screens.
+* The application comes with 3 fake users - userone@gmail.com, usertwo@gmail.com and userthree@gmail.com To log in as any of the three users user their email and 'password ' as your password. There is a hint on the login page about this.
+* There are three roles - ADMIN, USER and GUEST
+* Logging in as as user with the ADMIN role allows you access to all screens including listing all users in the application. Logging in as a user with USER role allows you to view all users in the application who do not have the ADMIN role. Logging in as a user with GUEST role allows you to view only your user information.
+* userone@gmail.com has the the ADMIN role. usertwo@gmail.com has the USER role. userthree@gmail.com has the GUEST role.
+* You can also add a new user using the 'Register' screen or the 'Add User' screen. Remember, you have to be logged in to user the 'Add User' screen while the 'Register' screen is available to anyone.
 
 Build:
 * Build the Angular 6 front end and the Java backend separately
 * To build the Angular 6 Front end use the command < ng build --base-href / > . This creates a folder /dist/userapp that contains all the files required to run the application. This can also be accomplished by invoking the built.bat batch file. Copy these files into the Jetty /webapp folder.
 * To build the Java code run the command [ mvn clean package ]. This running build.bat on commandline from the userapp root directory invokes the same command.
-* To run the entire application use the command [ mvn jetty:run ]. This command can simply be invoked from the 
+* To run the entire application use the command [ mvn jetty:run ]. This command can simply be invoked from the /userapp root folder using the build.bat or build.sh scripts. Once the application is successfully started it can be viewed at http://localhost:8080 
+
+Documentation:
+* In the /userapp/doc folder are screenshots of different Angular 6 CRUD user application.
 
 Next Steps:
 * Replace hard coded data with database calls with a MongoDB user collection.
-* Theme color toggle control.
+* Theme color toggle control. DONE
 * Protect REST service with a call filter that only allows permission to get to the backend or returns the call back to the front end and displays the login page. Note that page security through Angular front end is already implements. This is an extra layer of security.
 * Unix .sh files evivalent of the batch files for building and running the applications.
 
@@ -33,6 +41,9 @@ Tools:
 * Enunciate REST service test Url
 * SHA-256 message digest password one way encryption
 * Chrome browser Development tools
+* Jersey JAVA REST services
+* Visual Studio Code for Angular development
+* IntelliJ IDEA IDE for Java REST backend development
 
 Technologies:
 * Angular 6
@@ -40,6 +51,8 @@ Technologies:
 * Java 8
 * JWT Security
 * JAVA Jersey REST services.
+* Angular ReactiveForms
+* Angular Material theming.
 
 IDEs
 * Visual Studio Code
