@@ -1,6 +1,8 @@
 # angular-6-REST-userapp
 User CRUD application built using Angular 6 front end Java REST backend. This userapp starts off with a login and user registration pages that are not restricted. Once logged in you'll able to view user list, add a user, delete a user, logout.
 
+For a blog on this application, please visit http://pmkent.com/index.php/angular-6-java-rest-user-crud-application/
+
 * Login page if your user information already exists in the database. Otherwise, login as userone@gmail.com : password
 * Currently the application uses a fake database using Java Map of user objects. There is plans in the future to use a MongoDB user collection database.
 * The Jetty application server is created from jar files on the fly by a Maven command [ mvn jetty:run ]. It starts then deploys the userapp web application from the files in the webapp folder.
