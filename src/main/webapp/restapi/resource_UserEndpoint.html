@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-  <title>PMK App Web REST API: UserEndpoint</title>
+  <title>Angular CRUD REST API: UserEndpoint</title>
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,7 +35,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">PMK App Web REST API: UserEndpoint</a>
+        <a class="navbar-brand" href="index.html">Angular CRUD REST API: UserEndpoint</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
@@ -52,9 +52,11 @@
       <div class="col-sm-3 col-md-2 sidebar" id="apinav">
         <ul class="nav nav-sidebar">
           <li><a href="#resource_UserEndpoint_getUsers_GET"><abbr title="GET /user"><span class="sideoverflow">GET /user</span></abbr></a></li>
-          <li><a href="#resource_UserEndpoint_checkState_GET"><abbr title="GET /user/check-state"><span class="sideoverflow">GET /user/check-state</span></abbr></a></li>
-          <li><a href="#resource_UserEndpoint_login_POST"><abbr title="POST /user/login"><span class="sideoverflow">POST /user/login</span></abbr></a></li>
-          <li><a href="#resource_UserEndpoint_register_POST"><abbr title="POST /user/register"><span class="sideoverflow">POST /user/register</span></abbr></a></li>
+          <li><a href="#resource_UserEndpoint_addUser_POST"><abbr title="POST /user"><span class="sideoverflow">POST /user</span></abbr></a></li>
+          <li><a href="#resource_UserEndpoint_updateUser_PUT"><abbr title="PUT /user"><span class="sideoverflow">PUT /user</span></abbr></a></li>
+          <li><a href="#resource_UserEndpoint_authenticate_POST"><abbr title="POST /user/login"><span class="sideoverflow">POST /user/login</span></abbr></a></li>
+          <li><a href="#resource_UserEndpoint_deleteUser_DELETE"><abbr title="DELETE /user/{id}"><span class="sideoverflow">DELETE /user/{id}</span></abbr></a></li>
+          <li><a href="#resource_UserEndpoint_getUser_GET"><abbr title="GET /user/{id}"><span class="sideoverflow">GET /user/{id}</span></abbr></a></li>
           <li class="divider"></li>
           <li class="text-right"><a href="#top"><small>Back to Top</small></a></li>
         </ul>
@@ -76,56 +78,6 @@
 
         <p></p>
 
-        <table class="table resource-response-body">
-          <caption>Response Body</caption>
-          <thead>
-          <tr>
-            <th>media type</th>
-            <th>data type</th>
-            <th>description</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td><abbr data-toggle="tooltip" data-placement="top" title="Use the &quot;Accept: application/json&quot; HTTP header to request that this media type be provided by the server."><span class="response-type">application/json</span></abbr></td>
-            <td><span class="datatype-reference">object
- (JSON)</span></td>
-            <td><span class="response-description"></span></td>
-          </tr>
-          </tbody>
-        </table>
-        <h4>Example</h4>
-
-        <div class="container-fluid example panel">
-          <div class="row panel-body">
-            <div class="col-md-6">
-              <h5>Request</h5>
-              <pre>
-GET /user
-Accept: application/json
-
-              </pre>
-            </div>
-            <div class="col-md-6">
-              <h5>Response</h5>
-              <pre>
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-                <code class="prettyprint language-txt">
-...
-                </code>
-              </pre>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="resource_UserEndpoint_checkState_GET">
-        <h3><span class="label label-default resource-method">GET</span> <span class="resource-path">/user/check-state <a href="./user/check-state" class="glyphicon glyphicon-new-window" target="_blank"></a></span></h3>
-
-        <p></p>
-
         <table class="table resource-parameters">
           <caption>Request Parameters</caption>
           <thead>
@@ -137,7 +89,7 @@ Content-Type: application/json
           </thead>
           <tbody>
           <tr>
-            <td><span class="parameter-name">x-access-token</span></td>
+            <td><span class="parameter-name">Authorization</span></td>
             <td>header</td>
             <td><span class="parameter-description"></span></td>
           </tr>
@@ -169,9 +121,9 @@ Content-Type: application/json
             <div class="col-md-6">
               <h5>Request</h5>
               <pre>
-GET /user/check-state
+GET /user
 Accept: application/json
-x-access-token: ...
+Authorization: ...
 
               </pre>
             </div>
@@ -190,8 +142,8 @@ Content-Type: application/json
         </div>
       </div>
 
-      <div id="resource_UserEndpoint_login_POST">
-        <h3><span class="label label-default resource-method">POST</span> <span class="resource-path">/user/login <a href="./user/login" class="glyphicon glyphicon-new-window" target="_blank"></a></span></h3>
+      <div id="resource_UserEndpoint_addUser_POST">
+        <h3><span class="label label-default resource-method">POST</span> <span class="resource-path">/user <a href="./user" class="glyphicon glyphicon-new-window" target="_blank"></a></span></h3>
 
         <p></p>
 
@@ -207,6 +159,166 @@ Content-Type: application/json
           <tr>
             <td><abbr data-toggle="tooltip" data-placement="top" title="Use the &quot;Content-Type: application/json&quot; HTTP header to specify this media type to the server."><span class="request-type">application/json</span></abbr></td>
             <td><span class="datatype-reference"><a href="json_User.html">User</a>
+ (JSON)</span></td>
+          </tr>
+          </tbody>
+        </table>
+
+        <table class="table resource-response-body">
+          <caption>Response Body</caption>
+          <thead>
+          <tr>
+            <th>media type</th>
+            <th>data type</th>
+            <th>description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><abbr data-toggle="tooltip" data-placement="top" title="Use the &quot;Accept: application/json&quot; HTTP header to request that this media type be provided by the server."><span class="response-type">application/json</span></abbr></td>
+            <td><span class="datatype-reference">object
+ (JSON)</span></td>
+            <td><span class="response-description"></span></td>
+          </tr>
+          </tbody>
+        </table>
+        <h4>Example</h4>
+
+        <div class="container-fluid example panel">
+          <div class="row panel-body">
+            <div class="col-md-6">
+              <h5>Request</h5>
+              <pre>
+POST /user
+Content-Type: application/json
+Accept: application/json
+
+                <code class="prettyprint language-js">
+{
+  &quot;email&quot; : &quot;...&quot;,
+  &quot;password&quot; : &quot;...&quot;,
+  &quot;id&quot; : 12345,
+  &quot;firstName&quot; : &quot;...&quot;,
+  &quot;lastName&quot; : &quot;...&quot;,
+  &quot;token&quot; : &quot;...&quot;,
+  &quot;roles&quot; : [ &quot;...&quot;, &quot;...&quot; ],
+  &quot;showpassword&quot; : &quot;...&quot;
+}
+                </code>
+              </pre>
+            </div>
+            <div class="col-md-6">
+              <h5>Response</h5>
+              <pre>
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+                <code class="prettyprint language-txt">
+...
+                </code>
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="resource_UserEndpoint_updateUser_PUT">
+        <h3><span class="label label-default resource-method">PUT</span> <span class="resource-path">/user <a href="./user" class="glyphicon glyphicon-new-window" target="_blank"></a></span></h3>
+
+        <p></p>
+
+        <table class="table resource-request-body">
+          <caption>Request Body</caption>
+          <thead>
+          <tr>
+            <th>media type</th>
+            <th>data type</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><abbr data-toggle="tooltip" data-placement="top" title="Use the &quot;Content-Type: application/json&quot; HTTP header to specify this media type to the server."><span class="request-type">application/json</span></abbr></td>
+            <td><span class="datatype-reference"><a href="json_User.html">User</a>
+ (JSON)</span></td>
+          </tr>
+          </tbody>
+        </table>
+
+        <table class="table resource-response-body">
+          <caption>Response Body</caption>
+          <thead>
+          <tr>
+            <th>media type</th>
+            <th>data type</th>
+            <th>description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><abbr data-toggle="tooltip" data-placement="top" title="Use the &quot;Accept: application/json&quot; HTTP header to request that this media type be provided by the server."><span class="response-type">application/json</span></abbr></td>
+            <td><span class="datatype-reference">object
+ (JSON)</span></td>
+            <td><span class="response-description"></span></td>
+          </tr>
+          </tbody>
+        </table>
+        <h4>Example</h4>
+
+        <div class="container-fluid example panel">
+          <div class="row panel-body">
+            <div class="col-md-6">
+              <h5>Request</h5>
+              <pre>
+PUT /user
+Content-Type: application/json
+Accept: application/json
+
+                <code class="prettyprint language-js">
+{
+  &quot;email&quot; : &quot;...&quot;,
+  &quot;password&quot; : &quot;...&quot;,
+  &quot;id&quot; : 12345,
+  &quot;firstName&quot; : &quot;...&quot;,
+  &quot;lastName&quot; : &quot;...&quot;,
+  &quot;token&quot; : &quot;...&quot;,
+  &quot;roles&quot; : [ &quot;...&quot;, &quot;...&quot; ],
+  &quot;showpassword&quot; : &quot;...&quot;
+}
+                </code>
+              </pre>
+            </div>
+            <div class="col-md-6">
+              <h5>Response</h5>
+              <pre>
+HTTP/1.1 204 No Content
+Content-Type: application/json
+
+                <code class="prettyprint language-txt">
+...
+                </code>
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="resource_UserEndpoint_authenticate_POST">
+        <h3><span class="label label-default resource-method">POST</span> <span class="resource-path">/user/login <a href="./user/login" class="glyphicon glyphicon-new-window" target="_blank"></a></span></h3>
+
+        <p></p>
+
+        <table class="table resource-request-body">
+          <caption>Request Body</caption>
+          <thead>
+          <tr>
+            <th>media type</th>
+            <th>data type</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><abbr data-toggle="tooltip" data-placement="top" title="Use the &quot;Content-Type: application/json&quot; HTTP header to specify this media type to the server."><span class="request-type">application/json</span></abbr></td>
+            <td><span class="datatype-reference">string
  (JSON)</span></td>
           </tr>
           </tbody>
@@ -241,11 +353,8 @@ POST /user/login
 Content-Type: application/json
 Accept: application/json
 
-                <code class="prettyprint language-js">
-{
-  &quot;email&quot; : &quot;...&quot;,
-  &quot;password&quot; : &quot;...&quot;
-}
+                <code class="prettyprint language-txt">
+...
                 </code>
               </pre>
             </div>
@@ -264,24 +373,25 @@ Content-Type: application/json
         </div>
       </div>
 
-      <div id="resource_UserEndpoint_register_POST">
-        <h3><span class="label label-default resource-method">POST</span> <span class="resource-path">/user/register <a href="./user/register" class="glyphicon glyphicon-new-window" target="_blank"></a></span></h3>
+      <div id="resource_UserEndpoint_deleteUser_DELETE">
+        <h3><span class="label label-default resource-method">DELETE</span> <span class="resource-path">/user/{id} <a href="./user/{id}" class="glyphicon glyphicon-new-window" target="_blank"></a></span></h3>
 
         <p></p>
 
-        <table class="table resource-request-body">
-          <caption>Request Body</caption>
+        <table class="table resource-parameters">
+          <caption>Request Parameters</caption>
           <thead>
           <tr>
-            <th>media type</th>
-            <th>data type</th>
+            <th>name</th>
+            <th>type</th>
+            <th>description</th>
           </tr>
           </thead>
           <tbody>
           <tr>
-            <td><abbr data-toggle="tooltip" data-placement="top" title="Use the &quot;Content-Type: application/json&quot; HTTP header to specify this media type to the server."><span class="request-type">application/json</span></abbr></td>
-            <td><span class="datatype-reference"><a href="json_User.html">User</a>
- (JSON)</span></td>
+            <td><span class="parameter-name">id</span></td>
+            <td>path</td>
+            <td><span class="parameter-description"></span></td>
           </tr>
           </tbody>
         </table>
@@ -311,22 +421,83 @@ Content-Type: application/json
             <div class="col-md-6">
               <h5>Request</h5>
               <pre>
-POST /user/register
-Content-Type: application/json
+DELETE /user/{id}
 Accept: application/json
 
-                <code class="prettyprint language-js">
-{
-  &quot;email&quot; : &quot;...&quot;,
-  &quot;password&quot; : &quot;...&quot;
-}
-                </code>
               </pre>
             </div>
             <div class="col-md-6">
               <h5>Response</h5>
               <pre>
-HTTP/1.1 201 Created
+HTTP/1.1 204 No Content
+Content-Type: application/json
+
+                <code class="prettyprint language-txt">
+...
+                </code>
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="resource_UserEndpoint_getUser_GET">
+        <h3><span class="label label-default resource-method">GET</span> <span class="resource-path">/user/{id} <a href="./user/{id}" class="glyphicon glyphicon-new-window" target="_blank"></a></span></h3>
+
+        <p></p>
+
+        <table class="table resource-parameters">
+          <caption>Request Parameters</caption>
+          <thead>
+          <tr>
+            <th>name</th>
+            <th>type</th>
+            <th>description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><span class="parameter-name">id</span></td>
+            <td>path</td>
+            <td><span class="parameter-description"></span></td>
+          </tr>
+          </tbody>
+        </table>
+
+        <table class="table resource-response-body">
+          <caption>Response Body</caption>
+          <thead>
+          <tr>
+            <th>media type</th>
+            <th>data type</th>
+            <th>description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><abbr data-toggle="tooltip" data-placement="top" title="Use the &quot;Accept: application/json&quot; HTTP header to request that this media type be provided by the server."><span class="response-type">application/json</span></abbr></td>
+            <td><span class="datatype-reference">object
+ (JSON)</span></td>
+            <td><span class="response-description"></span></td>
+          </tr>
+          </tbody>
+        </table>
+        <h4>Example</h4>
+
+        <div class="container-fluid example panel">
+          <div class="row panel-body">
+            <div class="col-md-6">
+              <h5>Request</h5>
+              <pre>
+GET /user/{id}
+Accept: application/json
+
+              </pre>
+            </div>
+            <div class="col-md-6">
+              <h5>Response</h5>
+              <pre>
+HTTP/1.1 200 OK
 Content-Type: application/json
 
                 <code class="prettyprint language-txt">
@@ -340,7 +511,7 @@ Content-Type: application/json
 
         <footer class="footer">
           <div class="container">
-            <p class="text-muted">Copyright &copy; <script type="text/javascript" language="javascript">d = new Date;document.write(d.getFullYear());</script> <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">pmkent.com</span>. Generated by <a href="http://enunciate.webcohesion.com">Enunciate</a>.</p>
+            <p class="text-muted">Copyright &copy; <script type="text/javascript" language="javascript">d = new Date;document.write(d.getFullYear());</script> <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">https://github.com/pmkent/angular-6-REST-userapp</span>. Generated by <a href="http://enunciate.webcohesion.com">Enunciate</a>.</p>
           </div>
         </footer>
 

@@ -90,12 +90,34 @@ module Model
     attr_accessor :email
     # (no documentation provided)
     attr_accessor :password
+    # (no documentation provided)
+    attr_accessor :id
+    # (no documentation provided)
+    attr_accessor :firstName
+    # (no documentation provided)
+    attr_accessor :lastName
+    # (no documentation provided)
+    attr_accessor :token
+    # (no documentation provided)
+    attr_accessor :roles
+    # (no documentation provided)
+    attr_accessor :showpassword
 
     # the json hash for this User
     def to_jaxb_json_hash
       _h = {}
       _h['email'] = email.to_jaxb_json_hash unless email.nil?
       _h['password'] = password.to_jaxb_json_hash unless password.nil?
+      _h['id'] = id.to_jaxb_json_hash unless id.nil?
+      _h['firstName'] = firstName.to_jaxb_json_hash unless firstName.nil?
+      _h['lastName'] = lastName.to_jaxb_json_hash unless lastName.nil?
+      _h['token'] = token.to_jaxb_json_hash unless token.nil?
+      if !roles.nil?
+        _ha = Array.new
+        roles.each { | _item | _ha.push _item.to_jaxb_json_hash }
+        _h['roles'] = _ha
+      end
+      _h['showpassword'] = showpassword.to_jaxb_json_hash unless showpassword.nil?
       return _h
     end
 
@@ -142,6 +164,120 @@ module Model
                }
             else
                 @password = _oa
+            end
+          end
+        if !_o['id'].nil?
+          _oa = _o['id']
+            if(_oa.is_a? Hash)
+              @id = EnunciateHelpers::LAMB_CLASS_AWARE.call(_oa) if _oa['@class']
+              @id =  Fixnum.from_json(_oa) unless _oa['@class']
+            elsif (_oa.is_a? Array)
+              #an array(of hashes hopefully) or scalar
+              @id = Array.new
+              _oa.each { | _item | 
+                 if ((_item.nil? || _item['@class'].nil?)rescue true)
+                   @id.push Fixnum.from_json(_item)
+                 else
+                   @id.push EnunciateHelpers::LAMB_CLASS_AWARE.call(_item)
+                 end
+               }
+            else
+                @id = _oa
+            end
+          end
+        if !_o['firstName'].nil?
+          _oa = _o['firstName']
+            if(_oa.is_a? Hash)
+              @firstName = EnunciateHelpers::LAMB_CLASS_AWARE.call(_oa) if _oa['@class']
+              @firstName =  String.from_json(_oa) unless _oa['@class']
+            elsif (_oa.is_a? Array)
+              #an array(of hashes hopefully) or scalar
+              @firstName = Array.new
+              _oa.each { | _item | 
+                 if ((_item.nil? || _item['@class'].nil?)rescue true)
+                   @firstName.push String.from_json(_item)
+                 else
+                   @firstName.push EnunciateHelpers::LAMB_CLASS_AWARE.call(_item)
+                 end
+               }
+            else
+                @firstName = _oa
+            end
+          end
+        if !_o['lastName'].nil?
+          _oa = _o['lastName']
+            if(_oa.is_a? Hash)
+              @lastName = EnunciateHelpers::LAMB_CLASS_AWARE.call(_oa) if _oa['@class']
+              @lastName =  String.from_json(_oa) unless _oa['@class']
+            elsif (_oa.is_a? Array)
+              #an array(of hashes hopefully) or scalar
+              @lastName = Array.new
+              _oa.each { | _item | 
+                 if ((_item.nil? || _item['@class'].nil?)rescue true)
+                   @lastName.push String.from_json(_item)
+                 else
+                   @lastName.push EnunciateHelpers::LAMB_CLASS_AWARE.call(_item)
+                 end
+               }
+            else
+                @lastName = _oa
+            end
+          end
+        if !_o['token'].nil?
+          _oa = _o['token']
+            if(_oa.is_a? Hash)
+              @token = EnunciateHelpers::LAMB_CLASS_AWARE.call(_oa) if _oa['@class']
+              @token =  String.from_json(_oa) unless _oa['@class']
+            elsif (_oa.is_a? Array)
+              #an array(of hashes hopefully) or scalar
+              @token = Array.new
+              _oa.each { | _item | 
+                 if ((_item.nil? || _item['@class'].nil?)rescue true)
+                   @token.push String.from_json(_item)
+                 else
+                   @token.push EnunciateHelpers::LAMB_CLASS_AWARE.call(_item)
+                 end
+               }
+            else
+                @token = _oa
+            end
+          end
+        if !_o['roles'].nil?
+          _oa = _o['roles']
+            if(_oa.is_a? Hash)
+              @roles = EnunciateHelpers::LAMB_CLASS_AWARE.call(_oa) if _oa['@class']
+              @roles =  String.from_json(_oa) unless _oa['@class']
+            elsif (_oa.is_a? Array)
+              #an array(of hashes hopefully) or scalar
+              @roles = Array.new
+              _oa.each { | _item | 
+                 if ((_item.nil? || _item['@class'].nil?)rescue true)
+                   @roles.push String.from_json(_item)
+                 else
+                   @roles.push EnunciateHelpers::LAMB_CLASS_AWARE.call(_item)
+                 end
+               }
+            else
+                @roles = _oa
+            end
+          end
+        if !_o['showpassword'].nil?
+          _oa = _o['showpassword']
+            if(_oa.is_a? Hash)
+              @showpassword = EnunciateHelpers::LAMB_CLASS_AWARE.call(_oa) if _oa['@class']
+              @showpassword =  String.from_json(_oa) unless _oa['@class']
+            elsif (_oa.is_a? Array)
+              #an array(of hashes hopefully) or scalar
+              @showpassword = Array.new
+              _oa.each { | _item | 
+                 if ((_item.nil? || _item['@class'].nil?)rescue true)
+                   @showpassword.push String.from_json(_item)
+                 else
+                   @showpassword.push EnunciateHelpers::LAMB_CLASS_AWARE.call(_item)
+                 end
+               }
+            else
+                @showpassword = _oa
             end
           end
     end

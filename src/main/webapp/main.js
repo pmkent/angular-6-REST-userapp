@@ -301,7 +301,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar class='primary'>\n  <span class='spacer'></span>\n  © Copyright Angular-Java-CRUD. {{buildDate | date:'yyyy'}}\n  <span class='spacer'></span>\n</mat-toolbar>"
+module.exports = "<mat-toolbar class='primary'>\n  <span class='spacer'></span>\n  <div class='hint-msg'>\n    © Copyright Angular-User-CRUD. {{buildDate | date:'yyyy'}}\n  </div>  \n  <span class='spacer'></span>\n</mat-toolbar>"
 
 /***/ }),
 

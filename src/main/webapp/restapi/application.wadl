@@ -12,6 +12,11 @@
     <wadl:resource path="user">
       <wadl:method name="GET">
         <wadl:doc><![CDATA[]]></wadl:doc>
+        <wadl:request>
+          <wadl:param name="Authorization" style="header">
+            <wadl:doc><![CDATA[]]></wadl:doc>
+          </wadl:param>
+        </wadl:request>
         <wadl:response>
           <wadl:doc><![CDATA[]]></wadl:doc>
           <wadl:representation mediaType="application/json"/>
@@ -19,13 +24,26 @@
       </wadl:method>
     </wadl:resource>
 
-    <wadl:resource path="user/check-state">
-      <wadl:method name="GET">
+    <wadl:resource path="user">
+      <wadl:method name="POST">
         <wadl:doc><![CDATA[]]></wadl:doc>
         <wadl:request>
-          <wadl:param name="x-access-token" style="header">
-            <wadl:doc><![CDATA[]]></wadl:doc>
-          </wadl:param>
+          <wadl:representation mediaType="application/json">
+          </wadl:representation>
+        </wadl:request>
+        <wadl:response>
+          <wadl:doc><![CDATA[]]></wadl:doc>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+
+    <wadl:resource path="user">
+      <wadl:method name="PUT">
+        <wadl:doc><![CDATA[]]></wadl:doc>
+        <wadl:request>
+          <wadl:representation mediaType="application/json">
+          </wadl:representation>
         </wadl:request>
         <wadl:response>
           <wadl:doc><![CDATA[]]></wadl:doc>
@@ -48,18 +66,34 @@
       </wadl:method>
     </wadl:resource>
 
-    <wadl:resource path="user/register">
-      <wadl:method name="POST">
+    <wadl:resource path="user/{id}">
+      <wadl:method name="GET">
         <wadl:doc><![CDATA[]]></wadl:doc>
         <wadl:request>
-          <wadl:representation mediaType="application/json">
-          </wadl:representation>
         </wadl:request>
         <wadl:response>
           <wadl:doc><![CDATA[]]></wadl:doc>
           <wadl:representation mediaType="application/json"/>
         </wadl:response>
       </wadl:method>
+      <wadl:param name="id" style="template">
+        <wadl:doc><![CDATA[]]></wadl:doc>
+      </wadl:param>
+    </wadl:resource>
+
+    <wadl:resource path="user/{id}">
+      <wadl:method name="DELETE">
+        <wadl:doc><![CDATA[]]></wadl:doc>
+        <wadl:request>
+        </wadl:request>
+        <wadl:response>
+          <wadl:doc><![CDATA[]]></wadl:doc>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:param name="id" style="template">
+        <wadl:doc><![CDATA[]]></wadl:doc>
+      </wadl:param>
     </wadl:resource>
   </wadl:resources>
 </wadl:application>

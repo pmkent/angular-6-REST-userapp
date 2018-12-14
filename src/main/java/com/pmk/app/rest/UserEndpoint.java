@@ -32,6 +32,10 @@ public class UserEndpoint {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUsers(@HeaderParam("Authorization") String authorization) {
         System.out.println("UsrREST:getUsers: jwt : >"+authorization+"<");
+
+        if (authorization == null)
+            return Response.status(500).entity("Authorization token needed.").build();
+
         List<User> usrLst = getUserService().getUsers(authorization);
         if ( (usrLst.size() == 1) && (usrLst.get(0).getId() == 0) ) // Poor error handling
             return Response.status(500).entity("io.jsonwebtoken.ExpiredJwtException: JWT expired").build();

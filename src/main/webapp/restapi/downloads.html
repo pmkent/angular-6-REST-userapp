@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-  <title>PMK App Web REST API: Files and Libraries</title>
+  <title>Angular CRUD REST API: Files and Libraries</title>
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,7 +35,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">PMK App Web REST API: Files and Libraries</a>
+        <a class="navbar-brand" href="index.html">Angular CRUD REST API: Files and Libraries</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
@@ -70,7 +70,7 @@
   <h1 class="page-header">Files and Libraries</h1>
 
   <h3 id="artifact_gwt_json_overlay">GWT JSON Overlay</h3>
-  <p class="lead">Created December 7, 2018</p>
+  <p class="lead">Created December 14, 2018</p>
   <p>  <p>
     The <a href="http://code.google.com/webtoolkit/">Google Web Toolkit</a> JSON Overlay library provides the JSON Overlays that
     can be used to access the Web service API for this application.
@@ -115,13 +115,13 @@ request.sendRequest(null, new RequestCallback() {
     <tbody data-link="row" class="rowlink">
     <tr class="clickable-row" data-href="userapp-gwt-json-overlay.jar">
       <td><span class="downloadfile-name">userapp-gwt-json-overlay.jar</span></td>
-      <td><span class="downloadfile-size">567.00bytes</span></td>
+      <td><span class="downloadfile-size">738.00bytes</span></td>
       <td><span class="downloadfile-description">The sources for the GWT JSON overlay.</span></td>
     </tr>
     </tbody>
   </table>
   <h3 id="artifact_java_json_client_library">Java JSON Client Library</h3>
-  <p class="lead">Created December 7, 2018</p>
+  <p class="lead">Created December 14, 2018</p>
   <p><p>
   The Java client-side library is used to provide the set of Java objects that can be serialized
   to/from JSON using <a href="http://jackson.codehaus.org/">Jackson</a>.  This is useful for accessing the
@@ -132,7 +132,7 @@ request.sendRequest(null, new RequestCallback() {
   <div class="panel-heading">Resources Example (Raw JAXB)</div>
   <div class="panel-body">
     <pre class="prettyprint lang-java">
-java.net.URL url = new java.net.URL(baseURL + "/user/login");
+java.net.URL url = new java.net.URL(baseURL + "/user");
 ObjectMapper mapper = new ObjectMapper();
 java.net.URLConnection connection = url.openConnection();
 connection.setDoOutput(true);
@@ -151,7 +151,7 @@ Object result = (Object) mapper.readValue( connection.getInputStream(), Object.c
     <pre class="prettyprint lang-java">
 javax.ws.rs.client.Client client = javax.ws.rs.client.ClientBuilder.newClient();
 
-Object result = client.target(baseUrl + "/user/login")
+Object result = client.target(baseUrl + "/user")
   .post(javax.ws.rs.client.Entity.entity(user, "application/json"), Object.class);
 
 //handle the result as needed...
@@ -171,13 +171,13 @@ Object result = client.target(baseUrl + "/user/login")
     <tbody data-link="row" class="rowlink">
     <tr class="clickable-row" data-href="userapp-json-client-json-sources.jar">
       <td><span class="downloadfile-name">userapp-json-client-json-sources.jar</span></td>
-      <td><span class="downloadfile-size">593.00bytes</span></td>
+      <td><span class="downloadfile-size">842.00bytes</span></td>
       <td><span class="downloadfile-description">The sources for the Java JSON client library.</span></td>
     </tr>
     </tbody>
   </table>
   <h3 id="artifact_js_client_library">JavaScript Client Library</h3>
-  <p class="lead">Created December 7, 2018</p>
+  <p class="lead">Created December 14, 2018</p>
   <p><p>
   The JavaScript client-side library defines classes that can be (de)serialized to/from JSON.
   This is useful for accessing the resources that are published by this application, but only
@@ -225,7 +225,7 @@ var newJsonString = JSON.stringify(newJson);
     <tbody data-link="row" class="rowlink">
     <tr class="clickable-row" data-href="userapp-js.zip">
       <td><span class="downloadfile-name">userapp-js.zip</span></td>
-      <td><span class="downloadfile-size">965.00bytes</span></td>
+      <td><span class="downloadfile-size">1.32K</span></td>
       <td><span class="downloadfile-description"><p>
   The JavaScript client-side library defines classes that can be (de)serialized to/from JSON.
   This is useful for accessing the resources that are published by this application, but only
@@ -265,7 +265,7 @@ var newJsonString = JSON.stringify(newJson);
     </tbody>
   </table>
   <h3 id="artifact_php_json_client_library">PHP JSON Client Library</h3>
-  <p class="lead">Created December 7, 2018</p>
+  <p class="lead">Created December 14, 2018</p>
   <p><p>
   The PHP JSON client-side library defines the PHP classes that can be (de)serialized to/from JSON.
   This is useful for accessing the resources that are published by this application, but only
@@ -307,7 +307,7 @@ $json = $result->toJson();
     <tbody data-link="row" class="rowlink">
     <tr class="clickable-row" data-href="userapp-php.zip">
       <td><span class="downloadfile-name">userapp-php.zip</span></td>
-      <td><span class="downloadfile-size">711.00bytes</span></td>
+      <td><span class="downloadfile-size">1.11K</span></td>
       <td><span class="downloadfile-description"><p>
   The PHP JSON client-side library defines the PHP classes that can be (de)serialized to/from JSON.
   This is useful for accessing the resources that are published by this application, but only
@@ -341,7 +341,7 @@ $json = $result->toJson();
     </tbody>
   </table>
   <h3 id="artifact_ruby_json_client_library">Ruby JSON Client Library</h3>
-  <p class="lead">Created December 7, 2018</p>
+  <p class="lead">Created December 14, 2018</p>
   <p><p>
   The Ruby JSON client-side library defines the Ruby classes that can be (de)serialized to/from JSON.
   This is useful for accessing the REST endpoints that are published by this application, but only
@@ -395,7 +395,7 @@ result = Object.from_json(JSON.parse(res.body))
     <tbody data-link="row" class="rowlink">
     <tr class="clickable-row" data-href="userapp.rb">
       <td><span class="downloadfile-name">userapp.rb</span></td>
-      <td><span class="downloadfile-size">3.69K</span></td>
+      <td><span class="downloadfile-size">8.95K</span></td>
       <td><span class="downloadfile-description"><p>
   The Ruby JSON client-side library defines the Ruby classes that can be (de)serialized to/from JSON.
   This is useful for accessing the REST endpoints that are published by this application, but only
@@ -443,7 +443,7 @@ result = Object.from_json(JSON.parse(res.body))
 
         <footer class="footer">
           <div class="container">
-            <p class="text-muted">Copyright &copy; <script type="text/javascript" language="javascript">d = new Date;document.write(d.getFullYear());</script> <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">pmkent.com</span>. Generated by <a href="http://enunciate.webcohesion.com">Enunciate</a>.</p>
+            <p class="text-muted">Copyright &copy; <script type="text/javascript" language="javascript">d = new Date;document.write(d.getFullYear());</script> <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">https://github.com/pmkent/angular-6-REST-userapp</span>. Generated by <a href="http://enunciate.webcohesion.com">Enunciate</a>.</p>
           </div>
         </footer>
 

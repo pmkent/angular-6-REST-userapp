@@ -6,8 +6,8 @@
 	<artifactId>userapp</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
-	<name>userapp Maven Webapp</name>
-	<url>http://pmkent.com</url>
+	<name>Angular CRUD Webapp</name>
+	<url>https://github.com/pmkent/angular-6-REST-userapp</url>
 
 	<dependencies>
 		<dependency>
