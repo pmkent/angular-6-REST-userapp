@@ -13,7 +13,8 @@ This tutorial will combine several topics of interest including Angular 6 login 
 * The Menu button on the top right gives you the ability to go to the Login, Register, Add User, Edit User, User list, Logout. Note that, when you are not logged in you can only access the Login and Registration pages.
 * To test the REST backend endpoints user the Html UI created using http://localhost:8080/restapi/ui Make sure to run the command [ mvn clean package -Penunciate ] from the userapp application root folder to create the REST UI.
 * Once logged in you can view the users in the database in a list, edit a user, delete a user. You can also Add a new user, logout. The menu on the top right gives you the ability to navigate to different app pages.
-* All users can toggle between two theme colors by using the menu item 'Toggle Theme'
+* The user list is created using Angular Material Table with filtering, delete and edit buttons.
+* All users can toggle between two theme colors by using the menu item 'Toggle Theme'.
 
 How it works:
 * The Jetty application server is started from CLI. Jetty starts, deploys the Angular 6 front end and the Java REST endpoints.
