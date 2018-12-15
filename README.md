@@ -66,6 +66,8 @@ IDEs
 * Windows 10 CLI
 * Chrome google browser development tools
 
+Remember a blog for this Angular Material CRUD example is available here http://pmkent.com/index.php/angular-6-java-rest-user-crud-application/
+
 Commands used to develop the application(s):
 
 ng generate service service/auth-guard --module=app
