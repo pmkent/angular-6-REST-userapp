@@ -37,7 +37,7 @@ public class UserService {
             errorUser = new ArrayList<>();
             for (String roleEmail : userRoles.get("USER").getUsers()) {
                 //System.out.println("\nUsrSvc:Email: "+roleEmail+" ?? "+roleContainsEmail("ADMIN",roleEmail)+"\n");
-                if ( LOGGED_IN_USR.getEmail().equals(roleEmail) || ( !roleContainsEmail("ADMIN",roleEmail))                    )
+                if ( LOGGED_IN_USR.getEmail().equals(roleEmail) || ( !adminRoleContainsEmail(roleEmail)) ) // !roleContainsEmail("ADMIN",roleEmail)) )
                 {
                     for (Map.Entry<String,User> usrLst: userMap.entrySet()) {
                         if (usrLst.getValue().getEmail().equals(roleEmail))
@@ -54,8 +54,8 @@ public class UserService {
     }
 
     /**/
-    private boolean roleContainsEmail(String role, String email) {
-        for (String eml: userRoles.get(role).getUsers()) {
+    private boolean adminRoleContainsEmail(String email) { // private boolean roleContainsEmail(String role, String email) {
+        for (String eml: userRoles.get("ADMIN").getUsers()) { // for (String eml: userRoles.get(role).getUsers()) {
             if (eml.equals(email)) return true;
         }
         return false;
@@ -85,6 +85,11 @@ public class UserService {
     public void updateUser(User user) {
         System.out.println("\nUsrSvc:updateUser() user : "+user);
         int id = user.getId();
+//        System.out.println("\nUsrSvc:updateUser "+
+//                (user.getPassword().equals( TokenUtil.getPasswordHash(user.getPassword()) ))+
+//                " pwd "+user.getPassword()+
+//                " hash "+TokenUtil.getPasswordHash(user.getPassword())+
+//                "\n");
         if (user.getPassword().length() < 20) // Hack: Avoid saving long password hash
             user.setPassword(TokenUtil.getPasswordHash(user.getPassword()));
         user.setToken(LOGGED_IN_USR.getToken());

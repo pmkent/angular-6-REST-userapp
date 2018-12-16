@@ -12,7 +12,19 @@
   </mat-card-title>
   <mat-card-content align='center'>
     <form [formGroup]='loginForm' class='login-form-container'>
-      <mat-form-field  [ngClass]="{'error': loginForm.controls['email'].errors && loginForm.controls['email'].dirty}">
+      <mat-form-field>
+        <input matInput type='text' formControlName='email' placeholder='E-Mail' required>
+        <mat-error *ngIf="loginForm.controls['email'].errors?.required">Email is required</mat-error>
+        <mat-error *ngIf="loginForm.controls['email'].errors?.minlength">Email must be at least 2 characters long</mat-error>
+        <mat-error *ngIf="loginForm.controls['email'].errors?.email">Email must be a valid E-Mail address</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type='password' formControlName='password' placeholder='Password' required>
+        <mat-error *ngIf="loginForm.controls['password'].errors?.required">Password is required</mat-error>
+        <mat-error *ngIf="loginForm.controls['password'].errors?.minlength">Password must be at least 5 characters long</mat-error>
+        <mat-error *ngIf="loginForm.controls['password'].errors?.maxlength">Password must be at most 20 characters long</mat-error>
+      </mat-form-field>
+      <!--mat-form-field  [ngClass]="{'error': loginForm.controls['email'].errors && loginForm.controls['email'].dirty}">
         <input matInput type='text' formControlName='email' placeholder='E-Mail' required>
         <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)" class='error-msg'>
           <div *ngIf="loginForm.controls['email'].errors.required">Username is required.</div>
@@ -27,12 +39,12 @@
           <div *ngIf="loginForm.controls['password'].errors.minlength">Password must be at least 5 characters long.</div>
           <div *ngIf="loginForm.controls['password'].errors.maxlength">Password must be at most 10 characters long.</div>
         </div>
-      </mat-form-field>
+      </mat-form-field-->
     </form>
   </mat-card-content>
   <mat-card-actions align='right'>
-      <button mat-raised-button color='accent' class='btn' [disabled]='loginForm.invalid' (click)='login()'>Login</button>
-      <a mat-raised-button routerLink='/register'>Register</a>
+      <button mat-raised-button color='primary' class='btn' [disabled]='loginForm.invalid' (click)='login()'>Login</button>
+      <a mat-raised-button routerLink='/register' color='warn'>Register</a>
   </mat-card-actions>
 </mat-card>
 
@@ -45,3 +57,68 @@
 
 <p>Pwd show errors : {{loginForm.controls['password'].errors && loginForm.controls['password'].dirty}}</p>
 <p>Pwd valid : {{loginForm.controls['password'].valid}}</p-->
+
+
+  <!-- https://www.youtube.com/watch?v=ZGWOc37kQkw -->
+
+<!--mat-card>
+  <mat-card-title align='center'>Employee Form</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]='empForm' class='normal-form'>
+      <mat-grid-list cols='2' rowHeight='300px'>
+        <mat-grid-tile>
+          <div class='controls-container'>
+            <input type='hidden' formControlName='$key'>
+            <mat-form-field>
+              <input formControlName='fullName' matInput placeholder='Full Name' required>
+              <mat-error>Full Name is required</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName='email' matInput placeholder='Email'>
+              <mat-error>Invalid eMail address</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName='mobile' matInput placeholder='Mobile'>
+              <mat-error *ngIf="empForm.controls['mobile'].errors?.required">Mobile number is required</mat-error>
+              <mat-error *ngIf="empForm.controls['mobile'].errors?.minlength">A minimum of 8 characters required</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName='city' matInput placeholder='City'>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class='controls-container'>
+            <div class='add-bottom-padding'>
+              <mat-radio-group formControlName='gender'>
+                <mat-radio-button value='1'>Male</mat-radio-button>
+                <mat-radio-button value='2'>Female</mat-radio-button>
+                <mat-radio-button value='3'>Other</mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <mat-form-field>
+              <mat-select formControlName='department' placeholder='Department'>
+                <mat-option>None</mat-option>
+                <ng-container *ngFor='let department of departments'>
+                  <mat-option value='{{department.id}}'>{{department.value}}</mat-option>
+                </ng-container>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName='hireDate' matInput [matDatepicker]='picker' placeholder='Hire Date'>
+              <mat-datepicker-toggle matSuffix [for]='picker'></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div class='add-bottom-padding'>
+              <mat-checkbox formControlName='isPermanent'>Permanent Employee</mat-checkbox>
+            </div>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+  </mat-card-content>
+  <mat-card-actions align='right'>
+    <button mat-raised-button color='primary' type='submit' [disabled]='empForm.invalid'>Submit</button>
+    <button mat-raised-button color='warn' (click)='onClear()'>Clear</button>
+  </mat-card-actions>
+</mat-card-->

@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 import { Router } from '@angular/router';
-import { patternValidator } from '../../../util/patternValidator';
 
-export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
-  return (control: AbstractControl): {[key: string]: any} => {
-    const forbidden = nameRe.test(control.value);
-    return forbidden ? {'forbiddenName': {value: control.value}} : null;
-  };
-}
+import { patternValidator } from '../../../util/patternValidator';
+import { forbiddenNameValidator } from '../../../util/forbiddenNameValidator';
 
 import { UserService } from '../../../service/user.service';
 

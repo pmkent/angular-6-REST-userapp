@@ -35,11 +35,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AngularMaterialModule", function() { return AngularMaterialModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 
 
-
+// import { CommonModule } from '@angular/common';
+// import {
+// MatToolbarModule,
+// MatButtonModule,
+// MatCardModule,
+// MatDialogModule,
+// MatInputModule,
+// MatTableModule,
+// MatIconModule,
+// MatMenuModule,
+// MatDividerModule,
+// MatCheckboxModule
+// } from '@angular/material';
 
 var AngularMaterialModule = /** @class */ (function () {
     function AngularMaterialModule() {
@@ -48,29 +59,49 @@ var AngularMaterialModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [],
             imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatToolbarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatButtonModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatCardModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatInputModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatTableModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatIconModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatMenuModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDividerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatCheckboxModule"]
+                // CommonModule,
+                // MatToolbarModule,
+                // MatButtonModule,
+                // MatCardModule,
+                // MatDialogModule,
+                // MatInputModule,
+                // MatTableModule,
+                // MatIconModule,
+                // MatMenuModule,
+                // MatDividerModule,
+                // MatCheckboxModule
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatToolbarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatInputModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatIconModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatMenuModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDividerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCheckboxModule"],
             ],
             exports: [
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatToolbarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatButtonModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatCardModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatInputModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatTableModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatIconModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatMenuModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDividerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatCheckboxModule"]
+                // MatToolbarModule,
+                // MatButtonModule,
+                // MatCardModule,
+                // MatDialogModule,
+                // MatInputModule,
+                // MatTableModule,
+                // MatIconModule,
+                // MatMenuModule,
+                // MatDividerModule,
+                // MatCheckboxModule
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatToolbarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatInputModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatIconModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatMenuModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDividerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCheckboxModule"],
             ]
         })
     ], AngularMaterialModule);
@@ -357,7 +388,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color='primary'>\n  <mat-icon>home</mat-icon>\n  <span class='spacer'></span>\n  <span>Angular User CRUD</span>\n  <span class='spacer'></span>\n  <button mat-icon-button [matMenuTriggerFor]='menu'>\n    <mat-icon><i class='material-icons'>view_headline</i></mat-icon>\n  </button>\n\n  <mat-menu #menu='matMenu'>\n    <button mat-menu-item routerLink='/login'>\n      <mat-icon>home</mat-icon>\n      <span>Login</span>\n    </button>\n    <button mat-menu-item routerLink='/list-user'>\n      <mat-icon>list</mat-icon>\n      <span>List Users</span>\n    </button>\n    <button mat-menu-item routerLink='/add-user'>\n      <mat-icon>playlist_add</mat-icon>\n      <span>Add User</span>\n    </button>\n    <button mat-menu-item routerLink='/register'>\n      <mat-icon>spellcheck</mat-icon>\n      <span>Register</span>\n    </button>\n    <button mat-menu-item routerLink='/login'>\n      <mat-icon>settings_power</mat-icon>\n      <span>Logout</span>\n    </button>\n    <button mat-menu-item (click)='toggleTheme()'>Toggle Theme</button>\n  </mat-menu>\n</mat-toolbar>\n"
+module.exports = "<mat-toolbar color='primary'>\n  <button mat-icon-button routerLink='/login'>\n    <mat-icon>home</mat-icon>\n  </button>  \n  <span class='spacer'></span>\n  <span>Angular User CRUD</span>\n  <span class='spacer'></span>\n  <button mat-icon-button [matMenuTriggerFor]='menu'>\n    <mat-icon><i class='material-icons'>view_headline</i></mat-icon>\n  </button>\n\n  <mat-menu #menu='matMenu'>\n    <button mat-menu-item routerLink='/login'>\n      <mat-icon>home</mat-icon>\n      <span>Login</span>\n    </button>\n    <button mat-menu-item routerLink='/list-user'>\n      <mat-icon>list</mat-icon>\n      <span>List Users</span>\n    </button>\n    <button mat-menu-item routerLink='/add-user'>\n      <mat-icon>playlist_add</mat-icon>\n      <span>Add User</span>\n    </button>\n    <button mat-menu-item routerLink='/register'>\n      <mat-icon>spellcheck</mat-icon>\n      <span>Register</span>\n    </button>\n    <button mat-menu-item routerLink='/login'>\n      <mat-icon>settings_power</mat-icon>\n      <span>Logout</span>\n    </button>\n    <button mat-menu-item (click)='toggleTheme()'>Toggle Theme</button>\n  </mat-menu>\n</mat-toolbar>\n"
 
 /***/ }),
 
@@ -418,7 +449,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf='errorMsg' [ngClass]=\"{'error': errorMsg}\">\n  {{errorMsg}}\n</div>\n\n<mat-card>\n  <mat-card-title align='center'>\n    Login\n    <br>\n    <mat-divider></mat-divider>\n    <br>\n    <div class='hint-msg'>Hint : userone@gmail.com - password</div>\n  </mat-card-title>\n  <mat-card-content align='center'>\n    <form [formGroup]='loginForm' class='login-form-container'>\n      <mat-form-field  [ngClass]=\"{'error': loginForm.controls['email'].errors && loginForm.controls['email'].dirty}\">\n        <input matInput type='text' formControlName='email' placeholder='E-Mail' required>\n        <div *ngIf=\"loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)\" class='error-msg'>\n          <div *ngIf=\"loginForm.controls['email'].errors.required\">Username is required.</div>\n          <div *ngIf=\"loginForm.controls['email'].errors.minlength\">Username must be at least 2 characters long.</div>\n          <div *ngIf=\"loginForm.controls['email'].errors.patternInvalid\">Username must be a valid E-Mail address.</div>\n        </div>\n      </mat-form-field>\n      <mat-form-field [ngClass]=\"{'error': loginForm.controls['password'].errors && loginForm.controls['password'].dirty}\">\n        <input matInput type='password' formControlName='password' placeholder='Password' required>\n        <div *ngIf=\"loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)\" class='error-msg'>\n          <div *ngIf=\"loginForm.controls['password'].errors.required\">Password is required.</div>\n          <div *ngIf=\"loginForm.controls['password'].errors.minlength\">Password must be at least 5 characters long.</div>\n          <div *ngIf=\"loginForm.controls['password'].errors.maxlength\">Password must be at most 10 characters long.</div>\n        </div>\n      </mat-form-field>\n    </form>\n  </mat-card-content>\n  <mat-card-actions align='right'>\n      <button mat-raised-button color='accent' class='btn' [disabled]='loginForm.invalid' (click)='login()'>Login</button>\n      <a mat-raised-button routerLink='/register'>Register</a>\n  </mat-card-actions>\n</mat-card>\n\n<!--p>Form Value: {{loginForm.value | json }}</p>\n<p>Form status: {{loginForm.status | json }}</p>\n<p>Name value: {{loginForm.get('email').value }}</p>\n\n<p>Username errors : {{loginForm.controls['email'].errors && loginForm.controls['email'].dirty}}</p>\n<p>Username is valid : {{loginForm.controls['email'].valid}}</p>\n\n<p>Pwd show errors : {{loginForm.controls['password'].errors && loginForm.controls['password'].dirty}}</p>\n<p>Pwd valid : {{loginForm.controls['password'].valid}}</p-->"
+module.exports = "<div *ngIf='errorMsg' [ngClass]=\"{'error': errorMsg}\">\n  {{errorMsg}}\n</div>\n\n<mat-card>\n  <mat-card-title align='center'>\n    Login\n    <br>\n    <mat-divider></mat-divider>\n    <br>\n    <div class='hint-msg'>Hint : userone@gmail.com - password</div>\n  </mat-card-title>\n  <mat-card-content align='center'>\n    <form [formGroup]='loginForm' class='login-form-container'>\n      <mat-form-field>\n        <input matInput type='text' formControlName='email' placeholder='E-Mail' required>\n        <mat-error *ngIf=\"loginForm.controls['email'].errors?.required\">Email is required</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['email'].errors?.minlength\">Email must be at least 2 characters long</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['email'].errors?.email\">Email must be a valid E-Mail address</mat-error>\n      </mat-form-field>\n      <mat-form-field>\n        <input matInput type='password' formControlName='password' placeholder='Password' required>\n        <mat-error *ngIf=\"loginForm.controls['password'].errors?.required\">Password is required</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['password'].errors?.minlength\">Password must be at least 5 characters long</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['password'].errors?.maxlength\">Password must be at most 20 characters long</mat-error>\n      </mat-form-field>\n      <!--mat-form-field  [ngClass]=\"{'error': loginForm.controls['email'].errors && loginForm.controls['email'].dirty}\">\n        <input matInput type='text' formControlName='email' placeholder='E-Mail' required>\n        <div *ngIf=\"loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)\" class='error-msg'>\n          <div *ngIf=\"loginForm.controls['email'].errors.required\">Username is required.</div>\n          <div *ngIf=\"loginForm.controls['email'].errors.minlength\">Username must be at least 2 characters long.</div>\n          <div *ngIf=\"loginForm.controls['email'].errors.patternInvalid\">Username must be a valid E-Mail address.</div>\n        </div>\n      </mat-form-field>\n      <mat-form-field [ngClass]=\"{'error': loginForm.controls['password'].errors && loginForm.controls['password'].dirty}\">\n        <input matInput type='password' formControlName='password' placeholder='Password' required>\n        <div *ngIf=\"loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)\" class='error-msg'>\n          <div *ngIf=\"loginForm.controls['password'].errors.required\">Password is required.</div>\n          <div *ngIf=\"loginForm.controls['password'].errors.minlength\">Password must be at least 5 characters long.</div>\n          <div *ngIf=\"loginForm.controls['password'].errors.maxlength\">Password must be at most 10 characters long.</div>\n        </div>\n      </mat-form-field-->\n    </form>\n  </mat-card-content>\n  <mat-card-actions align='right'>\n      <button mat-raised-button color='primary' class='btn' [disabled]='loginForm.invalid' (click)='login()'>Login</button>\n      <a mat-raised-button routerLink='/register' color='warn'>Register</a>\n  </mat-card-actions>\n</mat-card>\n\n<!--p>Form Value: {{loginForm.value | json }}</p>\n<p>Form status: {{loginForm.status | json }}</p>\n<p>Name value: {{loginForm.get('email').value }}</p>\n\n<p>Username errors : {{loginForm.controls['email'].errors && loginForm.controls['email'].dirty}}</p>\n<p>Username is valid : {{loginForm.controls['email'].valid}}</p>\n\n<p>Pwd show errors : {{loginForm.controls['password'].errors && loginForm.controls['password'].dirty}}</p>\n<p>Pwd valid : {{loginForm.controls['password'].valid}}</p-->\n\n\n  <!-- https://www.youtube.com/watch?v=ZGWOc37kQkw -->\n\n<!--mat-card>\n  <mat-card-title align='center'>Employee Form</mat-card-title>\n  <mat-card-content>\n    <form [formGroup]='empForm' class='normal-form'>\n      <mat-grid-list cols='2' rowHeight='300px'>\n        <mat-grid-tile>\n          <div class='controls-container'>\n            <input type='hidden' formControlName='$key'>\n            <mat-form-field>\n              <input formControlName='fullName' matInput placeholder='Full Name' required>\n              <mat-error>Full Name is required</mat-error>\n            </mat-form-field>\n            <mat-form-field>\n              <input formControlName='email' matInput placeholder='Email'>\n              <mat-error>Invalid eMail address</mat-error>\n            </mat-form-field>\n            <mat-form-field>\n              <input formControlName='mobile' matInput placeholder='Mobile'>\n              <mat-error *ngIf=\"empForm.controls['mobile'].errors?.required\">Mobile number is required</mat-error>\n              <mat-error *ngIf=\"empForm.controls['mobile'].errors?.minlength\">A minimum of 8 characters required</mat-error>\n            </mat-form-field>\n            <mat-form-field>\n              <input formControlName='city' matInput placeholder='City'>\n            </mat-form-field>\n          </div>\n        </mat-grid-tile>\n        <mat-grid-tile>\n          <div class='controls-container'>\n            <div class='add-bottom-padding'>\n              <mat-radio-group formControlName='gender'>\n                <mat-radio-button value='1'>Male</mat-radio-button>\n                <mat-radio-button value='2'>Female</mat-radio-button>\n                <mat-radio-button value='3'>Other</mat-radio-button>\n              </mat-radio-group>\n            </div>\n            <mat-form-field>\n              <mat-select formControlName='department' placeholder='Department'>\n                <mat-option>None</mat-option>\n                <ng-container *ngFor='let department of departments'>\n                  <mat-option value='{{department.id}}'>{{department.value}}</mat-option>\n                </ng-container>\n              </mat-select>\n            </mat-form-field>\n            <mat-form-field>\n              <input formControlName='hireDate' matInput [matDatepicker]='picker' placeholder='Hire Date'>\n              <mat-datepicker-toggle matSuffix [for]='picker'></mat-datepicker-toggle>\n              <mat-datepicker #picker></mat-datepicker>\n            </mat-form-field>\n            <div class='add-bottom-padding'>\n              <mat-checkbox formControlName='isPermanent'>Permanent Employee</mat-checkbox>\n            </div>\n          </div>\n        </mat-grid-tile>\n      </mat-grid-list>\n    </form>\n  </mat-card-content>\n  <mat-card-actions align='right'>\n    <button mat-raised-button color='primary' type='submit' [disabled]='empForm.invalid'>Submit</button>\n    <button mat-raised-button color='warn' (click)='onClear()'>Clear</button>\n  </mat-card-actions>\n</mat-card-->"
 
 /***/ }),
 
@@ -436,44 +467,64 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _util_patternValidator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../util/patternValidator */ "./src/app/util/patternValidator.ts");
-/* harmony import */ var _service_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../service/auth.service */ "./src/app/service/auth.service.ts");
+/* harmony import */ var _service_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../service/auth.service */ "./src/app/service/auth.service.ts");
 
 
 
 
-
+// import { patternValidator } from '../../../util/patternValidator';
 
 var LoginComponent = /** @class */ (function () {
+    // empForm: FormGroup; // 2018-12-15 tutorial
+    // departments = [
+    //   { id: 1, value: 'Dep 1' },
+    //   { id: 2, value: 'Dep 2' },
+    //   { id: 3, value: 'Dep 3' }
+    // ];
     function LoginComponent(formBuilder, router, authSvc) {
         this.formBuilder = formBuilder;
         this.router = router;
         this.authSvc = authSvc;
-        this.submitted = false;
-        this.invalidLogin = false;
         this.loading = false;
         this.initLoginForm();
     }
     LoginComponent.prototype.initLoginForm = function () {
         this.authSvc.logout(); // First reset login status
         this.loginForm = this.formBuilder.group({
-            email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, Object(_util_patternValidator__WEBPACK_IMPORTED_MODULE_4__["patternValidator"])(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/), , _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2)]],
+            email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email]],
             password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(5), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(20)]]
+            // email: ['', [Validators.required, patternValidator(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/), , Validators.minLength(2)]],
+            // password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]]
         });
+        // this.empForm = this.formBuilder.group(
+        //   {
+        //     $key: [null],
+        //     fullName: ['', Validators.required ],
+        //     email: ['', Validators.email ],
+        //     mobile: ['', [ Validators.required, Validators.minLength(8) ] ],
+        //     city: [''],
+        //     gender: ['1'],
+        //     department: [0],
+        //     hireDate: [''],
+        //     isPermanent: false
+        //   }
+        // );
     };
     LoginComponent.prototype.ngOnInit = function () { };
     LoginComponent.prototype.login = function () {
         var _this = this;
-        console.log('LoginComponent: login() : email ' + this.loginForm.controls['email'].value + ' password ' + this.loginForm.controls['password'].value); //+' returnUrl '+this.returnUrl);
+        console.log('LoginComponent: login() : email ' + this.loginForm.controls['email'].value +
+            ' password ' + this.loginForm.controls['password'].value);
         this.loading = true;
         this.authSvc.login(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value)
             .subscribe(function (data) {
             _this.errorMsg = null;
-            console.log('Login: ' + _this.loginForm.controls['email'].value + ' Logged in!!');
+            console.log('Login: You are logged in as ' + _this.loginForm.controls['email'].value + '!!');
             _this.router.navigate(['list-user']);
         }, function (error) {
             _this.errorMsg = 'Username and/or password do not match!';
-            console.log('Login: ' + _this.loginForm.controls['email'].value + ' ' + _this.loginForm.controls['password'].value + ' :=> ' + _this.errorMsg); // 2018-12-11
+            console.log('Login: ' + _this.loginForm.controls['email'].value + ' ' +
+                _this.loginForm.controls['password'].value + ' :=> ' + _this.errorMsg); // 2018-12-11
             _this.router.navigate(['login']);
             _this.loading = false;
         });
@@ -486,7 +537,7 @@ var LoginComponent = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-            _service_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"]])
+            _service_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -521,30 +572,25 @@ module.exports = "<mat-card>\n    <mat-card-title align='center'>Registration Fo
 /*!***********************************************************************!*\
   !*** ./src/app/pages/security/registration/registration.component.ts ***!
   \***********************************************************************/
-/*! exports provided: forbiddenNameValidator, RegistrationComponent */
+/*! exports provided: RegistrationComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "forbiddenNameValidator", function() { return forbiddenNameValidator; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegistrationComponent", function() { return RegistrationComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _util_patternValidator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../util/patternValidator */ "./src/app/util/patternValidator.ts");
-/* harmony import */ var _service_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../service/user.service */ "./src/app/service/user.service.ts");
+/* harmony import */ var _util_forbiddenNameValidator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../util/forbiddenNameValidator */ "./src/app/util/forbiddenNameValidator.ts");
+/* harmony import */ var _service_user_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../service/user.service */ "./src/app/service/user.service.ts");
 
 
 
 
 
-function forbiddenNameValidator(nameRe) {
-    return function (control) {
-        var forbidden = nameRe.test(control.value);
-        return forbidden ? { 'forbiddenName': { value: control.value } } : null;
-    };
-}
+
 
 var RegistrationComponent = /** @class */ (function () {
     function RegistrationComponent(formBuilder, router, userService) {
@@ -568,7 +614,7 @@ var RegistrationComponent = /** @class */ (function () {
     RegistrationComponent.prototype.ngOnInit = function () {
         this.registrationForm = this.formBuilder.group({
             id: [],
-            firstName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2), forbiddenNameValidator(/bob/i)]],
+            firstName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2), Object(_util_forbiddenNameValidator__WEBPACK_IMPORTED_MODULE_5__["forbiddenNameValidator"])(/bob/i)]],
             lastName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2)]],
             email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, Object(_util_patternValidator__WEBPACK_IMPORTED_MODULE_4__["patternValidator"])(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
             password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(5), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(20)]]
@@ -580,7 +626,7 @@ var RegistrationComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./registration.component.html */ "./src/app/pages/security/registration/registration.component.html"),
             styles: [__webpack_require__(/*! ./registration.component.css */ "./src/app/pages/security/registration/registration.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _service_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _service_user_service__WEBPACK_IMPORTED_MODULE_6__["UserService"]])
     ], RegistrationComponent);
     return RegistrationComponent;
 }());
@@ -615,12 +661,11 @@ module.exports = "<mat-card>\n    <mat-card-title align='center'>Add User</mat-c
 /*!***********************************************************!*\
   !*** ./src/app/pages/user/add-user/add-user.component.ts ***!
   \***********************************************************/
-/*! exports provided: forbiddenNameValidator, AddUserComponent */
+/*! exports provided: AddUserComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "forbiddenNameValidator", function() { return forbiddenNameValidator; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddUserComponent", function() { return AddUserComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
@@ -628,18 +673,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _service_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../service/user.service */ "./src/app/service/user.service.ts");
 /* harmony import */ var _util_patternValidator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../util/patternValidator */ "./src/app/util/patternValidator.ts");
+/* harmony import */ var _util_forbiddenNameValidator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../util/forbiddenNameValidator */ "./src/app/util/forbiddenNameValidator.ts");
 
 
 
 
 
 
-function forbiddenNameValidator(nameRe) {
-    return function (control) {
-        var forbidden = nameRe.test(control.value);
-        return forbidden ? { 'forbiddenName': { value: control.value } } : null;
-    };
-}
+
 var AddUserComponent = /** @class */ (function () {
     function AddUserComponent(formBuilder, router, userService) {
         this.formBuilder = formBuilder;
@@ -649,7 +690,7 @@ var AddUserComponent = /** @class */ (function () {
     AddUserComponent.prototype.ngOnInit = function () {
         this.addForm = this.formBuilder.group({
             id: [],
-            firstName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2), forbiddenNameValidator(/bob/i)]],
+            firstName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2), Object(_util_forbiddenNameValidator__WEBPACK_IMPORTED_MODULE_6__["forbiddenNameValidator"])(/bob/i)]],
             lastName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2)]],
             email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, Object(_util_patternValidator__WEBPACK_IMPORTED_MODULE_5__["patternValidator"])(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
             password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(5), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(20)]]
@@ -703,12 +744,11 @@ module.exports = "<mat-card>\n  <mat-card-title align='center'>Edit User</mat-ca
 /*!*************************************************************!*\
   !*** ./src/app/pages/user/edit-user/edit-user.component.ts ***!
   \*************************************************************/
-/*! exports provided: forbiddenNameValidator, EditUserComponent */
+/*! exports provided: EditUserComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "forbiddenNameValidator", function() { return forbiddenNameValidator; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditUserComponent", function() { return EditUserComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
@@ -717,6 +757,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _service_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../service/user.service */ "./src/app/service/user.service.ts");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _util_patternValidator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../util/patternValidator */ "./src/app/util/patternValidator.ts");
+/* harmony import */ var _util_forbiddenNameValidator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../util/forbiddenNameValidator */ "./src/app/util/forbiddenNameValidator.ts");
 
 
 
@@ -724,12 +765,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function forbiddenNameValidator(nameRe) {
-    return function (control) {
-        var forbidden = nameRe.test(control.value);
-        return forbidden ? { 'forbiddenName': { value: control.value } } : null;
-    };
-}
+
 var EditUserComponent = /** @class */ (function () {
     function EditUserComponent(formBuilder, router, userService) {
         this.formBuilder = formBuilder;
@@ -747,14 +783,13 @@ var EditUserComponent = /** @class */ (function () {
         }
         this.editForm = this.formBuilder.group({
             id: [],
-            firstName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2), forbiddenNameValidator(/bob/i)]],
+            firstName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2), Object(_util_forbiddenNameValidator__WEBPACK_IMPORTED_MODULE_7__["forbiddenNameValidator"])(/bob/i)]],
             lastName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2)]],
             email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, Object(_util_patternValidator__WEBPACK_IMPORTED_MODULE_6__["patternValidator"])(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
             password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(5)]],
-            // password: ['password', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
             token: [''],
             roles: [{}],
-            showpassword: '' // 2018-12-13
+            showpassword: ''
         });
         this.userService.getUserById(+userId)
             .subscribe(function (data) {
@@ -1214,6 +1249,26 @@ var ErrorInterceptor = /** @class */ (function () {
     return ErrorInterceptor;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/util/forbiddenNameValidator.ts":
+/*!************************************************!*\
+  !*** ./src/app/util/forbiddenNameValidator.ts ***!
+  \************************************************/
+/*! exports provided: forbiddenNameValidator */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "forbiddenNameValidator", function() { return forbiddenNameValidator; });
+function forbiddenNameValidator(nameRe) {
+    return function (control) {
+        var forbidden = nameRe.test(control.value);
+        return forbidden ? { 'forbiddenName': { value: control.value } } : null;
+    };
+}
 
 
 /***/ }),

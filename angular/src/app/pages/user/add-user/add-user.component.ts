@@ -4,13 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../../../service/user.service';
 
 import { patternValidator } from '../../../util/patternValidator';
-
-export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
-  return (control: AbstractControl): {[key: string]: any} => {
-    const forbidden = nameRe.test(control.value);
-    return forbidden ? {'forbiddenName': {value: control.value}} : null;
-  };
-}
+import { forbiddenNameValidator } from '../../../util/forbiddenNameValidator';
 
 @Component({
   selector: 'app-add-user',

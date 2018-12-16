@@ -86,9 +86,23 @@ Finally include <router-outlet> inside the app.component.html file.
 
 Step 5. Add header and footer
 
+We already generated the header and footer components in step 3 above. In the header component we will add the application menu on the right with the following menu items - Login, List Users, Add User, Register, Logout, Toggle Theme. The toggle theme menu items switches the application theme. The home icon on the left will take you to the login (home) page if clicked. The footer component has a copyright application line that ends with the current year. The footer year is controlled by footer component typescript file using the Javascript Date().
+
+Take a look at the code in the /userapp/angular/src/app/pages/header and the /userapp/angular/src/app/pages/footer folders. Also check the screens in the /userapp/doc/User List Screenshot.png image for the best view of the header and footer with the menu extended.
+
+Acknowledgements and credits:
+
+I would like to acknowledge the following article for the main idea I used to build the Angular 6 application front end: https://www.devglan.com/angular/angular-6-example I would also like to shout out to the Angular tutorials https://angular.io/  especially the hero app tutorial.
+
+Remember the code for this Angular CRUD example is available in GitHub (https://github.com/pmkent/angular-6-REST-userapp)
+
 2018-12-09
 
 User CRUD application built using Angular 6 front end Java REST backend. This userapp starts off with a login and user registration pages that are not restricted. Once logged in you'll able to view user list, add a user, delete a user, logout.
+
+For a blog on this application, please visit http://pmkent.com/index.php/angular-6-java-rest-user-crud-application/
+
+This tutorial will combine several topics of interest including Angular 6 login example, Angular 6 Http client example, Angular 6 CRUD example, Angular 6 Observable example, Angular 6 list example, Angular 6 add example, Angular 6 edit example, Angular 6 CLI example and Angular 6 Material Design tutorial.
 
 * Login page if your user information already exists in the database. Otherwise, login as userone@gmail.com : password
 * Currently the application uses a fake database using Java Map of user objects. There is plans in the future to use a MongoDB user collection database.
@@ -98,22 +112,32 @@ User CRUD application built using Angular 6 front end Java REST backend. This us
 * The Menu button on the top right gives you the ability to go to the Login, Register, Add User, Edit User, User list, Logout. Note that, when you are not logged in you can only access the Login and Registration pages.
 * To test the REST backend endpoints user the Html UI created using http://localhost:8080/restapi/ui Make sure to run the command [ mvn clean package -Penunciate ] from the userapp application root folder to create the REST UI.
 * Once logged in you can view the users in the database in a list, edit a user, delete a user. You can also Add a new user, logout. The menu on the top right gives you the ability to navigate to different app pages.
-* All users can toggle between two theme colors by using the menu item 'Toggle Theme'
+* The user list is created using Angular Material Table with filtering, delete and edit buttons.
+* All users can toggle between two theme colors by using the menu item 'Toggle Theme'.
+* The project structure displays a good way to organize your angular project files so you can easily find them especially if you are working in an Angular development team.
 
 How it works:
 * The Jetty application server is started from CLI. Jetty starts, deploys the Angular 6 front end and the Java REST endpoints.
 * When a user interacts with the front end for instance logging in, a rest call with the url pattern http://localhost:8080/api/user is invoked that calls the backend for authentication, user data.
 * Authenticated users can view, add, edit user(s). Non authenticated users can only interract with the login and the register screens.
+* The application comes with 3 fake users - userone@gmail.com, usertwo@gmail.com and userthree@gmail.com To log in as any of the three users user their email and 'password ' as your password. There is a hint on the login page about this.
+* There are three roles - ADMIN, USER and GUEST
+* Logging in as as user with the ADMIN role allows you access to all screens including listing all users in the application. Logging in as a user with USER role allows you to view all users in the application who do not have the ADMIN role. Logging in as a user with GUEST role allows you to view only your user information.
+* userone@gmail.com has the the ADMIN role. usertwo@gmail.com has the USER role. userthree@gmail.com has the GUEST role.
+* You can also add a new user using the 'Register' screen or the 'Add User' screen. Remember, you have to be logged in to user the 'Add User' screen while the 'Register' screen is available to anyone.
 
 Build:
 * Build the Angular 6 front end and the Java backend separately
 * To build the Angular 6 Front end use the command < ng build --base-href / > . This creates a folder /dist/userapp that contains all the files required to run the application. This can also be accomplished by invoking the built.bat batch file. Copy these files into the Jetty /webapp folder.
 * To build the Java code run the command [ mvn clean package ]. This running build.bat on commandline from the userapp root directory invokes the same command.
-* To run the entire application use the command [ mvn jetty:run ]. This command can simply be invoked from the 
+* To run the entire application use the command [ mvn jetty:run ]. This command can simply be invoked from the /userapp root folder using the build.bat or build.sh scripts. Once the application is successfully started it can be viewed at http://localhost:8080
+
+Documentation:
+* In the /userapp/doc folder are screenshots of different Angular 6 CRUD user application.
 
 Next Steps:
 * Replace hard coded data with database calls with a MongoDB user collection.
-* Theme color toggle control.
+* Theme color toggle control. DONE
 * Protect REST service with a call filter that only allows permission to get to the backend or returns the call back to the front end and displays the login page. Note that page security through Angular front end is already implements. This is an extra layer of security.
 * Unix .sh files evivalent of the batch files for building and running the applications.
 
@@ -134,6 +158,18 @@ Technologies:
 * JAVA Jersey REST services.
 * Angular ReactiveForms
 * Angular Material theming.
+* Angular Material Table with Filter
+* Secure Salted Password Hashing
+* JAVA REST Endpoint Security
+
+IDEs
+* Visual Studio Code
+* IntelliJ IDEA
+* Editplus
+* Windows 10 CLI
+* Chrome google browser development tools
+
+Remember a blog for this Angular Material CRUD example is available here http://pmkent.com/index.php/angular-6-java-rest-user-crud-application/
 
 Commands used to develop the application(s):
 

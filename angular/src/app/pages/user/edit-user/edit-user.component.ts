@@ -7,13 +7,7 @@ import { UserService } from '../../../service/user.service';
 import { first } from 'rxjs/operators';
 
 import { patternValidator } from '../../../util/patternValidator';
-
-export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
-  return (control: AbstractControl): {[key: string]: any} => {
-    const forbidden = nameRe.test(control.value);
-    return forbidden ? {'forbiddenName': {value: control.value}} : null;
-  };
-}
+import { forbiddenNameValidator } from '../../../util/forbiddenNameValidator';
 
 @Component({
   selector: 'app-edit-user',
@@ -43,11 +37,10 @@ export class EditUserComponent implements OnInit {
         firstName: ['', [Validators.required, Validators.minLength(2), forbiddenNameValidator(/bob/i)]],
         lastName: ['', [Validators.required, Validators.minLength(2)]],
         email: ['', [Validators.required, patternValidator(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
-        password: ['', [Validators.required, Validators.minLength(5)]],
-        // password: ['password', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
+        password: ['', [Validators.required, Validators.minLength(5)]], // password: ['password', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
         token: [''],
         roles: [{}],
-        showpassword: '' // 2018-12-13
+        showpassword: ''
       }
     );
 
