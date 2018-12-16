@@ -14,7 +14,7 @@ import javax.ws.rs.core.UriInfo;
  */
 public class UserService {
 
-    private User LOGGED_IN_USR;
+//    private User LOGGED_IN_USR;
 
     public List<User> getUsers(String jwt) {
         String token = jwt.replaceAll("Bearer ","");
@@ -28,30 +28,55 @@ public class UserService {
             return errorUser;
         }
 
-        String email = LOGGED_IN_USR.getEmail();
-        Set<String> roles = LOGGED_IN_USR.getRoles(); // io.jsonwebtoken.ExpiredJwtException: JWT expired at 2018-12-11T21:28:54Z. Current time: 2018-12-11T21:29:03Z, a difference of 9864 milliseconds.  Allowed clock skew: 0 milliseconds.
+        String email = TokenUtil.getUserEmailFromToken(token);//LOGGED_IN_USR.getEmail();
+        Set<String> roles = getUserRoles(email); // LOGGED_IN_USR.getRoles();
 
         System.out.println("\n11 UsrSvc:Email: "+email+" Roles : "+roles+"\n");
-        if (roles.contains("ADMIN")) return new ArrayList<>(userMap.values());
-        else if (roles.contains("USER")) {
-            errorUser = new ArrayList<>();
-            for (String roleEmail : userRoles.get("USER").getUsers()) {
-                //System.out.println("\nUsrSvc:Email: "+roleEmail+" ?? "+roleContainsEmail("ADMIN",roleEmail)+"\n");
-                if ( LOGGED_IN_USR.getEmail().equals(roleEmail) || ( !adminRoleContainsEmail(roleEmail)) ) // !roleContainsEmail("ADMIN",roleEmail)) )
-                {
-                    for (Map.Entry<String,User> usrLst: userMap.entrySet()) {
-                        if (usrLst.getValue().getEmail().equals(roleEmail))
-                            errorUser.add(usrLst.getValue());
+
+        if ( (email != null) && (roles != null)) {
+            if (roles.contains("ADMIN")) return new ArrayList<>(userMap.values());
+            else if (roles.contains("USER")) {
+                errorUser = new ArrayList<>();
+                for (String roleEmail : userRoles.get("USER").getUsers()) {
+                    if ( email.equals(roleEmail) || ( !adminRoleContainsEmail(roleEmail)) ) { // if ( LOGGED_IN_USR.getEmail().equals(roleEmail) || ( !adminRoleContainsEmail(roleEmail)) ) {
+                        for (Map.Entry<String,User> usrLst: userMap.entrySet()) {
+                            if (usrLst.getValue().getEmail().equals(roleEmail))
+                                errorUser.add(usrLst.getValue());
+                        }
                     }
                 }
+                return errorUser;
+            } else {
+                errorUser = new ArrayList<>();
+                errorUser.add(getUserFromEmail(email));//LOGGED_IN_USR);
+                return errorUser;
             }
-            return errorUser;
         } else {
+            System.out.println("\nUsrSvc: ERROR no roles for "+email+"\n");
+//            return null;
             errorUser = new ArrayList<>();
-            errorUser.add(LOGGED_IN_USR);
+            errorUser.add(new User(0,"Nouser","Found","nouser@found.com","bc4c44979100772732ae8c67128802ea8952767d", new HashSet<>(Collections.singletonList("ERROR"))));
             return errorUser;
         }
     }
+
+    /* 2018-12-16 */
+    private User getUserFromEmail(String email) {
+        for (Map.Entry<String,User> user: userMap.entrySet()) {
+            if (email.equals(user.getValue().getEmail()))
+                return user.getValue();
+        }
+        return null;
+    } // end: getUserFromEmail() method
+
+    /* 2018-12-16 */
+    private Set<String> getUserRoles(String email) {
+        for (Map.Entry<String,User> user: userMap.entrySet()) {
+            if (email.equals(user.getValue().getEmail()))
+                return user.getValue().getRoles();
+        }
+        return null;
+    } // end: getUserRoles() method
 
     /**/
     private boolean adminRoleContainsEmail(String email) { // private boolean roleContainsEmail(String role, String email) {
@@ -85,14 +110,10 @@ public class UserService {
     public void updateUser(User user) {
         System.out.println("\nUsrSvc:updateUser() user : "+user);
         int id = user.getId();
-//        System.out.println("\nUsrSvc:updateUser "+
-//                (user.getPassword().equals( TokenUtil.getPasswordHash(user.getPassword()) ))+
-//                " pwd "+user.getPassword()+
-//                " hash "+TokenUtil.getPasswordHash(user.getPassword())+
-//                "\n");
         if (user.getPassword().length() < 20) // Hack: Avoid saving long password hash
             user.setPassword(TokenUtil.getPasswordHash(user.getPassword()));
-        user.setToken(LOGGED_IN_USR.getToken());
+        ///////////////
+//        user.setToken(getUserFromEmail(user.getEmail()).getToken());////LOGGED_IN_USR.getToken());
         userMap.put(Integer.toString(id),user);
     }
 
@@ -125,7 +146,7 @@ public class UserService {
             if (usr.getValue().getEmail().equals(credentials.getUsername()) && usr.getValue().getPassword().equals(TokenUtil.getPasswordHash(credentials.getPassword()))) {
                 user = usr.getValue();
                 user.setToken(TokenUtil.issueToken(credentials.getUsername(),uriInfo));
-                LOGGED_IN_USR = user;
+//                LOGGED_IN_USR = user;
                 System.out.println("\nUsrSvc:authenticateUser() LOGIN SUCCESS! Logged in as : \n"+user);
                 return user;
             }
@@ -146,7 +167,7 @@ public class UserService {
 
         userRoles.put("ADMIN", new UserRole("ADMIN","ADMIN", Arrays.asList("userone@gmail.com", "usertwo@gmail.com")));
         userRoles.put("USER", new UserRole("USER","USER", Arrays.asList("userone@gmail.com", "usertwo@gmail.com", "userthree@gmail.com")));
-        userRoles.put("GUEST", new UserRole("GUEST","GUEST", null));// Arrays.asList("usertwo@gmail.com", "userthree@gmail.com"))); // userRoles.put("GUEST", new UserRole("GUEST","GUEST", Arrays.asList("usertwo@gmail.com", "userthree@gmail.com")));
+        userRoles.put("GUEST", new UserRole("GUEST","GUEST", null));
 
         System.out.println("\nInitialized userRoles size "+userRoles.size()+" Roles.");
     }

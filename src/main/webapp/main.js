@@ -38,19 +38,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 
 
-// import { CommonModule } from '@angular/common';
-// import {
-// MatToolbarModule,
-// MatButtonModule,
-// MatCardModule,
-// MatDialogModule,
-// MatInputModule,
-// MatTableModule,
-// MatIconModule,
-// MatMenuModule,
-// MatDividerModule,
-// MatCheckboxModule
-// } from '@angular/material';
 
 var AngularMaterialModule = /** @class */ (function () {
     function AngularMaterialModule() {
@@ -59,17 +46,6 @@ var AngularMaterialModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [],
             imports: [
-                // CommonModule,
-                // MatToolbarModule,
-                // MatButtonModule,
-                // MatCardModule,
-                // MatDialogModule,
-                // MatInputModule,
-                // MatTableModule,
-                // MatIconModule,
-                // MatMenuModule,
-                // MatDividerModule,
-                // MatCheckboxModule
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatToolbarModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatButtonModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCardModule"],
@@ -79,19 +55,9 @@ var AngularMaterialModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatIconModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatMenuModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDividerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCheckboxModule"]
             ],
             exports: [
-                // MatToolbarModule,
-                // MatButtonModule,
-                // MatCardModule,
-                // MatDialogModule,
-                // MatInputModule,
-                // MatTableModule,
-                // MatIconModule,
-                // MatMenuModule,
-                // MatDividerModule,
-                // MatCheckboxModule
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatToolbarModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatButtonModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCardModule"],
@@ -101,7 +67,7 @@ var AngularMaterialModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatIconModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatMenuModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDividerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCheckboxModule"]
             ]
         })
     ], AngularMaterialModule);
@@ -449,7 +415,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf='errorMsg' [ngClass]=\"{'error': errorMsg}\">\n  {{errorMsg}}\n</div>\n\n<mat-card>\n  <mat-card-title align='center'>\n    Login\n    <br>\n    <mat-divider></mat-divider>\n    <br>\n    <div class='hint-msg'>Hint : userone@gmail.com - password</div>\n  </mat-card-title>\n  <mat-card-content align='center'>\n    <form [formGroup]='loginForm' class='login-form-container'>\n      <mat-form-field>\n        <input matInput type='text' formControlName='email' placeholder='E-Mail' required>\n        <mat-error *ngIf=\"loginForm.controls['email'].errors?.required\">Email is required</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['email'].errors?.minlength\">Email must be at least 2 characters long</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['email'].errors?.email\">Email must be a valid E-Mail address</mat-error>\n      </mat-form-field>\n      <mat-form-field>\n        <input matInput type='password' formControlName='password' placeholder='Password' required>\n        <mat-error *ngIf=\"loginForm.controls['password'].errors?.required\">Password is required</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['password'].errors?.minlength\">Password must be at least 5 characters long</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['password'].errors?.maxlength\">Password must be at most 20 characters long</mat-error>\n      </mat-form-field>\n      <!--mat-form-field  [ngClass]=\"{'error': loginForm.controls['email'].errors && loginForm.controls['email'].dirty}\">\n        <input matInput type='text' formControlName='email' placeholder='E-Mail' required>\n        <div *ngIf=\"loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)\" class='error-msg'>\n          <div *ngIf=\"loginForm.controls['email'].errors.required\">Username is required.</div>\n          <div *ngIf=\"loginForm.controls['email'].errors.minlength\">Username must be at least 2 characters long.</div>\n          <div *ngIf=\"loginForm.controls['email'].errors.patternInvalid\">Username must be a valid E-Mail address.</div>\n        </div>\n      </mat-form-field>\n      <mat-form-field [ngClass]=\"{'error': loginForm.controls['password'].errors && loginForm.controls['password'].dirty}\">\n        <input matInput type='password' formControlName='password' placeholder='Password' required>\n        <div *ngIf=\"loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)\" class='error-msg'>\n          <div *ngIf=\"loginForm.controls['password'].errors.required\">Password is required.</div>\n          <div *ngIf=\"loginForm.controls['password'].errors.minlength\">Password must be at least 5 characters long.</div>\n          <div *ngIf=\"loginForm.controls['password'].errors.maxlength\">Password must be at most 10 characters long.</div>\n        </div>\n      </mat-form-field-->\n    </form>\n  </mat-card-content>\n  <mat-card-actions align='right'>\n      <button mat-raised-button color='primary' class='btn' [disabled]='loginForm.invalid' (click)='login()'>Login</button>\n      <a mat-raised-button routerLink='/register' color='warn'>Register</a>\n  </mat-card-actions>\n</mat-card>\n\n<!--p>Form Value: {{loginForm.value | json }}</p>\n<p>Form status: {{loginForm.status | json }}</p>\n<p>Name value: {{loginForm.get('email').value }}</p>\n\n<p>Username errors : {{loginForm.controls['email'].errors && loginForm.controls['email'].dirty}}</p>\n<p>Username is valid : {{loginForm.controls['email'].valid}}</p>\n\n<p>Pwd show errors : {{loginForm.controls['password'].errors && loginForm.controls['password'].dirty}}</p>\n<p>Pwd valid : {{loginForm.controls['password'].valid}}</p-->\n\n\n  <!-- https://www.youtube.com/watch?v=ZGWOc37kQkw -->\n\n<!--mat-card>\n  <mat-card-title align='center'>Employee Form</mat-card-title>\n  <mat-card-content>\n    <form [formGroup]='empForm' class='normal-form'>\n      <mat-grid-list cols='2' rowHeight='300px'>\n        <mat-grid-tile>\n          <div class='controls-container'>\n            <input type='hidden' formControlName='$key'>\n            <mat-form-field>\n              <input formControlName='fullName' matInput placeholder='Full Name' required>\n              <mat-error>Full Name is required</mat-error>\n            </mat-form-field>\n            <mat-form-field>\n              <input formControlName='email' matInput placeholder='Email'>\n              <mat-error>Invalid eMail address</mat-error>\n            </mat-form-field>\n            <mat-form-field>\n              <input formControlName='mobile' matInput placeholder='Mobile'>\n              <mat-error *ngIf=\"empForm.controls['mobile'].errors?.required\">Mobile number is required</mat-error>\n              <mat-error *ngIf=\"empForm.controls['mobile'].errors?.minlength\">A minimum of 8 characters required</mat-error>\n            </mat-form-field>\n            <mat-form-field>\n              <input formControlName='city' matInput placeholder='City'>\n            </mat-form-field>\n          </div>\n        </mat-grid-tile>\n        <mat-grid-tile>\n          <div class='controls-container'>\n            <div class='add-bottom-padding'>\n              <mat-radio-group formControlName='gender'>\n                <mat-radio-button value='1'>Male</mat-radio-button>\n                <mat-radio-button value='2'>Female</mat-radio-button>\n                <mat-radio-button value='3'>Other</mat-radio-button>\n              </mat-radio-group>\n            </div>\n            <mat-form-field>\n              <mat-select formControlName='department' placeholder='Department'>\n                <mat-option>None</mat-option>\n                <ng-container *ngFor='let department of departments'>\n                  <mat-option value='{{department.id}}'>{{department.value}}</mat-option>\n                </ng-container>\n              </mat-select>\n            </mat-form-field>\n            <mat-form-field>\n              <input formControlName='hireDate' matInput [matDatepicker]='picker' placeholder='Hire Date'>\n              <mat-datepicker-toggle matSuffix [for]='picker'></mat-datepicker-toggle>\n              <mat-datepicker #picker></mat-datepicker>\n            </mat-form-field>\n            <div class='add-bottom-padding'>\n              <mat-checkbox formControlName='isPermanent'>Permanent Employee</mat-checkbox>\n            </div>\n          </div>\n        </mat-grid-tile>\n      </mat-grid-list>\n    </form>\n  </mat-card-content>\n  <mat-card-actions align='right'>\n    <button mat-raised-button color='primary' type='submit' [disabled]='empForm.invalid'>Submit</button>\n    <button mat-raised-button color='warn' (click)='onClear()'>Clear</button>\n  </mat-card-actions>\n</mat-card-->"
+module.exports = "<div *ngIf='errorMsg' [ngClass]=\"{'error': errorMsg}\">\n  {{errorMsg}}\n</div>\n\n<mat-card>\n  <mat-card-title align='center'>\n    Login\n    <br>\n    <mat-divider></mat-divider>\n    <br>\n    <div class='hint-msg'>Hint : userone@gmail.com - password</div>\n  </mat-card-title>\n  <mat-card-content align='center'>\n    <form [formGroup]='loginForm' class='login-form-container'>\n      <mat-form-field>\n        <input matInput type='text' formControlName='email' placeholder='E-Mail' required>\n        <mat-error *ngIf=\"loginForm.controls['email'].errors?.required\">Email is required</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['email'].errors?.minlength\">Email must be at least 2 characters long</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['email'].errors?.email\">Email must be a valid E-Mail address</mat-error>\n      </mat-form-field>\n      <mat-form-field>\n        <input matInput type='password' formControlName='password' placeholder='Password' required>\n        <mat-error *ngIf=\"loginForm.controls['password'].errors?.required\">Password is required</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['password'].errors?.minlength\">Password must be at least 5 characters long</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['password'].errors?.maxlength\">Password must be at most 20 characters long</mat-error>\n      </mat-form-field>\n    </form>\n  </mat-card-content>\n  <mat-card-actions align='right'>\n      <button mat-raised-button color='primary' class='btn' [disabled]='loginForm.invalid' (click)='login()'>Login</button>\n      <a mat-raised-button routerLink='/register' color='warn'>Register</a>\n  </mat-card-actions>\n</mat-card>\n\n<!--p>Form Value: {{loginForm.value | json }}</p>\n<p>Form status: {{loginForm.status | json }}</p>\n<p>Name value: {{loginForm.get('email').value }}</p>\n\n<p>Username errors : {{loginForm.controls['email'].errors && loginForm.controls['email'].dirty}}</p>\n<p>Username is valid : {{loginForm.controls['email'].valid}}</p>\n\n<p>Pwd show errors : {{loginForm.controls['password'].errors && loginForm.controls['password'].dirty}}</p>\n<p>Pwd valid : {{loginForm.controls['password'].valid}}</p-->\n\n\n  <!-- https://www.youtube.com/watch?v=ZGWOc37kQkw -->\n\n<!--mat-card>\n  <mat-card-title align='center'>Employee Form</mat-card-title>\n  <mat-card-content>\n    <form [formGroup]='empForm' class='normal-form'>\n      <mat-grid-list cols='2' rowHeight='300px'>\n        <mat-grid-tile>\n          <div class='controls-container'>\n            <input type='hidden' formControlName='$key'>\n            <mat-form-field>\n              <input formControlName='fullName' matInput placeholder='Full Name' required>\n              <mat-error>Full Name is required</mat-error>\n            </mat-form-field>\n            <mat-form-field>\n              <input formControlName='email' matInput placeholder='Email'>\n              <mat-error>Invalid eMail address</mat-error>\n            </mat-form-field>\n            <mat-form-field>\n              <input formControlName='mobile' matInput placeholder='Mobile'>\n              <mat-error *ngIf=\"empForm.controls['mobile'].errors?.required\">Mobile number is required</mat-error>\n              <mat-error *ngIf=\"empForm.controls['mobile'].errors?.minlength\">A minimum of 8 characters required</mat-error>\n            </mat-form-field>\n            <mat-form-field>\n              <input formControlName='city' matInput placeholder='City'>\n            </mat-form-field>\n          </div>\n        </mat-grid-tile>\n        <mat-grid-tile>\n          <div class='controls-container'>\n            <div class='add-bottom-padding'>\n              <mat-radio-group formControlName='gender'>\n                <mat-radio-button value='1'>Male</mat-radio-button>\n                <mat-radio-button value='2'>Female</mat-radio-button>\n                <mat-radio-button value='3'>Other</mat-radio-button>\n              </mat-radio-group>\n            </div>\n            <mat-form-field>\n              <mat-select formControlName='department' placeholder='Department'>\n                <mat-option>None</mat-option>\n                <ng-container *ngFor='let department of departments'>\n                  <mat-option value='{{department.id}}'>{{department.value}}</mat-option>\n                </ng-container>\n              </mat-select>\n            </mat-form-field>\n            <mat-form-field>\n              <input formControlName='hireDate' matInput [matDatepicker]='picker' placeholder='Hire Date'>\n              <mat-datepicker-toggle matSuffix [for]='picker'></mat-datepicker-toggle>\n              <mat-datepicker #picker></mat-datepicker>\n            </mat-form-field>\n            <div class='add-bottom-padding'>\n              <mat-checkbox formControlName='isPermanent'>Permanent Employee</mat-checkbox>\n            </div>\n          </div>\n        </mat-grid-tile>\n      </mat-grid-list>\n    </form>\n  </mat-card-content>\n  <mat-card-actions align='right'>\n    <button mat-raised-button color='primary' type='submit' [disabled]='empForm.invalid'>Submit</button>\n    <button mat-raised-button color='warn' (click)='onClear()'>Clear</button>\n  </mat-card-actions>\n</mat-card-->"
 
 /***/ }),
 
@@ -472,15 +438,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import { patternValidator } from '../../../util/patternValidator';
 
 var LoginComponent = /** @class */ (function () {
-    // empForm: FormGroup; // 2018-12-15 tutorial
-    // departments = [
-    //   { id: 1, value: 'Dep 1' },
-    //   { id: 2, value: 'Dep 2' },
-    //   { id: 3, value: 'Dep 3' }
-    // ];
     function LoginComponent(formBuilder, router, authSvc) {
         this.formBuilder = formBuilder;
         this.router = router;
@@ -493,22 +452,7 @@ var LoginComponent = /** @class */ (function () {
         this.loginForm = this.formBuilder.group({
             email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email]],
             password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(5), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(20)]]
-            // email: ['', [Validators.required, patternValidator(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/), , Validators.minLength(2)]],
-            // password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]]
         });
-        // this.empForm = this.formBuilder.group(
-        //   {
-        //     $key: [null],
-        //     fullName: ['', Validators.required ],
-        //     email: ['', Validators.email ],
-        //     mobile: ['', [ Validators.required, Validators.minLength(8) ] ],
-        //     city: [''],
-        //     gender: ['1'],
-        //     department: [0],
-        //     hireDate: [''],
-        //     isPermanent: false
-        //   }
-        // );
     };
     LoginComponent.prototype.ngOnInit = function () { };
     LoginComponent.prototype.login = function () {

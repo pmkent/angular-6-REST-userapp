@@ -2,12 +2,12 @@ package com.pmk.app.util;
 
 import com.pmk.app.model.Credentials;
 //import com.pmk.app.model.UserRole;
-//import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import javax.ws.rs.core.UriInfo;
-//import java.io.UnsupportedEncodingException;
+import java.io.UnsupportedEncodingException;
 import java.security.Key;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -97,11 +97,8 @@ public class TokenUtil {
         }
         return hash.toString();
     }
-    /**/
-}
 
-/*
-    /* 2018-1-31 *
+    /* 2018-1-31 */
     public static String getUserEmailFromToken(String token) {
         try {
             Claims claims = Jwts.parser()
@@ -123,15 +120,38 @@ public class TokenUtil {
                     .setSigningKey(JWT_SECRET.getBytes("UTF-8"))
                     .parseClaimsJws(token) // io.jsonwebtoken.ExpiredJwtException: JWT expired at 2018-12-11T21:28:54Z. Current time: 2018-12-11T21:29:03Z, a difference of 9864 milliseconds.  Allowed clock skew: 0 milliseconds.
                     .getBody();
-            String email = claims.getSubject();
-            for (UserRole r: roles) {
-                for (String uname: r.getUsers()) {
-                    if (uname.equals(email)) tokenRoles.add(r.getName());
-                }
-            }
+//            String email = claims.getSubject();
+//            for (UserRole r: roles) {
+//                for (String uname: r.getUsers()) {
+//                    if (uname.equals(email)) tokenRoles.add(r.getName());
+//                }
+//            }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         return tokenRoles;
+    } // end: getRolesFromToken() method
+    /**/
+}
+
+/*
+/* 2018-1-31 *
+public static Set<String> getRolesFromToken(String token, List<UserRole> roles) {
+    Set<String> tokenRoles = new HashSet<>();
+    try {
+        Claims claims = Jwts.parser()
+                .setSigningKey(JWT_SECRET.getBytes("UTF-8"))
+                .parseClaimsJws(token) // io.jsonwebtoken.ExpiredJwtException: JWT expired at 2018-12-11T21:28:54Z. Current time: 2018-12-11T21:29:03Z, a difference of 9864 milliseconds.  Allowed clock skew: 0 milliseconds.
+                .getBody();
+        String email = claims.getSubject();
+        for (UserRole r: roles) {
+            for (String uname: r.getUsers()) {
+                if (uname.equals(email)) tokenRoles.add(r.getName());
+            }
+        }
+    } catch (UnsupportedEncodingException e) {
+        e.printStackTrace();
     }
+    return tokenRoles;
+} // end: getRolesFromToken() method
 */
