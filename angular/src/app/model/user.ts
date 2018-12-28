@@ -1,9 +1,25 @@
+import { Address } from './address.model';
+import { Phone } from './phone.model';
+import { Email } from './email.model';
+
 export class User {
-    id: number;
+    id: string;
+
+    userId: number;
+    username: string;
     firstName: string;
     lastName: string;
-    email: string;
     password: string;
     token: string;
-    roles: Set<string>;
+    addresses: Address[];
+    roles: string[];
+    country: string;
+    website: string;
+    phones: Phone[];
+    emails: Email[];
+
+    createDt: Date;
+    updateDt: Date;
+    updateBy: string;
+    deleteDt: Date;
 }

@@ -11,7 +11,6 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
 
-
 /**
  * Created by phil on 1/14/2018.
  */
@@ -37,7 +36,8 @@ public class UserEndpoint {
             return Response.status(500).entity("Authorization token needed.").build();
 
         List<User> usrLst = getUserService().getUsers(authorization);
-        if ( (usrLst.size() == 1) && (usrLst.get(0).getId() == 0) ) // Poor error handling
+        System.out.println("UsrREST:getUsers: returning : >"+usrLst+"<");
+        if (usrLst == null)
             return Response.status(500).entity("io.jsonwebtoken.ExpiredJwtException: JWT expired").build();
         else
             return Response.ok(usrLst).build();
@@ -53,22 +53,31 @@ public class UserEndpoint {
     }
 
     @GET
-    @Path("{id}")
+    @Path("{userId}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getUser(@PathParam("id") String id) {
-        return Response.status(200).entity(getUserService().getUserById(id)).build();
+    public Response getUser(@PathParam("userId") String userId) {
+        return Response.status(200).entity(getUserService().getUserByUserId(userId)).build();
     }
-
+//    @GET
+//    @Path("/logged-in-user")
+//    @Consumes(MediaType.APPLICATION_JSON)
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public Response getLoggedInUser() {
+//        return Response.status(200).entity(getUserService().getLoggedInUser()).build();
+//    }
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addUser(User user) {
-        System.out.println("UsrREST:addUser() Creating new use : "+user);
+        System.out.println("\nUsrREST:addUser() Creating new use : "+user);
         User newUser = getUserService().addUser(user);
-        System.out.println("Just created new user : "+newUser);
+        System.out.println("Just created new user : "+newUser+"\n");
 
-        return Response.status(201).entity(user).build();
+        if (newUser == null)
+            return Response.status(403).entity("OOPS! Username "+user.getUsername()+" Exists.").build();
+        else
+            return Response.status(201).entity(user).build();
     }
 
     @PUT
@@ -81,9 +90,19 @@ public class UserEndpoint {
     }
 
     @DELETE
-    @Path("/{id}")
+    @Path("/{userId}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response deleteUser(@PathParam("id") String id) {
-        return Response.ok(getUserService().deleteUser(id)).build();
+    public Response deleteUser(@PathParam("userId") String userId) {
+        System.out.println("UsrREST:deleteUser userId : "+userId);
+        getUserService().deleteUser(userId);
+        return Response.status(201).entity("User id "+userId+" successfully DELETED.").build();
+    }
+
+    @GET
+    @Path("/search")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response searchHeroes(@QueryParam("name") String name, @HeaderParam("Authorization") String authorization) {
+        return Response.ok(getUserService().searchUsers(name)).build();
     }
 }

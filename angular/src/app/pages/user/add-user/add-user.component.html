@@ -1,14 +1,25 @@
+<mat-card *ngIf='errorMsg'>
+  <mat-card-content align='center'>
+    <div *ngIf='errorMsg' [ngClass]="{'error': errorMsg}">
+      {{errorMsg}}
+    </div>
+  </mat-card-content>
+</mat-card>
+
 <mat-card>
-    <mat-card-title align='center'>Add User</mat-card-title>
+    <mat-card-title align='center'>
+      Add User
+      <mat-divider></mat-divider>
+    </mat-card-title>
     <mat-card-content align='center'>
       <form [formGroup]='addForm' class='login-form-container'>
   
-        <mat-form-field [ngClass]="{'error': addForm.controls['email'].errors && addForm.controls['email'].dirty}">
-          <input matInput type='text' formControlName='email' placeholder='E-Mail' required>
-          <div *ngIf="addForm.controls['email'].invalid && (addForm.controls['email'].dirty || addForm.controls['email'].touched)" class='error-msg'>
-            <div *ngIf="addForm.controls['email'].errors.required">Username is required.</div>
-            <div *ngIf="addForm.controls['email'].errors.minlength">Username must be at least 2 characters long.</div>
-            <div *ngIf="addForm.controls['email'].errors.patternInvalid">Username must be a valid E-Mail address.</div>
+        <mat-form-field [ngClass]="{'error': addForm.controls['username'].errors && addForm.controls['username'].dirty}">
+          <input matInput type='text' formControlName='username' placeholder='E-Mail' required>
+          <div *ngIf="addForm.controls['username'].invalid && (addForm.controls['username'].dirty || addForm.controls['username'].touched)" class='error-msg'>
+            <div *ngIf="addForm.controls['username'].errors.required">Username is required.</div>
+            <div *ngIf="addForm.controls['username'].errors.minlength">Username must be at least 2 characters long.</div>
+            <div *ngIf="addForm.controls['username'].errors.patternInvalid">Username must be a valid E-Mail address.</div>
           </div>
         </mat-form-field>
   
@@ -38,6 +49,7 @@
       </form>
     </mat-card-content>
     <mat-card-actions align='right'>
+        <a mat-raised-button routerLink='/list-user'>Cancel</a>
         <button mat-raised-button color='accent' class='btn' [disabled]='addForm.invalid' (click)='onSubmit()'>Add User</button>
     </mat-card-actions>
   </mat-card>

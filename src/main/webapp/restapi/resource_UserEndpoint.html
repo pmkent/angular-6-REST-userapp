@@ -55,8 +55,8 @@
           <li><a href="#resource_UserEndpoint_addUser_POST"><abbr title="POST /user"><span class="sideoverflow">POST /user</span></abbr></a></li>
           <li><a href="#resource_UserEndpoint_updateUser_PUT"><abbr title="PUT /user"><span class="sideoverflow">PUT /user</span></abbr></a></li>
           <li><a href="#resource_UserEndpoint_authenticate_POST"><abbr title="POST /user/login"><span class="sideoverflow">POST /user/login</span></abbr></a></li>
-          <li><a href="#resource_UserEndpoint_deleteUser_DELETE"><abbr title="DELETE /user/{id}"><span class="sideoverflow">DELETE /user/{id}</span></abbr></a></li>
-          <li><a href="#resource_UserEndpoint_getUser_GET"><abbr title="GET /user/{id}"><span class="sideoverflow">GET /user/{id}</span></abbr></a></li>
+          <li><a href="#resource_UserEndpoint_deleteUser_DELETE"><abbr title="DELETE /user/{userId}"><span class="sideoverflow">DELETE /user/{userId}</span></abbr></a></li>
+          <li><a href="#resource_UserEndpoint_getUser_GET"><abbr title="GET /user/{userId}"><span class="sideoverflow">GET /user/{userId}</span></abbr></a></li>
           <li class="divider"></li>
           <li class="text-right"><a href="#top"><small>Back to Top</small></a></li>
         </ul>
@@ -195,14 +195,58 @@ Accept: application/json
 
                 <code class="prettyprint language-js">
 {
-  &quot;email&quot; : &quot;...&quot;,
-  &quot;password&quot; : &quot;...&quot;,
-  &quot;id&quot; : 12345,
+  &quot;userId&quot; : 12345,
+  &quot;username&quot; : &quot;...&quot;,
   &quot;firstName&quot; : &quot;...&quot;,
   &quot;lastName&quot; : &quot;...&quot;,
+  &quot;password&quot; : &quot;...&quot;,
   &quot;token&quot; : &quot;...&quot;,
+  &quot;addresses&quot; : [ {
+    &quot;addressId&quot; : 12345,
+    &quot;street&quot; : &quot;...&quot;,
+    &quot;city&quot; : &quot;...&quot;,
+    &quot;state&quot; : &quot;...&quot;,
+    &quot;zip&quot; : &quot;...&quot;
+  }, {
+    &quot;addressId&quot; : 12345,
+    &quot;street&quot; : &quot;...&quot;,
+    &quot;city&quot; : &quot;...&quot;,
+    &quot;state&quot; : &quot;...&quot;,
+    &quot;zip&quot; : &quot;...&quot;
+  } ],
   &quot;roles&quot; : [ &quot;...&quot;, &quot;...&quot; ],
-  &quot;showpassword&quot; : &quot;...&quot;
+  &quot;country&quot; : &quot;...&quot;,
+  &quot;website&quot; : &quot;...&quot;,
+  &quot;phones&quot; : [ {
+    &quot;phoneId&quot; : 12345,
+    &quot;number&quot; : &quot;...&quot;,
+    &quot;type&quot; : &quot;...&quot;,
+    &quot;areaCode&quot; : &quot;...&quot;,
+    &quot;extension&quot; : &quot;...&quot;,
+    &quot;primary&quot; : true
+  }, {
+    &quot;phoneId&quot; : 12345,
+    &quot;number&quot; : &quot;...&quot;,
+    &quot;type&quot; : &quot;...&quot;,
+    &quot;areaCode&quot; : &quot;...&quot;,
+    &quot;extension&quot; : &quot;...&quot;,
+    &quot;primary&quot; : true
+  } ],
+  &quot;emails&quot; : [ {
+    &quot;type&quot; : &quot;...&quot;,
+    &quot;value&quot; : &quot;...&quot;,
+    &quot;primary&quot; : true
+  }, {
+    &quot;type&quot; : &quot;...&quot;,
+    &quot;value&quot; : &quot;...&quot;,
+    &quot;primary&quot; : true
+  } ],
+  &quot;showpassword&quot; : &quot;...&quot;,
+  &quot;id&quot; : &quot;...&quot;,
+  &quot;createDt&quot; : 12345,
+  &quot;updateDt&quot; : 12345,
+  &quot;updateBy&quot; : &quot;...&quot;,
+  &quot;deleteDt&quot; : 12345
 }
                 </code>
               </pre>
@@ -275,14 +319,58 @@ Accept: application/json
 
                 <code class="prettyprint language-js">
 {
-  &quot;email&quot; : &quot;...&quot;,
-  &quot;password&quot; : &quot;...&quot;,
-  &quot;id&quot; : 12345,
+  &quot;userId&quot; : 12345,
+  &quot;username&quot; : &quot;...&quot;,
   &quot;firstName&quot; : &quot;...&quot;,
   &quot;lastName&quot; : &quot;...&quot;,
+  &quot;password&quot; : &quot;...&quot;,
   &quot;token&quot; : &quot;...&quot;,
+  &quot;addresses&quot; : [ {
+    &quot;addressId&quot; : 12345,
+    &quot;street&quot; : &quot;...&quot;,
+    &quot;city&quot; : &quot;...&quot;,
+    &quot;state&quot; : &quot;...&quot;,
+    &quot;zip&quot; : &quot;...&quot;
+  }, {
+    &quot;addressId&quot; : 12345,
+    &quot;street&quot; : &quot;...&quot;,
+    &quot;city&quot; : &quot;...&quot;,
+    &quot;state&quot; : &quot;...&quot;,
+    &quot;zip&quot; : &quot;...&quot;
+  } ],
   &quot;roles&quot; : [ &quot;...&quot;, &quot;...&quot; ],
-  &quot;showpassword&quot; : &quot;...&quot;
+  &quot;country&quot; : &quot;...&quot;,
+  &quot;website&quot; : &quot;...&quot;,
+  &quot;phones&quot; : [ {
+    &quot;phoneId&quot; : 12345,
+    &quot;number&quot; : &quot;...&quot;,
+    &quot;type&quot; : &quot;...&quot;,
+    &quot;areaCode&quot; : &quot;...&quot;,
+    &quot;extension&quot; : &quot;...&quot;,
+    &quot;primary&quot; : true
+  }, {
+    &quot;phoneId&quot; : 12345,
+    &quot;number&quot; : &quot;...&quot;,
+    &quot;type&quot; : &quot;...&quot;,
+    &quot;areaCode&quot; : &quot;...&quot;,
+    &quot;extension&quot; : &quot;...&quot;,
+    &quot;primary&quot; : true
+  } ],
+  &quot;emails&quot; : [ {
+    &quot;type&quot; : &quot;...&quot;,
+    &quot;value&quot; : &quot;...&quot;,
+    &quot;primary&quot; : true
+  }, {
+    &quot;type&quot; : &quot;...&quot;,
+    &quot;value&quot; : &quot;...&quot;,
+    &quot;primary&quot; : true
+  } ],
+  &quot;showpassword&quot; : &quot;...&quot;,
+  &quot;id&quot; : &quot;...&quot;,
+  &quot;createDt&quot; : 12345,
+  &quot;updateDt&quot; : 12345,
+  &quot;updateBy&quot; : &quot;...&quot;,
+  &quot;deleteDt&quot; : 12345
 }
                 </code>
               </pre>
@@ -374,7 +462,7 @@ Content-Type: application/json
       </div>
 
       <div id="resource_UserEndpoint_deleteUser_DELETE">
-        <h3><span class="label label-default resource-method">DELETE</span> <span class="resource-path">/user/{id} <a href="./user/{id}" class="glyphicon glyphicon-new-window" target="_blank"></a></span></h3>
+        <h3><span class="label label-default resource-method">DELETE</span> <span class="resource-path">/user/{userId} <a href="./user/{userId}" class="glyphicon glyphicon-new-window" target="_blank"></a></span></h3>
 
         <p></p>
 
@@ -389,7 +477,7 @@ Content-Type: application/json
           </thead>
           <tbody>
           <tr>
-            <td><span class="parameter-name">id</span></td>
+            <td><span class="parameter-name">userId</span></td>
             <td>path</td>
             <td><span class="parameter-description"></span></td>
           </tr>
@@ -421,7 +509,7 @@ Content-Type: application/json
             <div class="col-md-6">
               <h5>Request</h5>
               <pre>
-DELETE /user/{id}
+DELETE /user/{userId}
 Accept: application/json
 
               </pre>
@@ -442,7 +530,7 @@ Content-Type: application/json
       </div>
 
       <div id="resource_UserEndpoint_getUser_GET">
-        <h3><span class="label label-default resource-method">GET</span> <span class="resource-path">/user/{id} <a href="./user/{id}" class="glyphicon glyphicon-new-window" target="_blank"></a></span></h3>
+        <h3><span class="label label-default resource-method">GET</span> <span class="resource-path">/user/{userId} <a href="./user/{userId}" class="glyphicon glyphicon-new-window" target="_blank"></a></span></h3>
 
         <p></p>
 
@@ -457,7 +545,7 @@ Content-Type: application/json
           </thead>
           <tbody>
           <tr>
-            <td><span class="parameter-name">id</span></td>
+            <td><span class="parameter-name">userId</span></td>
             <td>path</td>
             <td><span class="parameter-description"></span></td>
           </tr>
@@ -489,7 +577,7 @@ Content-Type: application/json
             <div class="col-md-6">
               <h5>Request</h5>
               <pre>
-GET /user/{id}
+GET /user/{userId}
 Accept: application/json
 
               </pre>

@@ -2,12 +2,13 @@
   <mat-card-title align='center'>Edit User</mat-card-title>
   <mat-card-content align='center'>
     <form [formGroup]='editForm' class='login-form-container'>
-      <mat-form-field [ngClass]="{'error': editForm.controls['email'].errors && editForm.controls['email'].dirty}">
-        <input matInput type='text' formControlName='email' placeholder='E-Mail' required>
-        <div *ngIf="editForm.controls['email'].invalid && (editForm.controls['email'].dirty || editForm.controls['email'].touched)" class='error-msg'>
-          <div *ngIf="editForm.controls['email'].errors.required">Username is required.</div>
-          <div *ngIf="editForm.controls['email'].errors.minlength">Username must be at least 2 characters long.</div>
-          <div *ngIf="editForm.controls['email'].errors.patternInvalid">Username must be a valid E-Mail address.</div>
+      <input type='hidden' formControlName='userId'> <!-- 2018-12-22 -->
+      <mat-form-field [ngClass]="{'error': editForm.controls['username'].errors && editForm.controls['username'].dirty}">
+        <input matInput type='text' formControlName='username' placeholder='E-Mail' required>
+        <div *ngIf="editForm.controls['username'].invalid && (editForm.controls['username'].dirty || editForm.controls['username'].touched)" class='error-msg'>
+          <div *ngIf="editForm.controls['username'].errors.required">Username is required.</div>
+          <div *ngIf="editForm.controls['username'].errors.minlength">Username must be at least 2 characters long.</div>
+          <div *ngIf="editForm.controls['username'].errors.patternInvalid">Username must be a valid E-Mail address.</div>
         </div>
       </mat-form-field>
       <mat-form-field [ngClass]="{'error': editForm.controls['firstName'].errors && editForm.controls['firstName'].dirty}">
@@ -31,6 +32,7 @@
     </form>
   </mat-card-content>
   <mat-card-actions align='right'>
+      <a mat-raised-button routerLink='/list-user'>Cancel</a>
       <button mat-raised-button color='accent' class='btn' [disabled]='editForm.invalid' (click)='onSubmit()'>Update User</button>
   </mat-card-actions>
 </mat-card>

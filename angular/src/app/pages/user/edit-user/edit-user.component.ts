@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { User } from '../../../model/user';
-import {FormBuilder, FormGroup, Validators, AbstractControl, ValidatorFn} from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../../service/user.service';
 import { first } from 'rxjs/operators';
-
-import { patternValidator } from '../../../util/patternValidator';
 import { forbiddenNameValidator } from '../../../util/forbiddenNameValidator';
 
 @Component({
@@ -18,12 +16,13 @@ export class EditUserComponent implements OnInit {
 
   user: User;
   editForm: FormGroup;
-  inputType: string = 'password';
+  inputType: string; // inputType: string = 'password';
 
   constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
-    let userId = localStorage.getItem('editUserId');
+    this.inputType = 'password';
+    const userId = localStorage.getItem('editUserId');
 
     if (!userId) {
       alert('Invalid action.');
@@ -33,21 +32,35 @@ export class EditUserComponent implements OnInit {
 
     this.editForm = this.formBuilder.group(
       {
-        id: [],
-        firstName: ['', [Validators.required, Validators.minLength(2), forbiddenNameValidator(/bob/i)]],
-        lastName: ['', [Validators.required, Validators.minLength(2)]],
-        email: ['', [Validators.required, patternValidator(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
-        password: ['', [Validators.required, Validators.minLength(5)]], // password: ['password', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
-        token: [''],
-        roles: [{}],
-        showpassword: ''
+        id: [ '' ],
+
+        userId: [ 0 ],
+        username: [ '', [Validators.required, Validators.email] ], // 2018-12-22
+        firstName: [ '', [Validators.required, Validators.minLength(2), forbiddenNameValidator(/bob/i)] ],
+        lastName: [ '', [Validators.required, Validators.minLength(2)] ],
+        password: ['', [Validators.required, Validators.minLength(5)] ],
+        token: [ '' ],
+        addresses: [ null ],
+        roles: [ null ],
+        country: [ '' ],
+        website: [ '' ],
+        phones: [ null ],
+        emails: [ null ],
+        showpassword: 'text', // bug fix, must add to backend User POJO
+
+        createDt: [ null ],
+        updateDt: [ null ],
+        updateBy: [ '' ],
+        deleteDt: [ null ]
       }
     );
+
+    console.log('%%% User Id is >' + +userId + '<');
 
     this.userService.getUserById(+userId)
       .subscribe(
         data => {
-          console.log('Edit:Usr '+JSON.stringify(data));
+          console.log('Edit:Usr ngOnInit ' + JSON.stringify(data));
           this.editForm.setValue(data);
         }
       );
@@ -58,18 +71,19 @@ export class EditUserComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          console.log('Edit:Usr onSubmit ' + JSON.stringify(data));
           this.router.navigate(['list-user']);
         },
         error => {
           alert(error);
         }
-      )
+      );
   }
 
   hideShowPassword() {
-    if (this.inputType == 'password') {
+    if (this.inputType === 'password') {
       this.inputType = 'text';
-    } else if (this.inputType == 'text') {
+    } else if (this.inputType === 'text') {
       this.inputType = 'password';
     }
   }

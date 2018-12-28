@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Injector, ErrorHandler } from '@angular/core';
-
-import 'hammerjs';
+import { NgModule } from '@angular/core';
+// import { NgModule, Injector, ErrorHandler } from '@angular/core';
+// import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +16,7 @@ import { UserService } from './service/user.service';
 import { ReactiveFormsModule } from '@angular/forms'; // bug fix
 import { AngularMaterialModule } from './angular-material.module';
 import { HeaderComponent } from './pages/header/header.component';
-import { FooterComponent } from './pages/footer/footer.component'; 
+import { FooterComponent } from './pages/footer/footer.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './pages/security/registration/registration.component';
@@ -42,12 +42,12 @@ import { httpInterceptorProviders } from './util/index';
     ReactiveFormsModule,
     AngularMaterialModule,
     BrowserAnimationsModule, // bug fix
-    HttpClientModule    
+    HttpClientModule
   ],
+  // entryComponents: [ HeaderComponent ], // popup dialog
   providers: [
     UserService,
     AuthService,
-    // { provide: ErrorHandler, useClass: ErrorsHandler },
     httpInterceptorProviders
   ],
   bootstrap: [AppComponent]

@@ -1,5 +1,14 @@
-<mat-toolbar color='primary'>
-  <button mat-icon-button routerLink='/login'>
+<mat-toolbar style='height:20px;'>
+  <span class='spacer'></span>
+  <div *ngIf='authSvc.loggedInUser' class='hint-msg'>Your are logged in as:  {{authSvc.loggedInUser.lastName}}, {{authSvc.loggedInUser.firstName}}</div>
+  <div *ngIf='!authSvc.loggedInUser' class='hint-msg'>You are NOT logged in!</div>
+  <span class='spacer'></span>
+  <div class='hint-msg' *ngIf='authSvc.loggedInUser'><a routerLink='/login'>Logout</a></div>
+  <div class='hint-msg' *ngIf='!authSvc.loggedInUser'><a routerLink='/login'>Login</a></div>
+</mat-toolbar>
+
+<mat-toolbar color='primary' style='height:40px;'>
+  <button mat-icon-button routerLink='/list-user'>
     <mat-icon>home</mat-icon>
   </button>  
   <span class='spacer'></span>

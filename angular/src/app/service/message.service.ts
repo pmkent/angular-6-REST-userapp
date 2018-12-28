@@ -16,10 +16,10 @@ export class MessageService {
       event => {
         if (event instanceof NavigationStart) {
           if (this.keepAfterNavigationChange) {
-            //only keep for a single location change
+            // only keep for a single location change
             this.keepAfterNavigationChange = false;
           } else {
-            //clear alert
+            // clear alert
             this.subject.next();
           }
         }
@@ -28,13 +28,13 @@ export class MessageService {
   }
 
   success(message: string, keepAfterNavigationChange = false) {
-    console.log('MsgSvc:success() msg : '+message);
+    console.log('MsgSvc:success() msg : ' + message);
     this.keepAfterNavigationChange = keepAfterNavigationChange;
     this.subject.next({ type: 'success', text: message });
   }
 
   error(message: string, keepAfterNavigationChange = false) {
-    console.log('MsgSvc:error() msg : '+message);
+    console.log('MsgSvc:error() msg : ' + message);
     this.keepAfterNavigationChange = keepAfterNavigationChange;
     this.subject.next({ type: 'error', text: message });
   }

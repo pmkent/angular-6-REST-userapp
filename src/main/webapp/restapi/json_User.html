@@ -80,27 +80,18 @@
         </thead>
         <tbody>
         <tr>
-          <td>  <span class="property-name">email</span>
-</td>
-          <td>  <span class="datatype-reference">string
-</span>
-</td>
-          <td>  <span class="property-description"></span>
-</td>
-        </tr>
-        <tr>
-          <td>  <span class="property-name">password</span>
-</td>
-          <td>  <span class="datatype-reference">string
-</span>
-</td>
-          <td>  <span class="property-description"></span>
-</td>
-        </tr>
-        <tr>
-          <td>  <span class="property-name">id</span>
+          <td>  <span class="property-name">userId</span>
 </td>
           <td>  <span class="datatype-reference">number
+</span>
+</td>
+          <td>  <span class="property-description"></span>
+</td>
+        </tr>
+        <tr>
+          <td>  <span class="property-name">username</span>
+</td>
+          <td>  <span class="datatype-reference">string
 </span>
 </td>
           <td>  <span class="property-description"></span>
@@ -125,9 +116,27 @@
 </td>
         </tr>
         <tr>
+          <td>  <span class="property-name">password</span>
+</td>
+          <td>  <span class="datatype-reference">string
+</span>
+</td>
+          <td>  <span class="property-description"></span>
+</td>
+        </tr>
+        <tr>
           <td>  <span class="property-name">token</span>
 </td>
           <td>  <span class="datatype-reference">string
+</span>
+</td>
+          <td>  <span class="property-description"></span>
+</td>
+        </tr>
+        <tr>
+          <td>  <span class="property-name">addresses</span>
+</td>
+          <td>  <span class="datatype-reference">array of <a href="json_Address.html">Address</a>
 </span>
 </td>
           <td>  <span class="property-description"></span>
@@ -143,6 +152,42 @@
 </td>
         </tr>
         <tr>
+          <td>  <span class="property-name">country</span>
+</td>
+          <td>  <span class="datatype-reference">string
+</span>
+</td>
+          <td>  <span class="property-description"></span>
+</td>
+        </tr>
+        <tr>
+          <td>  <span class="property-name">website</span>
+</td>
+          <td>  <span class="datatype-reference">string
+</span>
+</td>
+          <td>  <span class="property-description"></span>
+</td>
+        </tr>
+        <tr>
+          <td>  <span class="property-name">phones</span>
+</td>
+          <td>  <span class="datatype-reference">array of <a href="json_Phone.html">Phone</a>
+</span>
+</td>
+          <td>  <span class="property-description"></span>
+</td>
+        </tr>
+        <tr>
+          <td>  <span class="property-name">emails</span>
+</td>
+          <td>  <span class="datatype-reference">array of <a href="json_Email.html">Email</a>
+</span>
+</td>
+          <td>  <span class="property-description"></span>
+</td>
+        </tr>
+        <tr>
           <td>  <span class="property-name">showpassword</span>
 </td>
           <td>  <span class="datatype-reference">string
@@ -152,19 +197,98 @@
 </td>
         </tr>
         </tbody>
+        <tr>
+          <td colspan="3"><h5 class="text-muted">Properties inherited from <a href="json_DAOBean.html">DAOBean</a></h5></td>
+        </tr>
+        <tbody>
+        <tr>
+          <td><span class="property-name">id</span></td>
+          <td><span class="datatype-reference">string
+</span></td>
+          <td><span class="property-description"></span></td>
+        </tr>
+        <tr>
+          <td><span class="property-name">createDt</span></td>
+          <td><span class="datatype-reference">number
+</span></td>
+          <td><span class="property-description"></span></td>
+        </tr>
+        <tr>
+          <td><span class="property-name">updateDt</span></td>
+          <td><span class="datatype-reference">number
+</span></td>
+          <td><span class="property-description"></span></td>
+        </tr>
+        <tr>
+          <td><span class="property-name">updateBy</span></td>
+          <td><span class="datatype-reference">string
+</span></td>
+          <td><span class="property-description"></span></td>
+        </tr>
+        <tr>
+          <td><span class="property-name">deleteDt</span></td>
+          <td><span class="datatype-reference">number
+</span></td>
+          <td><span class="property-description"></span></td>
+        </tr>
+        </tbody>
       </table>
 
       <p class="lead">Example</p>
       
       <pre class="prettyprint language-js example">{
-  &quot;email&quot; : &quot;...&quot;,
-  &quot;password&quot; : &quot;...&quot;,
-  &quot;id&quot; : 12345,
+  &quot;userId&quot; : 12345,
+  &quot;username&quot; : &quot;...&quot;,
   &quot;firstName&quot; : &quot;...&quot;,
   &quot;lastName&quot; : &quot;...&quot;,
+  &quot;password&quot; : &quot;...&quot;,
   &quot;token&quot; : &quot;...&quot;,
+  &quot;addresses&quot; : [ {
+    &quot;addressId&quot; : 12345,
+    &quot;street&quot; : &quot;...&quot;,
+    &quot;city&quot; : &quot;...&quot;,
+    &quot;state&quot; : &quot;...&quot;,
+    &quot;zip&quot; : &quot;...&quot;
+  }, {
+    &quot;addressId&quot; : 12345,
+    &quot;street&quot; : &quot;...&quot;,
+    &quot;city&quot; : &quot;...&quot;,
+    &quot;state&quot; : &quot;...&quot;,
+    &quot;zip&quot; : &quot;...&quot;
+  } ],
   &quot;roles&quot; : [ &quot;...&quot;, &quot;...&quot; ],
-  &quot;showpassword&quot; : &quot;...&quot;
+  &quot;country&quot; : &quot;...&quot;,
+  &quot;website&quot; : &quot;...&quot;,
+  &quot;phones&quot; : [ {
+    &quot;phoneId&quot; : 12345,
+    &quot;number&quot; : &quot;...&quot;,
+    &quot;type&quot; : &quot;...&quot;,
+    &quot;areaCode&quot; : &quot;...&quot;,
+    &quot;extension&quot; : &quot;...&quot;,
+    &quot;primary&quot; : true
+  }, {
+    &quot;phoneId&quot; : 12345,
+    &quot;number&quot; : &quot;...&quot;,
+    &quot;type&quot; : &quot;...&quot;,
+    &quot;areaCode&quot; : &quot;...&quot;,
+    &quot;extension&quot; : &quot;...&quot;,
+    &quot;primary&quot; : true
+  } ],
+  &quot;emails&quot; : [ {
+    &quot;type&quot; : &quot;...&quot;,
+    &quot;value&quot; : &quot;...&quot;,
+    &quot;primary&quot; : true
+  }, {
+    &quot;type&quot; : &quot;...&quot;,
+    &quot;value&quot; : &quot;...&quot;,
+    &quot;primary&quot; : true
+  } ],
+  &quot;showpassword&quot; : &quot;...&quot;,
+  &quot;id&quot; : &quot;...&quot;,
+  &quot;createDt&quot; : 12345,
+  &quot;updateDt&quot; : 12345,
+  &quot;updateBy&quot; : &quot;...&quot;,
+  &quot;deleteDt&quot; : 12345
 }</pre>
 
         <footer class="footer">

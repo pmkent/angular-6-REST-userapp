@@ -66,7 +66,7 @@
       </wadl:method>
     </wadl:resource>
 
-    <wadl:resource path="user/{id}">
+    <wadl:resource path="user/{userId}">
       <wadl:method name="GET">
         <wadl:doc><![CDATA[]]></wadl:doc>
         <wadl:request>
@@ -76,12 +76,12 @@
           <wadl:representation mediaType="application/json"/>
         </wadl:response>
       </wadl:method>
-      <wadl:param name="id" style="template">
+      <wadl:param name="userId" style="template">
         <wadl:doc><![CDATA[]]></wadl:doc>
       </wadl:param>
     </wadl:resource>
 
-    <wadl:resource path="user/{id}">
+    <wadl:resource path="user/{userId}">
       <wadl:method name="DELETE">
         <wadl:doc><![CDATA[]]></wadl:doc>
         <wadl:request>
@@ -91,7 +91,7 @@
           <wadl:representation mediaType="application/json"/>
         </wadl:response>
       </wadl:method>
-      <wadl:param name="id" style="template">
+      <wadl:param name="userId" style="template">
         <wadl:doc><![CDATA[]]></wadl:doc>
       </wadl:param>
     </wadl:resource>

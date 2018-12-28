@@ -18,21 +18,48 @@ export class ErrorInterceptor implements HttpInterceptor {
 
     constructor(private injector: Injector) {}
 
-    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        // return next.handle(req);
-        return next.handle(req)
+    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        // return next.handle(request);
+        //////////////////////////
+        // const idToken = localStorage.getItem('id_token');
+
+        // if (idToken) {
+        //     const cloned = request.clone({
+        //         headers: request.headers.set('Authorization',
+        //             'Bearer ' + idToken)
+        //     });
+
+        //     return next.handle(cloned);
+        // } else {
+        //     return next.handle(request);
+        // }
+        ////////////////////////
+
+        // Let's then break down how this code works line by line:
+        // 1. we first start by retrieving the JWT string from Local Storage directly
+        // 2. then we are going to check if the JWT is present
+        // 3. if the JWT is not present, then the request goes through to the server unmodified
+        // 4. if the JWT is present, then we will clone the HTTP headers, and add an extra Authorization header, which will contain the JWT
+
+        ///////////////////////////////
+        return next.handle(request)
             .pipe(
                 tap(
                     (event: HttpEvent<any>) => {
-                        if(event instanceof HttpResponse){
+                        if (event instanceof HttpResponse) {
                             // if the token is valid
                         }
                     },
                     (error: any) => {
                         // if the token has expired.
-                        if(error instanceof HttpErrorResponse) {
-                            if(error.status === 401){
-                                // this is where you can do anything like navigating  
+                        if (error instanceof HttpErrorResponse) {
+                            if (error.status === 401) {
+                                // this is where you can do anything like navigating
+                                this.router.navigateByUrl('/login'); // send user to login 2018-12-24
+                            }
+                            if (error.status === 403) {
+                                // this is where you can do anything like navigating
+                                this.router.navigateByUrl('/register'); // send user to registration page 2018-12-24
                             }
                             if (error.status === 500) {
                                 this.router.navigateByUrl('/login');
@@ -40,32 +67,15 @@ export class ErrorInterceptor implements HttpInterceptor {
                             console.error(
                                 `ErrIntercept: Backend returned code ${error.status}, ` +
                                 `body was: ${error.error}`
-                            );                            
+                            );
                         }
                     }
                 )
             );
+            ////////////////
     }
 
-    // handleError(error: HttpErrorResponse) {
-    //     if (error.error instanceof ErrorEvent) {
-    //       // A client-side or network error occurred. Handle it accordingly.
-    //       console.error('An error occurred:', error.error.message);
-    //     } else {
-    //       // The backend returned an unsuccessful response code.
-    //       // The response body may contain clues as to what went wrong,
-    //       console.error(
-    //         `Backend returned code 3333 ${error.status}, ` +
-    //         `body was: ${error.error}`);
-    //         // this.router.navigate(['login']);
-    //         this.router.navigateByUrl('/login');
-    //     }
-    //     // return an observable with a user-facing error message
-    //     return throwError(
-    //       '222:Something bad happened; please try again later.');
-    //   };
-
-    public get router(): Router { //this creates router property on your service.
+    public get router(): Router { // this creates router property on your service.
         return this.injector.get(Router);
     }
 }

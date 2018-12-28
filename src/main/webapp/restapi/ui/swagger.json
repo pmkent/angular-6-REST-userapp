@@ -15,24 +15,178 @@
     }
   ],
   "definitions" : {
-    "json_User" : {
+    "json_Address" : {
       "type" : "object",
-      "title" : "User",
+      "title" : "Address",
           "properties" : {
-            "email" : {
-            "readOnly" : false,
-"description" : "",
-"type" : "string"
-            },
-            "password" : {
-            "readOnly" : false,
-"description" : "",
-"type" : "string"
-            },
-            "id" : {
+            "addressId" : {
             "readOnly" : false,
 "description" : "",
 "type" : "number"
+            },
+            "street" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            },
+            "city" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            },
+            "state" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            },
+            "zip" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            }
+          },
+      "example" : {
+  "addressId" : 12345,
+  "street" : "...",
+  "city" : "...",
+  "state" : "...",
+  "zip" : "..."
+},
+      "description" : "2018-12-21"
+    }
+    ,
+    "json_DAOBean" : {
+      "type" : "object",
+      "title" : "DAOBean",
+          "properties" : {
+            "id" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            },
+            "createDt" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "number"
+            },
+            "updateDt" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "number"
+            },
+            "updateBy" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            },
+            "deleteDt" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "number"
+            }
+          },
+      "example" : {
+  "id" : "...",
+  "createDt" : 12345,
+  "updateDt" : 12345,
+  "updateBy" : "...",
+  "deleteDt" : 12345
+},
+      "description" : "2018-12-21"
+    }
+    ,
+    "json_Email" : {
+      "type" : "object",
+      "title" : "Email",
+          "properties" : {
+            "type" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            },
+            "value" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            },
+            "primary" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "boolean"
+            }
+          },
+      "example" : {
+  "type" : "...",
+  "value" : "...",
+  "primary" : true
+},
+      "description" : "2018-12-21"
+    }
+    ,
+    "json_Phone" : {
+      "type" : "object",
+      "title" : "Phone",
+          "properties" : {
+            "phoneId" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "number"
+            },
+            "number" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            },
+            "type" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            },
+            "areaCode" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            },
+            "extension" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            },
+            "primary" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "boolean"
+            }
+          },
+      "example" : {
+  "phoneId" : 12345,
+  "number" : "...",
+  "type" : "...",
+  "areaCode" : "...",
+  "extension" : "...",
+  "primary" : true
+},
+      "description" : "2018-12-21"
+    }
+    ,
+    "json_User" : {
+      "type" : "object",
+      "title" : "User",
+      "allOf" : [
+        {
+          "$ref" : "#/definitions/json_DAOBean"
+        },
+        {
+          "properties" : {
+            "userId" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "number"
+            },
+            "username" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
             },
             "firstName" : {
             "readOnly" : false,
@@ -44,10 +198,23 @@
 "description" : "",
 "type" : "string"
             },
+            "password" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            },
             "token" : {
             "readOnly" : false,
 "description" : "",
 "type" : "string"
+            },
+            "addresses" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "array",
+"items" : {
+  "$ref" : "#/definitions/json_Address"
+}
             },
             "roles" : {
             "readOnly" : false,
@@ -57,21 +224,93 @@
   "type" : "string"
 }
             },
+            "country" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            },
+            "website" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            },
+            "phones" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "array",
+"items" : {
+  "$ref" : "#/definitions/json_Phone"
+}
+            },
+            "emails" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "array",
+"items" : {
+  "$ref" : "#/definitions/json_Email"
+}
+            },
             "showpassword" : {
             "readOnly" : false,
 "description" : "",
 "type" : "string"
             }
-          },
+          }
+        }
+      ],
       "example" : {
-  "email" : "...",
-  "password" : "...",
-  "id" : 12345,
+  "userId" : 12345,
+  "username" : "...",
   "firstName" : "...",
   "lastName" : "...",
+  "password" : "...",
   "token" : "...",
+  "addresses" : [ {
+    "addressId" : 12345,
+    "street" : "...",
+    "city" : "...",
+    "state" : "...",
+    "zip" : "..."
+  }, {
+    "addressId" : 12345,
+    "street" : "...",
+    "city" : "...",
+    "state" : "...",
+    "zip" : "..."
+  } ],
   "roles" : [ "...", "..." ],
-  "showpassword" : "..."
+  "country" : "...",
+  "website" : "...",
+  "phones" : [ {
+    "phoneId" : 12345,
+    "number" : "...",
+    "type" : "...",
+    "areaCode" : "...",
+    "extension" : "...",
+    "primary" : true
+  }, {
+    "phoneId" : 12345,
+    "number" : "...",
+    "type" : "...",
+    "areaCode" : "...",
+    "extension" : "...",
+    "primary" : true
+  } ],
+  "emails" : [ {
+    "type" : "...",
+    "value" : "...",
+    "primary" : true
+  }, {
+    "type" : "...",
+    "value" : "...",
+    "primary" : true
+  } ],
+  "showpassword" : "...",
+  "id" : "...",
+  "createDt" : 12345,
+  "updateDt" : 12345,
+  "updateBy" : "...",
+  "deleteDt" : 12345
 },
       "description" : "Created by phil on 1/14/2018."
     }
@@ -187,7 +426,7 @@
       }
     }
     ,
-    "\/user/{id}" : {
+    "\/user/{userId}" : {
       "delete" : {
         "tags" : [ "UserEndpoint" ],
         "description" : "",
@@ -195,7 +434,7 @@
         "produces" : [ "application/json" ],
         "parameters" : [
           {
-            "name" : "id",
+            "name" : "userId",
             "in" : "path",
             "required" : true,
             "type" : "string",
@@ -220,7 +459,7 @@
         "produces" : [ "application/json" ],
         "parameters" : [
           {
-            "name" : "id",
+            "name" : "userId",
             "in" : "path",
             "required" : true,
             "type" : "string",

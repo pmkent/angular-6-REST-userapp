@@ -1,14 +1,25 @@
+<mat-card *ngIf='errorMsg'>
+  <mat-card-content align='center'>
+    <div *ngIf='errorMsg' [ngClass]="{'error': errorMsg}">
+      {{errorMsg}}
+    </div>
+  </mat-card-content>
+</mat-card>
+
 <mat-card>
-    <mat-card-title align='center'>Registration Form</mat-card-title>
+    <mat-card-title align='center'>
+      Registration Form
+      <mat-divider></mat-divider>
+    </mat-card-title>
     <mat-card-content align='center'>
       <form [formGroup]='registrationForm' class='login-form-container'>
   
-        <mat-form-field [ngClass]="{'error': registrationForm.controls['email'].errors && registrationForm.controls['email'].dirty}">
-          <input matInput type='text' formControlName='email' placeholder='E-Mail' required>
-          <div *ngIf="registrationForm.controls['email'].invalid && (registrationForm.controls['email'].dirty || registrationForm.controls['email'].touched)" class='error-msg'>
-            <div *ngIf="registrationForm.controls['email'].errors.required">Username is required.</div>
-            <div *ngIf="registrationForm.controls['email'].errors.minlength">Username must be at least 2 characters long.</div>
-            <div *ngIf="registrationForm.controls['email'].errors.patternInvalid">Username must be a valid E-Mail address.</div>
+        <mat-form-field [ngClass]="{'error': registrationForm.controls['username'].errors && registrationForm.controls['username'].dirty}">
+          <input matInput type='text' formControlName='username' placeholder='E-Mail' required>
+          <div *ngIf="registrationForm.controls['username'].invalid && (registrationForm.controls['username'].dirty || registrationForm.controls['username'].touched)" class='error-msg'>
+            <div *ngIf="registrationForm.controls['username'].errors.required">Username is required.</div>
+            <div *ngIf="registrationForm.controls['username'].errors.minlength">Username must be at least 2 characters long.</div>
+            <div *ngIf="registrationForm.controls['username'].errors.patternInvalid">Username must be a valid E-Mail address.</div>
           </div>
         </mat-form-field>
   

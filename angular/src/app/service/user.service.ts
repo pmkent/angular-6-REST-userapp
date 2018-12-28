@@ -1,14 +1,10 @@
-import { Injectable, Injector } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { User } from '../model/user';
-
-import { tap, catchError } from 'rxjs/operators';
 import { AuthService } from './auth.service';
-
-import {Observable, throwError} from 'rxjs';
-
-import { Router } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -19,13 +15,11 @@ export class UserService {
 
   constructor(
     private http: HttpClient,
-    private authSvc: AuthService,
-    private router: Router
-    // private injector: Injector
+    private authSvc: AuthService
   ) {}
 
   getHeaders(): { headers: HttpHeaders } {
-    var httpOptions = {
+    const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
@@ -38,72 +32,99 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.usrUrl, this.getHeaders())
-      .pipe(
-        tap(
-          users => this.log(`fetched ${users.length} users`)),
-          // catchError(this.handleError)
-      );
+    .pipe(
+      tap(users => this.log(`Fetched all ${users.length} users.`)),
+      catchError(this.handleError('getUsers', []))
+    );
   }
 
-  // private handleError(error: HttpErrorResponse) {
-  //   //const router = Router;
-  //   if (error.error instanceof ErrorEvent) {
-  //     // A client-side or network error occurred. Handle it accordingly.
-  //     console.error('An error occurred:', error.error.message);
-  //   } else {
-  //     // The backend returned an unsuccessful response code.
-  //     // The response body may contain clues as to what went wrong,
-  //     console.error(
-  //       `Backend returned code ${error.status}, ` +
-  //       `body was: ${error.error}`);
-  //       // this.router.navigate(['login']);
-  //       this.router.navigateByUrl('/login');
-  //   }
-  //   // return an observable with a user-facing error message
-  //   return throwError('Something bad happened; please try again later.');
-  // };
-  // public get router(): Router { //this creates router property on your service.
-  //     return this.injector.get(Router);
-  // }
+  deleteUser(user: User | number): Observable<User> {
+    const userId = typeof user === 'number' ? user : user.userId;
+    const url = `${this.usrUrl}/${userId}`;
 
-  deleteUser(user: User | string): Observable<User> {
-    const id = typeof user === 'string' ? user : user.id;
-    const url = `${this.usrUrl}/${id}`;
-
-    return this.http.delete<User>(url, this.getHeaders())
-      .pipe(
-        tap(_ => this.log(`deleted user id=${id}`))
-      );
+    return this.http.delete<User>(url, this.getHeaders()).pipe(
+      tap(_ => this.log(`Deleted user userId=${userId}`)),
+      catchError(this.handleError<User>('deleteUser'))
+    );
   }
 
-  getUserById(id: number): Observable<User> {
-    const url = `${this.usrUrl}/${id}`;
+  getUserById(userId: number): Observable<User> {
+    const url = `${this.usrUrl}/${userId}`;
+    return this.http.get<User>(url, this.getHeaders()).pipe(
+      tap(_ => this.log(`Fetched one user userId=${userId}`)),
+      catchError(this.handleError<User>(`getUserById userId=${userId}`))
+    );
+  }
+
+  getUserByUsername(username: string): Observable<User> {
+    const url = `${this.usrUrl}/username/${username}`;
     return this.http.get<User>(url, this.getHeaders())
       .pipe(
-        tap(_ => this.log(`fetched user id=${id}`))
+        tap(_ => this.log(`Fetched user by username=${username}`)),
+        catchError(this.handleError<User>(`getUserByUsername username=${username}`))
       );
   }
 
   updateUser(user: User): Observable<any> {
-    return this.http.put(this.usrUrl, user, this.getHeaders())
-      .pipe(
-        tap(_ => this.log(`updated user username=${user.email}`))
-      );
-  } 
-  
-  addUser(user: User): Observable<User> {
-    return this.http.post<User>(this.usrUrl, user, this.getHeaders())
-      .pipe(
-        tap((user: User) => this.log(`added user username=${user.email}`))
-      );
+    return this.http.put(this.usrUrl, user, this.getHeaders()).pipe(
+      tap(_ => this.log(`Updated user userId=${user.userId}`)),
+      catchError(this.handleError<any>('updateUser'))
+    );
   }
 
-  createUser(user: User) {
-    return this.http.post(this.usrUrl, user);
+  addUser(user: User): Observable<User> {
+    return this.http.post<User>(this.usrUrl, user, this.getHeaders()).pipe(
+      tap((usr: User) => this.log(`Added user w/ userId=${usr.userId}`)),
+      catchError(this.handleError<User>('addUser'))
+    );
+  }
+
+  /* GET users whose name contains search term */ // TODO Test and use this
+  searchUsers(term: string): Observable<User[]> {
+    if (!term.trim()) {
+      // if not search term, return empty user array.
+      return of([]);
+    }
+    return this.http.get<User[]>(this.usrUrl + `/search?name=${term}`, this.getHeaders()).pipe(
+      tap(_ => this.log(`Found user(s) matching "${term}"`)),
+      catchError(
+        this.handleError<User[]>('searchUsers', [])
+      )
+    );
   }
 
   private log(message: string) {
-    console.log('usrSvc : '+message+'');
+    console.log('usrSvc : ' + message + '');
   }
-  
+
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+
+      if (error.status === 401) {
+        localStorage.removeItem('currentUser');
+        // this.router.navigateByUrl('/login');
+        console.log('@@@@@ Trapped authentication error');
+      } else if (error.status === 403) {
+        console.log('%%%% Trapped duplicate user error');
+      } else if (error.status === 500) {
+        console.log('#### Error 500 happened. Ooops!');
+      }
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
+
 }

@@ -15,11 +15,12 @@ public class AppUtil {
         String filename = "config.properties";
         try (InputStream input = this.getClass().getClassLoader().getResourceAsStream(filename)) {
             props.load(input);
-            String val = props.getProperty(prop);
-            System.out.println(":>: "+prop+" Property value is : "+val);
-            return val;
+            return props.getProperty(prop);
+            //String val = props.getProperty(prop);
+            //System.out.println(":>: "+prop+" Property value is : "+val);
+            //return val;
         } catch (IOException ex) {
-            System.out.println("Could not obtain properties file for "+prop);
+            System.out.println("Could not obtain property "+prop+" of "+filename);
         }
         return null;
     }

@@ -1,49 +1,73 @@
 package com.pmk.app.model;
 
+import com.pmk.app.dao.DAOBean;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
+import java.util.List;
 import java.util.Set;
 
 /**
  * Created by phil on 1/14/2018.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class User {
-
-    private int id;
+public class User extends DAOBean {
+    private int userId;
+    private String username;
     private String firstName;
     private String lastName;
-    private String email;
     private String password;
     private String token;
+    private List<Address> addresses;
+    private Set<String> roles;
+    private String country;
+    private String website;
+    private List<Phone> phones;
+    private List<Email> emails;
     private String showpassword; // 2018-12-13 Bug fix - Angular form Error: Must supply a value for form control with name: 'showpassword'.
-
-    private Set<String> roles; // 2018-12-10
 
     public User() {}
 
-    public User(String email, String password) {
-        this.email = email;
+    public User(int userId, String username, String password) {
+        this.userId = userId;
+        this.username = username;
         this.password = password;
     }
 
-    public User(int id, String firstName, String lastName, String email, String password, Set<String> roles) { // 2018-12-10
-        this.id = id;
+    //for password salt
+    public User(
+            int userId,
+            String username,
+            String firstName,
+            String lastName,
+            String password,
+            String token
+    ) {
+        this(userId,username,password);
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.roles = roles; // 2018-12-10
+        this.token = token;
     }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public User(
+            int userId,
+            String username,
+            String firstName,
+            String lastName,
+            String token
+    ) {
+        this.userId = userId;
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.token = token;
+    }
 
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
+    public int getUserId() { return userId; }
+    public void setUserId(int userId) { this.userId = userId; }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public String getUsername() { return username; }
+    public void setUsername(String username) { this.username = username; }
 
     public String getFirstName() { return firstName; }
     public void setFirstName(String firstName) { this.firstName = firstName; }
@@ -51,17 +75,38 @@ public class User {
     public String getLastName() { return lastName; }
     public void setLastName(String lastName) { this.lastName = lastName; }
 
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+
     public String getToken() { return token; }
     public void setToken(String token) { this.token = token; }
 
-    public Set<String> getRoles() { return roles; } // 2018-12-10
-    public void setRoles(Set<String> roles) { this.roles = roles; } // 2018-12-10
+    public List<Address> getAddresses() { return addresses; }
+    public void setAddresses(List<Address> addresses) { this.addresses = addresses; }
+
+    public Set<String> getRoles() { return roles; }
+    public void setRoles(Set<String> roles) { this.roles = roles; }
+
+    public String getCountry() { return country; }
+    public void setCountry(String country) { this.country = country; }
+
+    public String getWebsite() { return website; }
+    public void setWebsite(String website) { this.website = website; }
+
+    public List<Phone> getPhones() { return phones; }
+    public void setPhones(List<Phone> phones) { this.phones = phones; }
+
+    public List<Email> getEmails() { return emails; }
+    public void setEmails(List<Email> emails) { this.emails = emails; }
 
     public String getShowpassword() { return showpassword; }
     public void setShowpassword(String showpassword) { this.showpassword = showpassword; }
 
     @Override
     public String toString() {
-        return "User [id="+id+", firstName="+firstName+", lastName="+lastName+", email=" + email + ", password=" + password + "]";
+        return "User [id="+getId()+", userId="+userId+", username="+username+", firstName="+firstName +
+                ", lastName="+lastName+", password="+password +
+                ", country="+country+", website="+website+", phones="+phones +
+                ", roles="+roles+", token="+token+"]";
     }
 }

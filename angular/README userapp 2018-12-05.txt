@@ -65,6 +65,10 @@ ng generate component pages/footer --module=app
 ng generate service service/auth-guard --module=app
 ng generate service service/auth --module=app
 
+ng generate class model/address --type=model (12/22/2018)
+ng generate class model/phone --type=model (12/22/2018)
+ng generate class model/email --type=model (12/22/2018)
+
 Step 4: Configure Routing
 
 Configure the following 7 routes:
