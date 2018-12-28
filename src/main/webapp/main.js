@@ -222,12 +222,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _pages_security_registration_registration_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/security/registration/registration.component */ "./src/app/pages/security/registration/registration.component.ts");
 /* harmony import */ var _service_auth_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./service/auth.service */ "./src/app/service/auth.service.ts");
-/* harmony import */ var _util_index__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./util/index */ "./src/app/util/index.ts");
 
 
 
-// import { NgModule, Injector, ErrorHandler } from '@angular/core';
-// import 'hammerjs';
 
 
 
@@ -243,7 +240,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
+// import { httpInterceptorProviders } from './util/index';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -267,11 +264,9 @@ var AppModule = /** @class */ (function () {
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__["BrowserAnimationsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_15__["HttpClientModule"]
             ],
-            // entryComponents: [ HeaderComponent ], // popup dialog
             providers: [
                 _service_user_service__WEBPACK_IMPORTED_MODULE_10__["UserService"],
                 _service_auth_service__WEBPACK_IMPORTED_MODULE_17__["AuthService"],
-                _util_index__WEBPACK_IMPORTED_MODULE_18__["httpInterceptorProviders"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
         })
@@ -732,7 +727,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\n  <mat-card-title align='center'>Edit User</mat-card-title>\n  <mat-card-content align='center'>\n    <form [formGroup]='editForm' class='login-form-container'>\n      <input type='hidden' formControlName='userId'> <!-- 2018-12-22 -->\n      <mat-form-field [ngClass]=\"{'error': editForm.controls['username'].errors && editForm.controls['username'].dirty}\">\n        <input matInput type='text' formControlName='username' placeholder='E-Mail' required>\n        <div *ngIf=\"editForm.controls['username'].invalid && (editForm.controls['username'].dirty || editForm.controls['username'].touched)\" class='error-msg'>\n          <div *ngIf=\"editForm.controls['username'].errors.required\">Username is required.</div>\n          <div *ngIf=\"editForm.controls['username'].errors.minlength\">Username must be at least 2 characters long.</div>\n          <div *ngIf=\"editForm.controls['username'].errors.patternInvalid\">Username must be a valid E-Mail address.</div>\n        </div>\n      </mat-form-field>\n      <mat-form-field [ngClass]=\"{'error': editForm.controls['firstName'].errors && editForm.controls['firstName'].dirty}\">\n          <input matInput type='text' formControlName='firstName' placeholder='First Name' required>\n          <div *ngIf=\"editForm.controls['firstName'].invalid && (editForm.controls['firstName'].dirty || editForm.controls['firstName'].touched)\" class='error-msg'>\n            <div *ngIf=\"editForm.controls['firstName'].errors.required\">First Name is required.</div>\n            <div *ngIf=\"editForm.controls['firstName'].errors.minlength\">First Name must be at least 2 characters long.</div>\n          </div>\n        </mat-form-field>\n        <mat-form-field [ngClass]=\"{'error': editForm.controls['lastName'].errors && editForm.controls['lastName'].dirty}\">\n          <input matInput type='text' formControlName='lastName' placeholder='Last Name' required>\n          <div *ngIf=\"editForm.controls['lastName'].invalid && (editForm.controls['lastName'].dirty || editForm.controls['lastName'].touched)\" class='error-msg'>\n            <div *ngIf=\"editForm.controls['lastName'].errors.required\">Last Name is required.</div>\n            <div *ngIf=\"editForm.controls['lastName'].errors.minlength\">Last Name must be at least 2 characters long.</div>\n          </div>\n        </mat-form-field>\n      <mat-form-field>\n        <mat-checkbox class='example-margin' formControlName='showpassword' (click)='hideShowPassword()'>Show password</mat-checkbox>\n        <input matInput type={{inputType}} formControlName='password' placeholder='Password' required>\n      </mat-form-field>\n    </form>\n  </mat-card-content>\n  <mat-card-actions align='right'>\n      <a mat-raised-button routerLink='/list-user'>Cancel</a>\n      <button mat-raised-button color='accent' class='btn' [disabled]='editForm.invalid' (click)='onSubmit()'>Update User</button>\n  </mat-card-actions>\n</mat-card>"
+module.exports = "<mat-card>\n  <mat-card-title align='center'>Edit User</mat-card-title>\n  <mat-card-content align='center'>\n    <form [formGroup]='editForm' class='login-form-container'>\n      <input type='hidden' formControlName='id'> <!-- 2018-12-22 -->\n      <input type='hidden' formControlName='userId'> <!-- 2018-12-22 -->\n      <mat-form-field [ngClass]=\"{'error': editForm.controls['username'].errors && editForm.controls['username'].dirty}\">\n        <input matInput type='text' formControlName='username' placeholder='E-Mail' required>\n        <div *ngIf=\"editForm.controls['username'].invalid && (editForm.controls['username'].dirty || editForm.controls['username'].touched)\" class='error-msg'>\n          <div *ngIf=\"editForm.controls['username'].errors.required\">Username is required.</div>\n          <div *ngIf=\"editForm.controls['username'].errors.minlength\">Username must be at least 2 characters long.</div>\n          <div *ngIf=\"editForm.controls['username'].errors.patternInvalid\">Username must be a valid E-Mail address.</div>\n        </div>\n      </mat-form-field>\n      <mat-form-field [ngClass]=\"{'error': editForm.controls['firstName'].errors && editForm.controls['firstName'].dirty}\">\n          <input matInput type='text' formControlName='firstName' placeholder='First Name' required>\n          <div *ngIf=\"editForm.controls['firstName'].invalid && (editForm.controls['firstName'].dirty || editForm.controls['firstName'].touched)\" class='error-msg'>\n            <div *ngIf=\"editForm.controls['firstName'].errors.required\">First Name is required.</div>\n            <div *ngIf=\"editForm.controls['firstName'].errors.minlength\">First Name must be at least 2 characters long.</div>\n          </div>\n        </mat-form-field>\n        <mat-form-field [ngClass]=\"{'error': editForm.controls['lastName'].errors && editForm.controls['lastName'].dirty}\">\n          <input matInput type='text' formControlName='lastName' placeholder='Last Name' required>\n          <div *ngIf=\"editForm.controls['lastName'].invalid && (editForm.controls['lastName'].dirty || editForm.controls['lastName'].touched)\" class='error-msg'>\n            <div *ngIf=\"editForm.controls['lastName'].errors.required\">Last Name is required.</div>\n            <div *ngIf=\"editForm.controls['lastName'].errors.minlength\">Last Name must be at least 2 characters long.</div>\n          </div>\n        </mat-form-field>\n      <mat-form-field>\n        <mat-checkbox class='example-margin' formControlName='showpassword' (click)='hideShowPassword()'>Show password</mat-checkbox>\n        <input matInput type={{inputType}} formControlName='password' placeholder='Password' required>\n      </mat-form-field>\n    </form>\n  </mat-card-content>\n  <mat-card-actions align='right'>\n      <a mat-raised-button routerLink='/list-user'>Cancel</a>\n      <button mat-raised-button color='accent' class='btn' [disabled]='editForm.invalid' (click)='onSubmit()'>Update User</button>\n  </mat-card-actions>\n</mat-card>"
 
 /***/ }),
 
@@ -769,8 +764,8 @@ var EditUserComponent = /** @class */ (function () {
     EditUserComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.inputType = 'password';
-        var userId = localStorage.getItem('editUserId');
-        if (!userId) {
+        var id = localStorage.getItem('editUserId');
+        if (!id) {
             alert('Invalid action.');
             this.router.navigate(['list-user']);
             return;
@@ -795,8 +790,8 @@ var EditUserComponent = /** @class */ (function () {
             updateBy: [''],
             deleteDt: [null]
         });
-        console.log('%%% User Id is >' + +userId + '<');
-        this.userService.getUserById(+userId)
+        console.log('%%% User Id is >' + id + '<');
+        this.userService.getUser(id)
             .subscribe(function (data) {
             console.log('Edit:Usr ngOnInit ' + JSON.stringify(data));
             _this.editForm.setValue(data);
@@ -854,7 +849,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\n    <mat-card-title align='center'>\n        User List\n        <br>\n        <mat-divider></mat-divider>\n    </mat-card-title>\n    <mat-card-content align='center'>\n        <!-- starting-->\n        <div *ngIf='dataSource.data.length > 0'>\n            <div class='example-header'>\n                <mat-form-field>\n                    <input matInput (keyup)='applyFilter($event.target.value)' placeholder='Filter'>\n                </mat-form-field>\n            </div>\n            <div class='example-container mat-elevation-z8'>\n                <mat-table [dataSource]='dataSource' matSort>\n                    <ng-container matColumnDef='userId'>\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>\n                        <mat-cell *matCellDef='let user'>{{user.userId}}</mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef='firstName'>\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>First Name</mat-header-cell>\n                        <mat-cell *matCellDef='let user'>{{user.firstName}}</mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef='lastName'>\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</mat-header-cell>\n                        <mat-cell *matCellDef='let user'>{{user.lastName}}</mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef='username'>\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>User Name</mat-header-cell>\n                        <mat-cell *matCellDef='let user'>{{user.username}}</mat-cell>\n                    </ng-container>    \n                    <ng-container matColumnDef=\"password\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Password </mat-header-cell>\n                        <mat-cell *matCellDef=\"let user\"> {{user.password}} </mat-cell>\n                    </ng-container>        \n        \n                    <ng-container matColumnDef=\"edit\">\n                        <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>\n                        <mat-cell *matCellDef=\"let user\">\n                            <button mat-raised-button (click)='editUser(user)'>\n                                <mat-icon color='primary'>edit</mat-icon>\n                            </button>\n                        </mat-cell>\n                    </ng-container>\n            \n                    <ng-container matColumnDef=\"delete\">\n                        <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>\n                        <mat-cell *matCellDef=\"let user\">\n                            <button mat-raised-button (click)='deleteUser(user)'>\n                                <mat-icon color='accent'>\n                                    <i class=\"material-icons\">remove_circle_outline</i>\n                                </mat-icon>\n                            </button>\n                        </mat-cell>\n                    </ng-container>\n        \n                    <mat-header-row *matHeaderRowDef='displayedColumns'></mat-header-row>\n                    <mat-row *matRowDef='let user; columns: displayedColumns;'></mat-row>\n                </mat-table>\n        \n                <mat-paginator [pageSizeOptions]='[5, 10, 15]'></mat-paginator>\n            </div>\n        </div>        \n        <!-- ending-->\n    </mat-card-content>\n    <mat-card-actions align='right'>\n        <button mat-raised-button color='accent' class='btn' (click)='addUser()'>Add User</button>\n        <a mat-raised-button routerLink='/register'>Register</a>\n    </mat-card-actions>\n</mat-card>"
+module.exports = "<mat-card>\n    <mat-card-title align='center'>\n        User List\n        <br>\n        <mat-divider></mat-divider>\n    </mat-card-title>\n    <mat-card-content align='center'>\n        <!-- starting mat table -->\n        <div *ngIf='dataSource.data.length > 0'>\n            <div class='example-header'>\n                <mat-form-field>\n                    <input matInput (keyup)='applyFilter($event.target.value)' placeholder='Filter'>\n                </mat-form-field>\n            </div>\n            <div class='example-container mat-elevation-z8'>\n                <mat-table [dataSource]='dataSource' matSort>\n                    <ng-container matColumnDef='userId'>\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>\n                        <mat-cell *matCellDef='let user'>{{user.userId}}</mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef='firstName'>\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>First Name</mat-header-cell>\n                        <mat-cell *matCellDef='let user'>{{user.firstName}}</mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef='lastName'>\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</mat-header-cell>\n                        <mat-cell *matCellDef='let user'>{{user.lastName}}</mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef='username'>\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>User Name</mat-header-cell>\n                        <mat-cell *matCellDef='let user'>{{user.username}}</mat-cell>\n                    </ng-container>    \n                    <ng-container matColumnDef=\"password\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Password </mat-header-cell>\n                        <mat-cell *matCellDef=\"let user\"> {{user.password}} </mat-cell>\n                    </ng-container>        \n        \n                    <ng-container matColumnDef=\"edit\">\n                        <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>\n                        <mat-cell *matCellDef=\"let user\">\n                            <button mat-raised-button (click)='editUser(user)'>\n                                <mat-icon color='primary'>edit</mat-icon>\n                            </button>\n                        </mat-cell>\n                    </ng-container>\n            \n                    <ng-container matColumnDef=\"delete\">\n                        <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>\n                        <mat-cell *matCellDef=\"let user\">\n                            <button mat-raised-button (click)='deleteUser(user)'>\n                                <mat-icon color='accent'>\n                                    <i class=\"material-icons\">remove_circle_outline</i>\n                                </mat-icon>\n                            </button>\n                        </mat-cell>\n                    </ng-container>\n        \n                    <mat-header-row *matHeaderRowDef='displayedColumns'></mat-header-row>\n                    <mat-row *matRowDef='let user; columns: displayedColumns;'></mat-row>\n                </mat-table>\n        \n                <mat-paginator [pageSizeOptions]='[5, 10, 15]'></mat-paginator>\n            </div>\n        </div>        \n        <!-- ending mat table-->\n    </mat-card-content>\n    <mat-card-actions align='right'>\n        <button mat-raised-button color='accent' class='btn' (click)='addUser()'>Add User</button>\n        <a mat-raised-button routerLink='/register'>Register</a>\n    </mat-card-actions>\n</mat-card>"
 
 /***/ }),
 
@@ -889,7 +884,7 @@ var ListUserComponent = /** @class */ (function () {
         var _this = this;
         var users = [];
         this.userSvc.getUsers()
-            .subscribe(function (users) { return _this.dataSource.data = users; });
+            .subscribe(function (usrs) { return _this.dataSource.data = usrs; });
         this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](users);
     };
     /**
@@ -905,12 +900,10 @@ var ListUserComponent = /** @class */ (function () {
         filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
         this.dataSource.filter = filterValue;
     };
-    ListUserComponent.prototype.loadAllUsers = function () { };
     ListUserComponent.prototype.deleteUser = function (user) {
         var _this = this;
-        this.userSvc.deleteUser(user) // this.userService.deleteUser(userId.toString())
+        this.userSvc.deleteUser(user)
             .subscribe(function (data) {
-            // this.users = this.users.filter(u => u !== user);
             _this.populateUserTable();
             console.log("LstUsr:delete " + data + " usrId : " + user.userId);
             _this.router.navigate(['list-user']); // TODO test this.
@@ -920,7 +913,7 @@ var ListUserComponent = /** @class */ (function () {
         console.log('ListUsr:editUser userId >' + user.userId + '<');
         localStorage.removeItem('editUserId');
         if (user.userId !== undefined) {
-            localStorage.setItem('editUserId', user.userId.toString());
+            localStorage.setItem('editUserId', user.id);
         }
         this.router.navigate(['edit-user']);
     };
@@ -1160,14 +1153,14 @@ var UserService = /** @class */ (function () {
     };
     UserService.prototype.deleteUser = function (user) {
         var _this = this;
-        var userId = typeof user === 'number' ? user : user.userId;
-        var url = this.usrUrl + "/" + userId;
-        return this.http.delete(url, this.getHeaders()).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("Deleted user userId=" + userId); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('deleteUser')));
+        var id = typeof user === 'number' ? user : user.id;
+        var url = this.usrUrl + "/" + id;
+        return this.http.delete(url, this.getHeaders()).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("Deleted user userId=" + id); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('deleteUser')));
     };
-    UserService.prototype.getUserById = function (userId) {
+    UserService.prototype.getUser = function (id) {
         var _this = this;
-        var url = this.usrUrl + "/" + userId;
-        return this.http.get(url, this.getHeaders()).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("Fetched one user userId=" + userId); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError("getUserById userId=" + userId)));
+        var url = this.usrUrl + "/" + id;
+        return this.http.get(url, this.getHeaders()).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("Fetched one user id=" + id); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError("getUser id=" + id)));
     };
     UserService.prototype.getUserByUsername = function (username) {
         var _this = this;
@@ -1238,94 +1231,6 @@ var UserService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/util/error-interceptor.ts":
-/*!*******************************************!*\
-  !*** ./src/app/util/error-interceptor.ts ***!
-  \*******************************************/
-/*! exports provided: ErrorInterceptor */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorInterceptor", function() { return ErrorInterceptor; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-
-
-
-
-
-var ErrorInterceptor = /** @class */ (function () {
-    function ErrorInterceptor(injector) {
-        this.injector = injector;
-    }
-    ErrorInterceptor.prototype.intercept = function (request, next) {
-        // return next.handle(request);
-        //////////////////////////
-        // const idToken = localStorage.getItem('id_token');
-        var _this = this;
-        // if (idToken) {
-        //     const cloned = request.clone({
-        //         headers: request.headers.set('Authorization',
-        //             'Bearer ' + idToken)
-        //     });
-        //     return next.handle(cloned);
-        // } else {
-        //     return next.handle(request);
-        // }
-        ////////////////////////
-        // Let's then break down how this code works line by line:
-        // 1. we first start by retrieving the JWT string from Local Storage directly
-        // 2. then we are going to check if the JWT is present
-        // 3. if the JWT is not present, then the request goes through to the server unmodified
-        // 4. if the JWT is present, then we will clone the HTTP headers, and add an extra Authorization header, which will contain the JWT
-        ///////////////////////////////
-        return next.handle(request)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (event) {
-            if (event instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpResponse"]) {
-                // if the token is valid
-            }
-        }, function (error) {
-            // if the token has expired.
-            if (error instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpErrorResponse"]) {
-                if (error.status === 401) {
-                    // this is where you can do anything like navigating
-                    _this.router.navigateByUrl('/login'); // send user to login 2018-12-24
-                }
-                if (error.status === 403) {
-                    // this is where you can do anything like navigating
-                    _this.router.navigateByUrl('/register'); // send user to registration page 2018-12-24
-                }
-                if (error.status === 500) {
-                    _this.router.navigateByUrl('/login');
-                }
-                console.error("ErrIntercept: Backend returned code " + error.status + ", " +
-                    ("body was: " + error.error));
-            }
-        }));
-        ////////////////
-    };
-    Object.defineProperty(ErrorInterceptor.prototype, "router", {
-        get: function () {
-            return this.injector.get(_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    ErrorInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
-    ], ErrorInterceptor);
-    return ErrorInterceptor;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/util/forbiddenNameValidator.ts":
 /*!************************************************!*\
   !*** ./src/app/util/forbiddenNameValidator.ts ***!
@@ -1342,37 +1247,6 @@ function forbiddenNameValidator(nameRe) {
         return forbidden ? { 'forbiddenName': { value: control.value } } : null;
     };
 }
-
-
-/***/ }),
-
-/***/ "./src/app/util/index.ts":
-/*!*******************************!*\
-  !*** ./src/app/util/index.ts ***!
-  \*******************************/
-/*! exports provided: httpInterceptorProviders, Index */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "httpInterceptorProviders", function() { return httpInterceptorProviders; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Index", function() { return Index; });
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _error_interceptor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./error-interceptor */ "./src/app/util/error-interceptor.ts");
-
-
-/** Http Interceptor providers in outside-in order */
-var httpInterceptorProviders = [
-    {
-        provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HTTP_INTERCEPTORS"], useClass: _error_interceptor__WEBPACK_IMPORTED_MODULE_1__["ErrorInterceptor"], multi: true
-    }
-];
-var Index = /** @class */ (function () {
-    function Index() {
-    }
-    return Index;
-}());
-
 
 
 /***/ }),

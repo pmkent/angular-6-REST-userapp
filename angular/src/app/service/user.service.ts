@@ -39,20 +39,20 @@ export class UserService {
   }
 
   deleteUser(user: User | number): Observable<User> {
-    const userId = typeof user === 'number' ? user : user.userId;
-    const url = `${this.usrUrl}/${userId}`;
+    const id = typeof user === 'number' ? user : user.id;
+    const url = `${this.usrUrl}/${id}`;
 
     return this.http.delete<User>(url, this.getHeaders()).pipe(
-      tap(_ => this.log(`Deleted user userId=${userId}`)),
+      tap(_ => this.log(`Deleted user userId=${id}`)),
       catchError(this.handleError<User>('deleteUser'))
     );
   }
 
-  getUserById(userId: number): Observable<User> {
-    const url = `${this.usrUrl}/${userId}`;
+  getUser(id: string): Observable<User> {
+    const url = `${this.usrUrl}/${id}`;
     return this.http.get<User>(url, this.getHeaders()).pipe(
-      tap(_ => this.log(`Fetched one user userId=${userId}`)),
-      catchError(this.handleError<User>(`getUserById userId=${userId}`))
+      tap(_ => this.log(`Fetched one user id=${id}`)),
+      catchError(this.handleError<User>(`getUser id=${id}`))
     );
   }
 

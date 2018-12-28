@@ -16,15 +16,15 @@ export class EditUserComponent implements OnInit {
 
   user: User;
   editForm: FormGroup;
-  inputType: string; // inputType: string = 'password';
+  inputType: string;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
     this.inputType = 'password';
-    const userId = localStorage.getItem('editUserId');
+    const id = localStorage.getItem('editUserId');
 
-    if (!userId) {
+    if (!id) {
       alert('Invalid action.');
       this.router.navigate(['list-user']);
       return;
@@ -55,9 +55,9 @@ export class EditUserComponent implements OnInit {
       }
     );
 
-    console.log('%%% User Id is >' + +userId + '<');
+    console.log('%%% User Id is >' + id + '<');
 
-    this.userService.getUserById(+userId)
+    this.userService.getUser(id)
       .subscribe(
         data => {
           console.log('Edit:Usr ngOnInit ' + JSON.stringify(data));

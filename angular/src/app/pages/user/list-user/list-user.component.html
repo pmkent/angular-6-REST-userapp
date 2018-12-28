@@ -5,7 +5,7 @@
         <mat-divider></mat-divider>
     </mat-card-title>
     <mat-card-content align='center'>
-        <!-- starting-->
+        <!-- starting mat table -->
         <div *ngIf='dataSource.data.length > 0'>
             <div class='example-header'>
                 <mat-form-field>
@@ -62,7 +62,7 @@
                 <mat-paginator [pageSizeOptions]='[5, 10, 15]'></mat-paginator>
             </div>
         </div>        
-        <!-- ending-->
+        <!-- ending mat table-->
     </mat-card-content>
     <mat-card-actions align='right'>
         <button mat-raised-button color='accent' class='btn' (click)='addUser()'>Add User</button>

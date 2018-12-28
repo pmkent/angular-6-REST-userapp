@@ -66,7 +66,25 @@
       </wadl:method>
     </wadl:resource>
 
-    <wadl:resource path="user/{userId}">
+    <wadl:resource path="user/search">
+      <wadl:method name="GET">
+        <wadl:doc><![CDATA[]]></wadl:doc>
+        <wadl:request>
+          <wadl:param name="Authorization" style="header">
+            <wadl:doc><![CDATA[]]></wadl:doc>
+          </wadl:param>
+          <wadl:param name="name" style="query">
+            <wadl:doc><![CDATA[]]></wadl:doc>
+          </wadl:param>
+        </wadl:request>
+        <wadl:response>
+          <wadl:doc><![CDATA[]]></wadl:doc>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+
+    <wadl:resource path="user/{id}">
       <wadl:method name="GET">
         <wadl:doc><![CDATA[]]></wadl:doc>
         <wadl:request>
@@ -76,7 +94,7 @@
           <wadl:representation mediaType="application/json"/>
         </wadl:response>
       </wadl:method>
-      <wadl:param name="userId" style="template">
+      <wadl:param name="id" style="template">
         <wadl:doc><![CDATA[]]></wadl:doc>
       </wadl:param>
     </wadl:resource>

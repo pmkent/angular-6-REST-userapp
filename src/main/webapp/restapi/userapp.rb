@@ -586,7 +586,7 @@ module App
 module Model
 
   # (no documentation provided)
-  class Phone 
+  class Phone < Com::Pmk::App::Dao::DAOBean 
 
     # (no documentation provided)
     attr_accessor :phoneId
@@ -603,7 +603,7 @@ module Model
 
     # the json hash for this Phone
     def to_jaxb_json_hash
-      _h = {}
+      _h = super
       _h['phoneId'] = phoneId.to_jaxb_json_hash unless phoneId.nil?
       _h['number'] = number.to_jaxb_json_hash unless number.nil?
       _h['type'] = type.to_jaxb_json_hash unless type.nil?
@@ -613,13 +613,9 @@ module Model
       return _h
     end
 
-    # the json (string form) for this Phone
-    def to_json
-      to_jaxb_json_hash.to_json
-    end
-
     #initializes this Phone with a json hash
     def init_jaxb_json_hash(_o)
+      super _o
         if !_o['phoneId'].nil?
           _oa = _o['phoneId']
             if(_oa.is_a? Hash)
@@ -765,7 +761,7 @@ module App
 module Model
 
   # (no documentation provided)
-  class Address 
+  class Address < Com::Pmk::App::Dao::DAOBean 
 
     # (no documentation provided)
     attr_accessor :addressId
@@ -780,7 +776,7 @@ module Model
 
     # the json hash for this Address
     def to_jaxb_json_hash
-      _h = {}
+      _h = super
       _h['addressId'] = addressId.to_jaxb_json_hash unless addressId.nil?
       _h['street'] = street.to_jaxb_json_hash unless street.nil?
       _h['city'] = city.to_jaxb_json_hash unless city.nil?
@@ -789,13 +785,9 @@ module Model
       return _h
     end
 
-    # the json (string form) for this Address
-    def to_json
-      to_jaxb_json_hash.to_json
-    end
-
     #initializes this Address with a json hash
     def init_jaxb_json_hash(_o)
+      super _o
         if !_o['addressId'].nil?
           _oa = _o['addressId']
             if(_oa.is_a? Hash)
@@ -922,8 +914,10 @@ module App
 module Model
 
   # (no documentation provided)
-  class Email 
+  class Email < Com::Pmk::App::Dao::DAOBean 
 
+    # (no documentation provided)
+    attr_accessor :emailId
     # (no documentation provided)
     attr_accessor :type
     # (no documentation provided)
@@ -933,20 +927,36 @@ module Model
 
     # the json hash for this Email
     def to_jaxb_json_hash
-      _h = {}
+      _h = super
+      _h['emailId'] = emailId.to_jaxb_json_hash unless emailId.nil?
       _h['type'] = type.to_jaxb_json_hash unless type.nil?
       _h['value'] = value.to_jaxb_json_hash unless value.nil?
       _h['primary'] = primary.to_jaxb_json_hash unless primary.nil?
       return _h
     end
 
-    # the json (string form) for this Email
-    def to_json
-      to_jaxb_json_hash.to_json
-    end
-
     #initializes this Email with a json hash
     def init_jaxb_json_hash(_o)
+      super _o
+        if !_o['emailId'].nil?
+          _oa = _o['emailId']
+            if(_oa.is_a? Hash)
+              @emailId = EnunciateHelpers::LAMB_CLASS_AWARE.call(_oa) if _oa['@class']
+              @emailId =  Fixnum.from_json(_oa) unless _oa['@class']
+            elsif (_oa.is_a? Array)
+              #an array(of hashes hopefully) or scalar
+              @emailId = Array.new
+              _oa.each { | _item | 
+                 if ((_item.nil? || _item['@class'].nil?)rescue true)
+                   @emailId.push Fixnum.from_json(_item)
+                 else
+                   @emailId.push EnunciateHelpers::LAMB_CLASS_AWARE.call(_item)
+                 end
+               }
+            else
+                @emailId = _oa
+            end
+          end
         if !_o['type'].nil?
           _oa = _o['type']
             if(_oa.is_a? Hash)

@@ -53,19 +53,13 @@ public class UserEndpoint {
     }
 
     @GET
-    @Path("{userId}")
+    @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getUser(@PathParam("userId") String userId) {
-        return Response.status(200).entity(getUserService().getUserByUserId(userId)).build();
+    public Response getUser(@PathParam("id") String id) {
+        return Response.status(200).entity(getUserService().getUser(id)).build();
     }
-//    @GET
-//    @Path("/logged-in-user")
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Response getLoggedInUser() {
-//        return Response.status(200).entity(getUserService().getLoggedInUser()).build();
-//    }
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)

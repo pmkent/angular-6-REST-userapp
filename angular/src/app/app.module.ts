@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// import { NgModule, Injector, ErrorHandler } from '@angular/core';
-// import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './pages/security/registration/registration.component';
 
 import { AuthService } from './service/auth.service';
-import { httpInterceptorProviders } from './util/index';
+// import { httpInterceptorProviders } from './util/index';
 
 
 @NgModule({
@@ -44,11 +42,10 @@ import { httpInterceptorProviders } from './util/index';
     BrowserAnimationsModule, // bug fix
     HttpClientModule
   ],
-  // entryComponents: [ HeaderComponent ], // popup dialog
   providers: [
     UserService,
     AuthService,
-    httpInterceptorProviders
+    // httpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   private loginUrl = 'api/user/login';
-  private _loggedInUser?: User; // 2018-12-24
+  private _loggedInUser?: User;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -92,7 +92,7 @@ export class AuthService {
       if (error.status === 401) {
         localStorage.removeItem('currentUser');
         this.router.navigateByUrl('/login');
-        console.log('@@@@@ Authentication error');
+        console.log('@@@@ Authentication error');
       } else if (error.status === 403) {
         console.log('%%%% Duplicate user error');
       } else if (error.status === 500) {

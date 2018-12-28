@@ -55,8 +55,9 @@
           <li><a href="#resource_UserEndpoint_addUser_POST"><abbr title="POST /user"><span class="sideoverflow">POST /user</span></abbr></a></li>
           <li><a href="#resource_UserEndpoint_updateUser_PUT"><abbr title="PUT /user"><span class="sideoverflow">PUT /user</span></abbr></a></li>
           <li><a href="#resource_UserEndpoint_authenticate_POST"><abbr title="POST /user/login"><span class="sideoverflow">POST /user/login</span></abbr></a></li>
+          <li><a href="#resource_UserEndpoint_searchHeroes_GET"><abbr title="GET /user/search"><span class="sideoverflow">GET /user/search</span></abbr></a></li>
+          <li><a href="#resource_UserEndpoint_getUser_GET"><abbr title="GET /user/{id}"><span class="sideoverflow">GET /user/{id}</span></abbr></a></li>
           <li><a href="#resource_UserEndpoint_deleteUser_DELETE"><abbr title="DELETE /user/{userId}"><span class="sideoverflow">DELETE /user/{userId}</span></abbr></a></li>
-          <li><a href="#resource_UserEndpoint_getUser_GET"><abbr title="GET /user/{userId}"><span class="sideoverflow">GET /user/{userId}</span></abbr></a></li>
           <li class="divider"></li>
           <li class="text-right"><a href="#top"><small>Back to Top</small></a></li>
         </ul>
@@ -206,13 +207,23 @@ Accept: application/json
     &quot;street&quot; : &quot;...&quot;,
     &quot;city&quot; : &quot;...&quot;,
     &quot;state&quot; : &quot;...&quot;,
-    &quot;zip&quot; : &quot;...&quot;
+    &quot;zip&quot; : &quot;...&quot;,
+    &quot;id&quot; : &quot;...&quot;,
+    &quot;createDt&quot; : 12345,
+    &quot;updateDt&quot; : 12345,
+    &quot;updateBy&quot; : &quot;...&quot;,
+    &quot;deleteDt&quot; : 12345
   }, {
     &quot;addressId&quot; : 12345,
     &quot;street&quot; : &quot;...&quot;,
     &quot;city&quot; : &quot;...&quot;,
     &quot;state&quot; : &quot;...&quot;,
-    &quot;zip&quot; : &quot;...&quot;
+    &quot;zip&quot; : &quot;...&quot;,
+    &quot;id&quot; : &quot;...&quot;,
+    &quot;createDt&quot; : 12345,
+    &quot;updateDt&quot; : 12345,
+    &quot;updateBy&quot; : &quot;...&quot;,
+    &quot;deleteDt&quot; : 12345
   } ],
   &quot;roles&quot; : [ &quot;...&quot;, &quot;...&quot; ],
   &quot;country&quot; : &quot;...&quot;,
@@ -223,23 +234,45 @@ Accept: application/json
     &quot;type&quot; : &quot;...&quot;,
     &quot;areaCode&quot; : &quot;...&quot;,
     &quot;extension&quot; : &quot;...&quot;,
-    &quot;primary&quot; : true
+    &quot;primary&quot; : true,
+    &quot;id&quot; : &quot;...&quot;,
+    &quot;createDt&quot; : 12345,
+    &quot;updateDt&quot; : 12345,
+    &quot;updateBy&quot; : &quot;...&quot;,
+    &quot;deleteDt&quot; : 12345
   }, {
     &quot;phoneId&quot; : 12345,
     &quot;number&quot; : &quot;...&quot;,
     &quot;type&quot; : &quot;...&quot;,
     &quot;areaCode&quot; : &quot;...&quot;,
     &quot;extension&quot; : &quot;...&quot;,
-    &quot;primary&quot; : true
+    &quot;primary&quot; : true,
+    &quot;id&quot; : &quot;...&quot;,
+    &quot;createDt&quot; : 12345,
+    &quot;updateDt&quot; : 12345,
+    &quot;updateBy&quot; : &quot;...&quot;,
+    &quot;deleteDt&quot; : 12345
   } ],
   &quot;emails&quot; : [ {
+    &quot;emailId&quot; : 12345,
     &quot;type&quot; : &quot;...&quot;,
     &quot;value&quot; : &quot;...&quot;,
-    &quot;primary&quot; : true
+    &quot;primary&quot; : true,
+    &quot;id&quot; : &quot;...&quot;,
+    &quot;createDt&quot; : 12345,
+    &quot;updateDt&quot; : 12345,
+    &quot;updateBy&quot; : &quot;...&quot;,
+    &quot;deleteDt&quot; : 12345
   }, {
+    &quot;emailId&quot; : 12345,
     &quot;type&quot; : &quot;...&quot;,
     &quot;value&quot; : &quot;...&quot;,
-    &quot;primary&quot; : true
+    &quot;primary&quot; : true,
+    &quot;id&quot; : &quot;...&quot;,
+    &quot;createDt&quot; : 12345,
+    &quot;updateDt&quot; : 12345,
+    &quot;updateBy&quot; : &quot;...&quot;,
+    &quot;deleteDt&quot; : 12345
   } ],
   &quot;showpassword&quot; : &quot;...&quot;,
   &quot;id&quot; : &quot;...&quot;,
@@ -330,13 +363,23 @@ Accept: application/json
     &quot;street&quot; : &quot;...&quot;,
     &quot;city&quot; : &quot;...&quot;,
     &quot;state&quot; : &quot;...&quot;,
-    &quot;zip&quot; : &quot;...&quot;
+    &quot;zip&quot; : &quot;...&quot;,
+    &quot;id&quot; : &quot;...&quot;,
+    &quot;createDt&quot; : 12345,
+    &quot;updateDt&quot; : 12345,
+    &quot;updateBy&quot; : &quot;...&quot;,
+    &quot;deleteDt&quot; : 12345
   }, {
     &quot;addressId&quot; : 12345,
     &quot;street&quot; : &quot;...&quot;,
     &quot;city&quot; : &quot;...&quot;,
     &quot;state&quot; : &quot;...&quot;,
-    &quot;zip&quot; : &quot;...&quot;
+    &quot;zip&quot; : &quot;...&quot;,
+    &quot;id&quot; : &quot;...&quot;,
+    &quot;createDt&quot; : 12345,
+    &quot;updateDt&quot; : 12345,
+    &quot;updateBy&quot; : &quot;...&quot;,
+    &quot;deleteDt&quot; : 12345
   } ],
   &quot;roles&quot; : [ &quot;...&quot;, &quot;...&quot; ],
   &quot;country&quot; : &quot;...&quot;,
@@ -347,23 +390,45 @@ Accept: application/json
     &quot;type&quot; : &quot;...&quot;,
     &quot;areaCode&quot; : &quot;...&quot;,
     &quot;extension&quot; : &quot;...&quot;,
-    &quot;primary&quot; : true
+    &quot;primary&quot; : true,
+    &quot;id&quot; : &quot;...&quot;,
+    &quot;createDt&quot; : 12345,
+    &quot;updateDt&quot; : 12345,
+    &quot;updateBy&quot; : &quot;...&quot;,
+    &quot;deleteDt&quot; : 12345
   }, {
     &quot;phoneId&quot; : 12345,
     &quot;number&quot; : &quot;...&quot;,
     &quot;type&quot; : &quot;...&quot;,
     &quot;areaCode&quot; : &quot;...&quot;,
     &quot;extension&quot; : &quot;...&quot;,
-    &quot;primary&quot; : true
+    &quot;primary&quot; : true,
+    &quot;id&quot; : &quot;...&quot;,
+    &quot;createDt&quot; : 12345,
+    &quot;updateDt&quot; : 12345,
+    &quot;updateBy&quot; : &quot;...&quot;,
+    &quot;deleteDt&quot; : 12345
   } ],
   &quot;emails&quot; : [ {
+    &quot;emailId&quot; : 12345,
     &quot;type&quot; : &quot;...&quot;,
     &quot;value&quot; : &quot;...&quot;,
-    &quot;primary&quot; : true
+    &quot;primary&quot; : true,
+    &quot;id&quot; : &quot;...&quot;,
+    &quot;createDt&quot; : 12345,
+    &quot;updateDt&quot; : 12345,
+    &quot;updateBy&quot; : &quot;...&quot;,
+    &quot;deleteDt&quot; : 12345
   }, {
+    &quot;emailId&quot; : 12345,
     &quot;type&quot; : &quot;...&quot;,
     &quot;value&quot; : &quot;...&quot;,
-    &quot;primary&quot; : true
+    &quot;primary&quot; : true,
+    &quot;id&quot; : &quot;...&quot;,
+    &quot;createDt&quot; : 12345,
+    &quot;updateDt&quot; : 12345,
+    &quot;updateBy&quot; : &quot;...&quot;,
+    &quot;deleteDt&quot; : 12345
   } ],
   &quot;showpassword&quot; : &quot;...&quot;,
   &quot;id&quot; : &quot;...&quot;,
@@ -461,6 +526,148 @@ Content-Type: application/json
         </div>
       </div>
 
+      <div id="resource_UserEndpoint_searchHeroes_GET">
+        <h3><span class="label label-default resource-method">GET</span> <span class="resource-path">/user/search <a href="./user/search" class="glyphicon glyphicon-new-window" target="_blank"></a></span></h3>
+
+        <p></p>
+
+        <table class="table resource-parameters">
+          <caption>Request Parameters</caption>
+          <thead>
+          <tr>
+            <th>name</th>
+            <th>type</th>
+            <th>description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><span class="parameter-name">Authorization</span></td>
+            <td>header</td>
+            <td><span class="parameter-description"></span></td>
+          </tr>
+          <tr>
+            <td><span class="parameter-name">name</span></td>
+            <td>query</td>
+            <td><span class="parameter-description"></span></td>
+          </tr>
+          </tbody>
+        </table>
+
+        <table class="table resource-response-body">
+          <caption>Response Body</caption>
+          <thead>
+          <tr>
+            <th>media type</th>
+            <th>data type</th>
+            <th>description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><abbr data-toggle="tooltip" data-placement="top" title="Use the &quot;Accept: application/json&quot; HTTP header to request that this media type be provided by the server."><span class="response-type">application/json</span></abbr></td>
+            <td><span class="datatype-reference">object
+ (JSON)</span></td>
+            <td><span class="response-description"></span></td>
+          </tr>
+          </tbody>
+        </table>
+        <h4>Example</h4>
+
+        <div class="container-fluid example panel">
+          <div class="row panel-body">
+            <div class="col-md-6">
+              <h5>Request</h5>
+              <pre>
+GET /user/search
+Accept: application/json
+Authorization: ...
+
+              </pre>
+            </div>
+            <div class="col-md-6">
+              <h5>Response</h5>
+              <pre>
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+                <code class="prettyprint language-txt">
+...
+                </code>
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="resource_UserEndpoint_getUser_GET">
+        <h3><span class="label label-default resource-method">GET</span> <span class="resource-path">/user/{id} <a href="./user/{id}" class="glyphicon glyphicon-new-window" target="_blank"></a></span></h3>
+
+        <p></p>
+
+        <table class="table resource-parameters">
+          <caption>Request Parameters</caption>
+          <thead>
+          <tr>
+            <th>name</th>
+            <th>type</th>
+            <th>description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><span class="parameter-name">id</span></td>
+            <td>path</td>
+            <td><span class="parameter-description"></span></td>
+          </tr>
+          </tbody>
+        </table>
+
+        <table class="table resource-response-body">
+          <caption>Response Body</caption>
+          <thead>
+          <tr>
+            <th>media type</th>
+            <th>data type</th>
+            <th>description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><abbr data-toggle="tooltip" data-placement="top" title="Use the &quot;Accept: application/json&quot; HTTP header to request that this media type be provided by the server."><span class="response-type">application/json</span></abbr></td>
+            <td><span class="datatype-reference">object
+ (JSON)</span></td>
+            <td><span class="response-description"></span></td>
+          </tr>
+          </tbody>
+        </table>
+        <h4>Example</h4>
+
+        <div class="container-fluid example panel">
+          <div class="row panel-body">
+            <div class="col-md-6">
+              <h5>Request</h5>
+              <pre>
+GET /user/{id}
+Accept: application/json
+
+              </pre>
+            </div>
+            <div class="col-md-6">
+              <h5>Response</h5>
+              <pre>
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+                <code class="prettyprint language-txt">
+...
+                </code>
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div id="resource_UserEndpoint_deleteUser_DELETE">
         <h3><span class="label label-default resource-method">DELETE</span> <span class="resource-path">/user/{userId} <a href="./user/{userId}" class="glyphicon glyphicon-new-window" target="_blank"></a></span></h3>
 
@@ -518,74 +725,6 @@ Accept: application/json
               <h5>Response</h5>
               <pre>
 HTTP/1.1 204 No Content
-Content-Type: application/json
-
-                <code class="prettyprint language-txt">
-...
-                </code>
-              </pre>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="resource_UserEndpoint_getUser_GET">
-        <h3><span class="label label-default resource-method">GET</span> <span class="resource-path">/user/{userId} <a href="./user/{userId}" class="glyphicon glyphicon-new-window" target="_blank"></a></span></h3>
-
-        <p></p>
-
-        <table class="table resource-parameters">
-          <caption>Request Parameters</caption>
-          <thead>
-          <tr>
-            <th>name</th>
-            <th>type</th>
-            <th>description</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td><span class="parameter-name">userId</span></td>
-            <td>path</td>
-            <td><span class="parameter-description"></span></td>
-          </tr>
-          </tbody>
-        </table>
-
-        <table class="table resource-response-body">
-          <caption>Response Body</caption>
-          <thead>
-          <tr>
-            <th>media type</th>
-            <th>data type</th>
-            <th>description</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td><abbr data-toggle="tooltip" data-placement="top" title="Use the &quot;Accept: application/json&quot; HTTP header to request that this media type be provided by the server."><span class="response-type">application/json</span></abbr></td>
-            <td><span class="datatype-reference">object
- (JSON)</span></td>
-            <td><span class="response-description"></span></td>
-          </tr>
-          </tbody>
-        </table>
-        <h4>Example</h4>
-
-        <div class="container-fluid example panel">
-          <div class="row panel-body">
-            <div class="col-md-6">
-              <h5>Request</h5>
-              <pre>
-GET /user/{userId}
-Accept: application/json
-
-              </pre>
-            </div>
-            <div class="col-md-6">
-              <h5>Response</h5>
-              <pre>
-HTTP/1.1 200 OK
 Content-Type: application/json
 
                 <code class="prettyprint language-txt">

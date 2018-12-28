@@ -2,6 +2,7 @@
   <mat-card-title align='center'>Edit User</mat-card-title>
   <mat-card-content align='center'>
     <form [formGroup]='editForm' class='login-form-container'>
+      <input type='hidden' formControlName='id'> <!-- 2018-12-22 -->
       <input type='hidden' formControlName='userId'> <!-- 2018-12-22 -->
       <mat-form-field [ngClass]="{'error': editForm.controls['username'].errors && editForm.controls['username'].dirty}">
         <input matInput type='text' formControlName='username' placeholder='E-Mail' required>
