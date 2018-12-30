@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import * as Material from '@angular/material';
 
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -15,7 +17,12 @@ import * as Material from '@angular/material';
     Material.MatDividerModule,
     Material.MatCheckboxModule,
     Material.MatDividerModule,
-    Material.MatPaginatorModule
+    Material.MatPaginatorModule,
+    Material.MatGridListModule,
+    Material.MatDatepickerModule,
+    Material.MatNativeDateModule,
+    Material.MatRadioModule,
+    MatMomentDateModule
   ],
   exports: [
     Material.MatToolbarModule,
@@ -29,7 +36,12 @@ import * as Material from '@angular/material';
     Material.MatDividerModule,
     Material.MatCheckboxModule,
     Material.MatDividerModule,
-    Material.MatPaginatorModule
+    Material.MatPaginatorModule,
+    Material.MatGridListModule,
+    Material.MatDatepickerModule,
+    Material.MatNativeDateModule,
+    Material.MatRadioModule,
+    MatMomentDateModule
   ]
 })
 export class AngularMaterialModule { }

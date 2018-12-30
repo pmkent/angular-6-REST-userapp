@@ -68,6 +68,9 @@ export class RegistrationComponent implements OnInit {
         emails: [ null ],
         showpassword: '', // bug fix, must add to backend User POJO
 
+        dob: null,
+        gender: '',
+
         createDt: [ null ],
         updateDt: [ null ],
         updateBy: [ '' ],

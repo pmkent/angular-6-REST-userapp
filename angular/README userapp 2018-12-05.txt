@@ -1,3 +1,13 @@
+Saturday, December 29, 2018
+
+ng generate class util/app-date-adapter
+
+npm install --save moment
+
+npm install --save @angular/material-moment-adapter
+then 
+import { MatMomentDateModule } from '@angular/material-moment-adapter'?
+
 2018-12-11
 
 Angular CRUD Example Tutorial

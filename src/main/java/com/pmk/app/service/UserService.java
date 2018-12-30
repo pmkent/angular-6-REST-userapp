@@ -120,18 +120,16 @@ public class UserService {
     /**/
     public void updateUser(User user) {
         System.out.println("UsrSvc:updateUser : " + user.getUsername());
-        Date today = new Date();
-
-        if (user.getPassword().length() < 20) // TODO Test. Don't update database with Hash
+        if (user.getPassword().length() < 20) // TODO Hack. Don't update database with Hash
             user.setPassword(PasswordUtil.getPasswordHash(user.getPassword()));
 
-        user.setUpdateDt(today);
+        user.setUpdateDt(new Date());
         User loggedInUsr = getLoggedInUser();
         if (loggedInUsr != null)
             user.setUpdateBy(loggedInUsr.getUsername());
         else user.setUpdateBy("UNKNOWN-USER");
 
-        user.setRoles(null); // 2018-12-24 TODO test this
+        user.setRoles(null);
 
         iUserRepo.upsert(user);
 
@@ -141,7 +139,7 @@ public class UserService {
     /* */
     public void deleteUser(String id) {
         User delete = iUserRepo.fetchOne(id);
-        System.out.println("UsrSvc:deleteUser id : " + id + " user "+delete);
+        //System.out.println("UsrSvc:deleteUser id : " + id + " user "+delete);
         iUserRepo.delete(delete);
         System.out.println("UsrSvc:deleteUser DONE deleting id : " + id);
     }
@@ -187,6 +185,7 @@ public class UserService {
 
     /* 2018-12-16 */
     private User getUserFromEmail(String email) {
+        System.out.println("UsrSvc:getUserFromEmail() email : "+email);
         for (User user : iUserRepo.fetchAll()) {
             if (user.getUsername().equals(email))
                 return user;

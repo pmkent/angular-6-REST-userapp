@@ -52,6 +52,7 @@ export class UserService {
     const url = `${this.usrUrl}/${id}`;
     return this.http.get<User>(url, this.getHeaders()).pipe(
       tap(_ => this.log(`Fetched one user id=${id}`)),
+      tap((usr: User) => this.log(`Fetched one user w/ dateOfBirth=${usr.dateOfBirth}`)),
       catchError(this.handleError<User>(`getUser id=${id}`))
     );
   }
@@ -120,6 +121,7 @@ export class UserService {
         console.log('%%%% Trapped duplicate user error');
       } else if (error.status === 500) {
         console.log('#### Error 500 happened. Ooops!');
+        this.authSvc.logout();
       }
 
       // Let the app keep running by returning an empty result.

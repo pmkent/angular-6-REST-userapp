@@ -3,6 +3,7 @@ package com.pmk.app.model;
 import com.pmk.app.dao.DAOBean;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -24,6 +25,9 @@ public class User extends DAOBean {
     private List<Phone> phones;
     private List<Email> emails;
     private String showpassword; // 2018-12-13 Bug fix - Angular form Error: Must supply a value for form control with name: 'showpassword'.
+
+    private Date dateOfBirth;
+    private Gender gender;
 
     public User() {}
 
@@ -102,11 +106,19 @@ public class User extends DAOBean {
     public String getShowpassword() { return showpassword; }
     public void setShowpassword(String showpassword) { this.showpassword = showpassword; }
 
+    public Date getDateOfBirth() { return dateOfBirth; }
+    public void setDateOfBirth(Date dateOfBirth) { this.dateOfBirth = dateOfBirth; }
+
+    public Gender getGender() { return gender; }
+    public void setGender(Gender gender) { this.gender = gender; }
+
     @Override
     public String toString() {
         return "User [id="+getId()+", userId="+userId+", username="+username+", firstName="+firstName +
                 ", lastName="+lastName+", password="+password +
                 ", country="+country+", website="+website+", phones="+phones +
-                ", roles="+roles+", token="+token+"]";
+                ", roles="+roles+", token="+token+
+                ", dateOfBirth=" + dateOfBirth + ", gender=" + gender +
+                "]";
     }
 }

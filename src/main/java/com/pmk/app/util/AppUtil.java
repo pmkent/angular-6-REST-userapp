@@ -2,6 +2,9 @@ package com.pmk.app.util;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 /**
@@ -24,5 +27,20 @@ public class AppUtil {
         }
         return null;
     }
+
+    /*
+     * 2017-1-01
+     * TODO: Move to date utilities.
+     */
+    public Date getFormattedDate(String dateString) {
+        SimpleDateFormat formatter = new SimpleDateFormat("M-dd-yyyy");
+        Date date = null;
+        try {
+            date = formatter.parse(dateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    } // end: getDateFromFormattedString() method.
 
 }

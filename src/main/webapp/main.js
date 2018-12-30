@@ -1,5 +1,286 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
+/***/ "./node_modules/moment/locale sync recursive ^\\.\\/.*$":
+/*!**************************************************!*\
+  !*** ./node_modules/moment/locale sync ^\.\/.*$ ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./af": "./node_modules/moment/locale/af.js",
+	"./af.js": "./node_modules/moment/locale/af.js",
+	"./ar": "./node_modules/moment/locale/ar.js",
+	"./ar-dz": "./node_modules/moment/locale/ar-dz.js",
+	"./ar-dz.js": "./node_modules/moment/locale/ar-dz.js",
+	"./ar-kw": "./node_modules/moment/locale/ar-kw.js",
+	"./ar-kw.js": "./node_modules/moment/locale/ar-kw.js",
+	"./ar-ly": "./node_modules/moment/locale/ar-ly.js",
+	"./ar-ly.js": "./node_modules/moment/locale/ar-ly.js",
+	"./ar-ma": "./node_modules/moment/locale/ar-ma.js",
+	"./ar-ma.js": "./node_modules/moment/locale/ar-ma.js",
+	"./ar-sa": "./node_modules/moment/locale/ar-sa.js",
+	"./ar-sa.js": "./node_modules/moment/locale/ar-sa.js",
+	"./ar-tn": "./node_modules/moment/locale/ar-tn.js",
+	"./ar-tn.js": "./node_modules/moment/locale/ar-tn.js",
+	"./ar.js": "./node_modules/moment/locale/ar.js",
+	"./az": "./node_modules/moment/locale/az.js",
+	"./az.js": "./node_modules/moment/locale/az.js",
+	"./be": "./node_modules/moment/locale/be.js",
+	"./be.js": "./node_modules/moment/locale/be.js",
+	"./bg": "./node_modules/moment/locale/bg.js",
+	"./bg.js": "./node_modules/moment/locale/bg.js",
+	"./bm": "./node_modules/moment/locale/bm.js",
+	"./bm.js": "./node_modules/moment/locale/bm.js",
+	"./bn": "./node_modules/moment/locale/bn.js",
+	"./bn.js": "./node_modules/moment/locale/bn.js",
+	"./bo": "./node_modules/moment/locale/bo.js",
+	"./bo.js": "./node_modules/moment/locale/bo.js",
+	"./br": "./node_modules/moment/locale/br.js",
+	"./br.js": "./node_modules/moment/locale/br.js",
+	"./bs": "./node_modules/moment/locale/bs.js",
+	"./bs.js": "./node_modules/moment/locale/bs.js",
+	"./ca": "./node_modules/moment/locale/ca.js",
+	"./ca.js": "./node_modules/moment/locale/ca.js",
+	"./cs": "./node_modules/moment/locale/cs.js",
+	"./cs.js": "./node_modules/moment/locale/cs.js",
+	"./cv": "./node_modules/moment/locale/cv.js",
+	"./cv.js": "./node_modules/moment/locale/cv.js",
+	"./cy": "./node_modules/moment/locale/cy.js",
+	"./cy.js": "./node_modules/moment/locale/cy.js",
+	"./da": "./node_modules/moment/locale/da.js",
+	"./da.js": "./node_modules/moment/locale/da.js",
+	"./de": "./node_modules/moment/locale/de.js",
+	"./de-at": "./node_modules/moment/locale/de-at.js",
+	"./de-at.js": "./node_modules/moment/locale/de-at.js",
+	"./de-ch": "./node_modules/moment/locale/de-ch.js",
+	"./de-ch.js": "./node_modules/moment/locale/de-ch.js",
+	"./de.js": "./node_modules/moment/locale/de.js",
+	"./dv": "./node_modules/moment/locale/dv.js",
+	"./dv.js": "./node_modules/moment/locale/dv.js",
+	"./el": "./node_modules/moment/locale/el.js",
+	"./el.js": "./node_modules/moment/locale/el.js",
+	"./en-au": "./node_modules/moment/locale/en-au.js",
+	"./en-au.js": "./node_modules/moment/locale/en-au.js",
+	"./en-ca": "./node_modules/moment/locale/en-ca.js",
+	"./en-ca.js": "./node_modules/moment/locale/en-ca.js",
+	"./en-gb": "./node_modules/moment/locale/en-gb.js",
+	"./en-gb.js": "./node_modules/moment/locale/en-gb.js",
+	"./en-ie": "./node_modules/moment/locale/en-ie.js",
+	"./en-ie.js": "./node_modules/moment/locale/en-ie.js",
+	"./en-il": "./node_modules/moment/locale/en-il.js",
+	"./en-il.js": "./node_modules/moment/locale/en-il.js",
+	"./en-nz": "./node_modules/moment/locale/en-nz.js",
+	"./en-nz.js": "./node_modules/moment/locale/en-nz.js",
+	"./eo": "./node_modules/moment/locale/eo.js",
+	"./eo.js": "./node_modules/moment/locale/eo.js",
+	"./es": "./node_modules/moment/locale/es.js",
+	"./es-do": "./node_modules/moment/locale/es-do.js",
+	"./es-do.js": "./node_modules/moment/locale/es-do.js",
+	"./es-us": "./node_modules/moment/locale/es-us.js",
+	"./es-us.js": "./node_modules/moment/locale/es-us.js",
+	"./es.js": "./node_modules/moment/locale/es.js",
+	"./et": "./node_modules/moment/locale/et.js",
+	"./et.js": "./node_modules/moment/locale/et.js",
+	"./eu": "./node_modules/moment/locale/eu.js",
+	"./eu.js": "./node_modules/moment/locale/eu.js",
+	"./fa": "./node_modules/moment/locale/fa.js",
+	"./fa.js": "./node_modules/moment/locale/fa.js",
+	"./fi": "./node_modules/moment/locale/fi.js",
+	"./fi.js": "./node_modules/moment/locale/fi.js",
+	"./fo": "./node_modules/moment/locale/fo.js",
+	"./fo.js": "./node_modules/moment/locale/fo.js",
+	"./fr": "./node_modules/moment/locale/fr.js",
+	"./fr-ca": "./node_modules/moment/locale/fr-ca.js",
+	"./fr-ca.js": "./node_modules/moment/locale/fr-ca.js",
+	"./fr-ch": "./node_modules/moment/locale/fr-ch.js",
+	"./fr-ch.js": "./node_modules/moment/locale/fr-ch.js",
+	"./fr.js": "./node_modules/moment/locale/fr.js",
+	"./fy": "./node_modules/moment/locale/fy.js",
+	"./fy.js": "./node_modules/moment/locale/fy.js",
+	"./gd": "./node_modules/moment/locale/gd.js",
+	"./gd.js": "./node_modules/moment/locale/gd.js",
+	"./gl": "./node_modules/moment/locale/gl.js",
+	"./gl.js": "./node_modules/moment/locale/gl.js",
+	"./gom-latn": "./node_modules/moment/locale/gom-latn.js",
+	"./gom-latn.js": "./node_modules/moment/locale/gom-latn.js",
+	"./gu": "./node_modules/moment/locale/gu.js",
+	"./gu.js": "./node_modules/moment/locale/gu.js",
+	"./he": "./node_modules/moment/locale/he.js",
+	"./he.js": "./node_modules/moment/locale/he.js",
+	"./hi": "./node_modules/moment/locale/hi.js",
+	"./hi.js": "./node_modules/moment/locale/hi.js",
+	"./hr": "./node_modules/moment/locale/hr.js",
+	"./hr.js": "./node_modules/moment/locale/hr.js",
+	"./hu": "./node_modules/moment/locale/hu.js",
+	"./hu.js": "./node_modules/moment/locale/hu.js",
+	"./hy-am": "./node_modules/moment/locale/hy-am.js",
+	"./hy-am.js": "./node_modules/moment/locale/hy-am.js",
+	"./id": "./node_modules/moment/locale/id.js",
+	"./id.js": "./node_modules/moment/locale/id.js",
+	"./is": "./node_modules/moment/locale/is.js",
+	"./is.js": "./node_modules/moment/locale/is.js",
+	"./it": "./node_modules/moment/locale/it.js",
+	"./it.js": "./node_modules/moment/locale/it.js",
+	"./ja": "./node_modules/moment/locale/ja.js",
+	"./ja.js": "./node_modules/moment/locale/ja.js",
+	"./jv": "./node_modules/moment/locale/jv.js",
+	"./jv.js": "./node_modules/moment/locale/jv.js",
+	"./ka": "./node_modules/moment/locale/ka.js",
+	"./ka.js": "./node_modules/moment/locale/ka.js",
+	"./kk": "./node_modules/moment/locale/kk.js",
+	"./kk.js": "./node_modules/moment/locale/kk.js",
+	"./km": "./node_modules/moment/locale/km.js",
+	"./km.js": "./node_modules/moment/locale/km.js",
+	"./kn": "./node_modules/moment/locale/kn.js",
+	"./kn.js": "./node_modules/moment/locale/kn.js",
+	"./ko": "./node_modules/moment/locale/ko.js",
+	"./ko.js": "./node_modules/moment/locale/ko.js",
+	"./ku": "./node_modules/moment/locale/ku.js",
+	"./ku.js": "./node_modules/moment/locale/ku.js",
+	"./ky": "./node_modules/moment/locale/ky.js",
+	"./ky.js": "./node_modules/moment/locale/ky.js",
+	"./lb": "./node_modules/moment/locale/lb.js",
+	"./lb.js": "./node_modules/moment/locale/lb.js",
+	"./lo": "./node_modules/moment/locale/lo.js",
+	"./lo.js": "./node_modules/moment/locale/lo.js",
+	"./lt": "./node_modules/moment/locale/lt.js",
+	"./lt.js": "./node_modules/moment/locale/lt.js",
+	"./lv": "./node_modules/moment/locale/lv.js",
+	"./lv.js": "./node_modules/moment/locale/lv.js",
+	"./me": "./node_modules/moment/locale/me.js",
+	"./me.js": "./node_modules/moment/locale/me.js",
+	"./mi": "./node_modules/moment/locale/mi.js",
+	"./mi.js": "./node_modules/moment/locale/mi.js",
+	"./mk": "./node_modules/moment/locale/mk.js",
+	"./mk.js": "./node_modules/moment/locale/mk.js",
+	"./ml": "./node_modules/moment/locale/ml.js",
+	"./ml.js": "./node_modules/moment/locale/ml.js",
+	"./mn": "./node_modules/moment/locale/mn.js",
+	"./mn.js": "./node_modules/moment/locale/mn.js",
+	"./mr": "./node_modules/moment/locale/mr.js",
+	"./mr.js": "./node_modules/moment/locale/mr.js",
+	"./ms": "./node_modules/moment/locale/ms.js",
+	"./ms-my": "./node_modules/moment/locale/ms-my.js",
+	"./ms-my.js": "./node_modules/moment/locale/ms-my.js",
+	"./ms.js": "./node_modules/moment/locale/ms.js",
+	"./mt": "./node_modules/moment/locale/mt.js",
+	"./mt.js": "./node_modules/moment/locale/mt.js",
+	"./my": "./node_modules/moment/locale/my.js",
+	"./my.js": "./node_modules/moment/locale/my.js",
+	"./nb": "./node_modules/moment/locale/nb.js",
+	"./nb.js": "./node_modules/moment/locale/nb.js",
+	"./ne": "./node_modules/moment/locale/ne.js",
+	"./ne.js": "./node_modules/moment/locale/ne.js",
+	"./nl": "./node_modules/moment/locale/nl.js",
+	"./nl-be": "./node_modules/moment/locale/nl-be.js",
+	"./nl-be.js": "./node_modules/moment/locale/nl-be.js",
+	"./nl.js": "./node_modules/moment/locale/nl.js",
+	"./nn": "./node_modules/moment/locale/nn.js",
+	"./nn.js": "./node_modules/moment/locale/nn.js",
+	"./pa-in": "./node_modules/moment/locale/pa-in.js",
+	"./pa-in.js": "./node_modules/moment/locale/pa-in.js",
+	"./pl": "./node_modules/moment/locale/pl.js",
+	"./pl.js": "./node_modules/moment/locale/pl.js",
+	"./pt": "./node_modules/moment/locale/pt.js",
+	"./pt-br": "./node_modules/moment/locale/pt-br.js",
+	"./pt-br.js": "./node_modules/moment/locale/pt-br.js",
+	"./pt.js": "./node_modules/moment/locale/pt.js",
+	"./ro": "./node_modules/moment/locale/ro.js",
+	"./ro.js": "./node_modules/moment/locale/ro.js",
+	"./ru": "./node_modules/moment/locale/ru.js",
+	"./ru.js": "./node_modules/moment/locale/ru.js",
+	"./sd": "./node_modules/moment/locale/sd.js",
+	"./sd.js": "./node_modules/moment/locale/sd.js",
+	"./se": "./node_modules/moment/locale/se.js",
+	"./se.js": "./node_modules/moment/locale/se.js",
+	"./si": "./node_modules/moment/locale/si.js",
+	"./si.js": "./node_modules/moment/locale/si.js",
+	"./sk": "./node_modules/moment/locale/sk.js",
+	"./sk.js": "./node_modules/moment/locale/sk.js",
+	"./sl": "./node_modules/moment/locale/sl.js",
+	"./sl.js": "./node_modules/moment/locale/sl.js",
+	"./sq": "./node_modules/moment/locale/sq.js",
+	"./sq.js": "./node_modules/moment/locale/sq.js",
+	"./sr": "./node_modules/moment/locale/sr.js",
+	"./sr-cyrl": "./node_modules/moment/locale/sr-cyrl.js",
+	"./sr-cyrl.js": "./node_modules/moment/locale/sr-cyrl.js",
+	"./sr.js": "./node_modules/moment/locale/sr.js",
+	"./ss": "./node_modules/moment/locale/ss.js",
+	"./ss.js": "./node_modules/moment/locale/ss.js",
+	"./sv": "./node_modules/moment/locale/sv.js",
+	"./sv.js": "./node_modules/moment/locale/sv.js",
+	"./sw": "./node_modules/moment/locale/sw.js",
+	"./sw.js": "./node_modules/moment/locale/sw.js",
+	"./ta": "./node_modules/moment/locale/ta.js",
+	"./ta.js": "./node_modules/moment/locale/ta.js",
+	"./te": "./node_modules/moment/locale/te.js",
+	"./te.js": "./node_modules/moment/locale/te.js",
+	"./tet": "./node_modules/moment/locale/tet.js",
+	"./tet.js": "./node_modules/moment/locale/tet.js",
+	"./tg": "./node_modules/moment/locale/tg.js",
+	"./tg.js": "./node_modules/moment/locale/tg.js",
+	"./th": "./node_modules/moment/locale/th.js",
+	"./th.js": "./node_modules/moment/locale/th.js",
+	"./tl-ph": "./node_modules/moment/locale/tl-ph.js",
+	"./tl-ph.js": "./node_modules/moment/locale/tl-ph.js",
+	"./tlh": "./node_modules/moment/locale/tlh.js",
+	"./tlh.js": "./node_modules/moment/locale/tlh.js",
+	"./tr": "./node_modules/moment/locale/tr.js",
+	"./tr.js": "./node_modules/moment/locale/tr.js",
+	"./tzl": "./node_modules/moment/locale/tzl.js",
+	"./tzl.js": "./node_modules/moment/locale/tzl.js",
+	"./tzm": "./node_modules/moment/locale/tzm.js",
+	"./tzm-latn": "./node_modules/moment/locale/tzm-latn.js",
+	"./tzm-latn.js": "./node_modules/moment/locale/tzm-latn.js",
+	"./tzm.js": "./node_modules/moment/locale/tzm.js",
+	"./ug-cn": "./node_modules/moment/locale/ug-cn.js",
+	"./ug-cn.js": "./node_modules/moment/locale/ug-cn.js",
+	"./uk": "./node_modules/moment/locale/uk.js",
+	"./uk.js": "./node_modules/moment/locale/uk.js",
+	"./ur": "./node_modules/moment/locale/ur.js",
+	"./ur.js": "./node_modules/moment/locale/ur.js",
+	"./uz": "./node_modules/moment/locale/uz.js",
+	"./uz-latn": "./node_modules/moment/locale/uz-latn.js",
+	"./uz-latn.js": "./node_modules/moment/locale/uz-latn.js",
+	"./uz.js": "./node_modules/moment/locale/uz.js",
+	"./vi": "./node_modules/moment/locale/vi.js",
+	"./vi.js": "./node_modules/moment/locale/vi.js",
+	"./x-pseudo": "./node_modules/moment/locale/x-pseudo.js",
+	"./x-pseudo.js": "./node_modules/moment/locale/x-pseudo.js",
+	"./yo": "./node_modules/moment/locale/yo.js",
+	"./yo.js": "./node_modules/moment/locale/yo.js",
+	"./zh-cn": "./node_modules/moment/locale/zh-cn.js",
+	"./zh-cn.js": "./node_modules/moment/locale/zh-cn.js",
+	"./zh-hk": "./node_modules/moment/locale/zh-hk.js",
+	"./zh-hk.js": "./node_modules/moment/locale/zh-hk.js",
+	"./zh-tw": "./node_modules/moment/locale/zh-tw.js",
+	"./zh-tw.js": "./node_modules/moment/locale/zh-tw.js"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) { // check for number or string
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return id;
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
+
+/***/ }),
+
 /***/ "./src/$$_lazy_route_resource lazy recursive":
 /*!**********************************************************!*\
   !*** ./src/$$_lazy_route_resource lazy namespace object ***!
@@ -57,7 +338,13 @@ var AngularMaterialModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDividerModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCheckboxModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDividerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginatorModule"]
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginatorModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatGridListModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDatepickerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatNativeDateModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatRadioModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatListModule"]
+                // MatMomentDateModule
             ],
             exports: [
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatToolbarModule"],
@@ -71,7 +358,13 @@ var AngularMaterialModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDividerModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCheckboxModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDividerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginatorModule"]
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginatorModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatGridListModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDatepickerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatNativeDateModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatRadioModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatListModule"]
+                // MatMomentDateModule
             ]
         })
     ], AngularMaterialModule);
@@ -222,6 +515,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _pages_security_registration_registration_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/security/registration/registration.component */ "./src/app/pages/security/registration/registration.component.ts");
 /* harmony import */ var _service_auth_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./service/auth.service */ "./src/app/service/auth.service.ts");
+/* harmony import */ var _util_index__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./util/index */ "./src/app/util/index.ts");
 
 
 
@@ -240,7 +534,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import { httpInterceptorProviders } from './util/index';
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -267,6 +561,8 @@ var AppModule = /** @class */ (function () {
             providers: [
                 _service_user_service__WEBPACK_IMPORTED_MODULE_10__["UserService"],
                 _service_auth_service__WEBPACK_IMPORTED_MODULE_17__["AuthService"],
+                // httpInterceptorProviders,
+                _util_index__WEBPACK_IMPORTED_MODULE_18__["datePickerProviders"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
         })
@@ -296,7 +592,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar class='primary' style='height: 50px;'>\n  <span class='spacer'></span>\n  <div class='hint-msg'>\n    © Copyright Angular-User-CRUD. {{buildDate | date:'yyyy'}}\n  </div>  \n  <span class='spacer'></span>\n</mat-toolbar>"
+module.exports = "<mat-toolbar style='height:20px;'>\n<!-- <mat-toolbar> -->\n  <div *ngIf='authSvc.loggedInUser' class='hint-msg'>Your are logged in as:  {{authSvc.loggedInUser.lastName}}, {{authSvc.loggedInUser.firstName}}</div>\n  <div *ngIf='!authSvc.loggedInUser' class='hint-msg'>You are NOT logged in!</div>\n  \n  <span class='spacer'></span>\n    <div class='hint-msg'>© Copyright Angular-User-CRUD. {{buildDate | date:'yyyy'}}</div>\n  <span class='spacer'></span>\n  \n  <div class='hint-msg' *ngIf='authSvc.loggedInUser'>Thank you for visiting! <a routerLink='/login'>Logout</a></div>\n  <div class='hint-msg' *ngIf='!authSvc.loggedInUser'>Please <a routerLink='/login'>login</a> to enjoy all our cool features!</div>\n</mat-toolbar>"
 
 /***/ }),
 
@@ -312,10 +608,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FooterComponent", function() { return FooterComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_service_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/service/auth.service */ "./src/app/service/auth.service.ts");
+
 
 
 var FooterComponent = /** @class */ (function () {
-    function FooterComponent() {
+    function FooterComponent(authSvc) {
+        this.authSvc = authSvc;
         this.buildDate = new Date();
     }
     FooterComponent.prototype.ngOnInit = function () { };
@@ -325,7 +624,7 @@ var FooterComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./footer.component.html */ "./src/app/pages/footer/footer.component.html"),
             styles: [__webpack_require__(/*! ./footer.component.css */ "./src/app/pages/footer/footer.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_service_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]])
     ], FooterComponent);
     return FooterComponent;
 }());
@@ -416,7 +715,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card *ngIf='errorMsg'>\n  <mat-card-content align='center'>\n    <div *ngIf='errorMsg' [ngClass]=\"{'error': errorMsg}\">\n      {{errorMsg}}\n    </div>\n  </mat-card-content>\n</mat-card>  \n\n<mat-card>\n  <mat-card-title align='center'>\n    Login\n    <mat-divider></mat-divider>\n    <div class='hint-msg'>Hint : userone@gmail.com - password</div>\n  </mat-card-title>\n  <mat-card-content align='center'>\n    <form [formGroup]='loginForm' class='login-form-container'>\n      <mat-form-field>\n        <input matInput type='text' formControlName='email' placeholder='E-Mail' required>\n        <mat-error *ngIf=\"loginForm.controls['email'].errors?.required\">Email is required</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['email'].errors?.minlength\">Email must be at least 2 characters long</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['email'].errors?.email\">Email must be a valid E-Mail address</mat-error>\n      </mat-form-field>\n      <mat-form-field>\n        <input matInput type='password' formControlName='password' placeholder='Password' required>\n        <mat-error *ngIf=\"loginForm.controls['password'].errors?.required\">Password is required</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['password'].errors?.minlength\">Password must be at least 5 characters long</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['password'].errors?.maxlength\">Password must be at most 20 characters long</mat-error>\n      </mat-form-field>\n    </form>\n  </mat-card-content>\n  <mat-card-actions align='right'>\n      <button mat-raised-button color='primary' class='btn' [disabled]='loginForm.invalid' (click)='login()'>Login</button>\n      <a mat-raised-button routerLink='/register' color='warn'>Register</a>\n  </mat-card-actions>\n</mat-card>\n\n<!--p>Form Value: {{loginForm.value | json }}</p>\n<p>Form status: {{loginForm.status | json }}</p>\n<p>Name value: {{loginForm.get('email').value }}</p>\n\n<p>Username errors : {{loginForm.controls['email'].errors && loginForm.controls['email'].dirty}}</p>\n<p>Username is valid : {{loginForm.controls['email'].valid}}</p>\n\n<p>Pwd show errors : {{loginForm.controls['password'].errors && loginForm.controls['password'].dirty}}</p>\n<p>Pwd valid : {{loginForm.controls['password'].valid}}</p-->\n\n\n  <!-- https://www.youtube.com/watch?v=ZGWOc37kQkw -->"
+module.exports = "<!-- <mat-card *ngIf='errorMsg'>\n  <mat-card-content align='center'>\n    <div *ngIf='errorMsg' [ngClass]=\"{'error': errorMsg}\">\n      {{errorMsg}}\n    </div>\n  </mat-card-content>\n</mat-card> -->\n<mat-card>\n  <mat-card-title align='center'>\n\n    <mat-card *ngIf='errorMsg'>\n        <mat-card-content align='center'>\n            <div *ngIf='errorMsg' [ngClass]=\"{'error': errorMsg}\">{{errorMsg}}</div>\n        </mat-card-content>\n    </mat-card>\n\n    Login\n    <mat-divider></mat-divider>\n    <div class='hint-msg'>Hint : userone@gmail.com - password</div>\n  </mat-card-title>\n  <mat-card-content align='center'>\n    <form [formGroup]='loginForm' class='login-form-container'>\n      <mat-form-field>\n        <input matInput type='text' formControlName='email' placeholder='E-Mail' required>\n        <mat-error *ngIf=\"loginForm.controls['email'].errors?.required\">Email is required</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['email'].errors?.minlength\">Email must be at least 2 characters long</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['email'].errors?.email\">Email must be a valid E-Mail address</mat-error>\n      </mat-form-field>\n      <mat-form-field>\n        <input matInput type='password' formControlName='password' placeholder='Password' required>\n        <mat-error *ngIf=\"loginForm.controls['password'].errors?.required\">Password is required</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['password'].errors?.minlength\">Password must be at least 5 characters long</mat-error>\n        <mat-error *ngIf=\"loginForm.controls['password'].errors?.maxlength\">Password must be at most 20 characters long</mat-error>\n      </mat-form-field>\n    </form>\n  </mat-card-content>\n  <mat-card-actions align='right'>\n      <button mat-raised-button color='primary' class='btn' [disabled]='loginForm.invalid' (click)='login()'>Login</button>\n      <a mat-raised-button routerLink='/register' color='warn'>Register</a>\n  </mat-card-actions>\n</mat-card>\n\n<!--p>Form Value: {{loginForm.value | json }}</p>\n<p>Form status: {{loginForm.status | json }}</p>\n<p>Name value: {{loginForm.get('email').value }}</p>\n\n<p>Username errors : {{loginForm.controls['email'].errors && loginForm.controls['email'].dirty}}</p>\n<p>Username is valid : {{loginForm.controls['email'].valid}}</p>\n\n<p>Pwd show errors : {{loginForm.controls['password'].errors && loginForm.controls['password'].dirty}}</p>\n<p>Pwd valid : {{loginForm.controls['password'].valid}}</p-->\n\n\n  <!-- https://www.youtube.com/watch?v=ZGWOc37kQkw -->"
 
 /***/ }),
 
@@ -510,7 +809,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card *ngIf='errorMsg'>\n  <mat-card-content align='center'>\n    <div *ngIf='errorMsg' [ngClass]=\"{'error': errorMsg}\">\n      {{errorMsg}}\n    </div>\n  </mat-card-content>\n</mat-card>\n\n<mat-card>\n    <mat-card-title align='center'>\n      Registration Form\n      <mat-divider></mat-divider>\n    </mat-card-title>\n    <mat-card-content align='center'>\n      <form [formGroup]='registrationForm' class='login-form-container'>\n  \n        <mat-form-field [ngClass]=\"{'error': registrationForm.controls['username'].errors && registrationForm.controls['username'].dirty}\">\n          <input matInput type='text' formControlName='username' placeholder='E-Mail' required>\n          <div *ngIf=\"registrationForm.controls['username'].invalid && (registrationForm.controls['username'].dirty || registrationForm.controls['username'].touched)\" class='error-msg'>\n            <div *ngIf=\"registrationForm.controls['username'].errors.required\">Username is required.</div>\n            <div *ngIf=\"registrationForm.controls['username'].errors.minlength\">Username must be at least 2 characters long.</div>\n            <div *ngIf=\"registrationForm.controls['username'].errors.patternInvalid\">Username must be a valid E-Mail address.</div>\n          </div>\n        </mat-form-field>\n  \n        <mat-form-field [ngClass]=\"{'error': registrationForm.controls['firstName'].errors && registrationForm.controls['firstName'].dirty}\">\n            <input matInput type='text' formControlName='firstName' placeholder='First Name' required>\n            <div *ngIf=\"registrationForm.controls['firstName'].invalid && (registrationForm.controls['firstName'].dirty || registrationForm.controls['firstName'].touched)\" class='error-msg'>\n              <div *ngIf=\"registrationForm.controls['firstName'].errors.required\">First Name is required.</div>\n              <div *ngIf=\"registrationForm.controls['firstName'].errors.minlength\">First Name must be at least 2 characters long.</div>\n            </div>\n          </mat-form-field>\n          <mat-form-field [ngClass]=\"{'error': registrationForm.controls['lastName'].errors && registrationForm.controls['lastName'].dirty}\">\n            <input matInput type='text' formControlName='lastName' placeholder='Last Name' required>\n            <div *ngIf=\"registrationForm.controls['lastName'].invalid && (registrationForm.controls['lastName'].dirty || registrationForm.controls['lastName'].touched)\" class='error-msg'>\n              <div *ngIf=\"registrationForm.controls['lastName'].errors.required\">Last Name is required.</div>\n              <div *ngIf=\"registrationForm.controls['lastName'].errors.minlength\">Last Name must be at least 2 characters long.</div>\n            </div>\n          </mat-form-field>\n  \n        <mat-form-field>\n          <input matInput type='password' formControlName='password' placeholder='Password' required>\n          <div *ngIf=\"registrationForm.controls['password'].invalid && (registrationForm.controls['password'].dirty || registrationForm.controls['password'].touched)\" class='error-msg'>\n            <div *ngIf=\"registrationForm.controls['password'].errors.required\">Password is required.</div>\n            <div *ngIf=\"registrationForm.controls['password'].errors.minlength\">Password must be at least 5 characters long.</div>\n            <div *ngIf=\"registrationForm.controls['password'].errors.maxlength\">Password must be at most 10 characters long.</div>\n          </div>\n        </mat-form-field>      \n      </form>\n    </mat-card-content>\n    <mat-card-actions align='right'>\n        <button mat-raised-button color='accent' class='btn' [disabled]='registrationForm.invalid' (click)='onSubmit()'>Register</button>\n        <a mat-raised-button routerLink='/login'>Login</a>\n    </mat-card-actions>\n  </mat-card>"
+module.exports = "<!-- <mat-card *ngIf='errorMsg'>\n  <mat-card-content align='center'>\n    <div *ngIf='errorMsg' [ngClass]=\"{'error': errorMsg}\">\n      {{errorMsg}}\n    </div>\n  </mat-card-content>\n</mat-card> -->\n\n<mat-card>\n    <mat-card-title align='center'>\n\n      <mat-card *ngIf='errorMsg'>\n          <mat-card-content align='center'>\n              <div *ngIf='errorMsg' [ngClass]=\"{'error': errorMsg}\">{{errorMsg}}</div>\n          </mat-card-content>\n      </mat-card>\n\n      Registration Form\n      <mat-divider></mat-divider>\n    </mat-card-title>\n    <mat-card-content align='center'>\n      <!-- <form [formGroup]='registrationForm' class='login-form-container'> -->\n      <form [formGroup]='registrationForm' class='normal-form'>\n        <input type='hidden' formControlName='id'>\n        <input type='hidden' formControlName='userId'>\n        <mat-grid-list cols='2' rowHeight='300px'>\n          <mat-grid-tile>\n            <div class='controls-container'>\n              <mat-form-field [ngClass]=\"{'error': registrationForm.controls['username'].errors && registrationForm.controls['username'].dirty}\">\n                <input matInput type='text' formControlName='username' placeholder='E-Mail' required>\n                <div *ngIf=\"registrationForm.controls['username'].invalid && (registrationForm.controls['username'].dirty || registrationForm.controls['username'].touched)\" class='error-msg'>\n                  <div *ngIf=\"registrationForm.controls['username'].errors.required\">Username is required.</div>\n                  <div *ngIf=\"registrationForm.controls['username'].errors.minlength\">Username must be at least 2 characters long.</div>\n                  <div *ngIf=\"registrationForm.controls['username'].errors.patternInvalid\">Username must be a valid E-Mail address.</div>\n                </div>\n              </mat-form-field>\n              <mat-form-field [ngClass]=\"{'error': registrationForm.controls['firstName'].errors && registrationForm.controls['firstName'].dirty}\">\n                <input matInput type='text' formControlName='firstName' placeholder='First Name' required>\n                <div *ngIf=\"registrationForm.controls['firstName'].invalid && (registrationForm.controls['firstName'].dirty || registrationForm.controls['firstName'].touched)\" class='error-msg'>\n                  <div *ngIf=\"registrationForm.controls['firstName'].errors.required\">First Name is required.</div>\n                  <div *ngIf=\"registrationForm.controls['firstName'].errors.minlength\">First Name must be at least 2 characters long.</div>\n                </div>\n              </mat-form-field>\n              <mat-form-field [ngClass]=\"{'error': registrationForm.controls['lastName'].errors && registrationForm.controls['lastName'].dirty}\">\n                <input matInput type='text' formControlName='lastName' placeholder='Last Name' required>\n                <div *ngIf=\"registrationForm.controls['lastName'].invalid && (registrationForm.controls['lastName'].dirty || registrationForm.controls['lastName'].touched)\" class='error-msg'>\n                  <div *ngIf=\"registrationForm.controls['lastName'].errors.required\">Last Name is required.</div>\n                  <div *ngIf=\"registrationForm.controls['lastName'].errors.minlength\">Last Name must be at least 2 characters long.</div>\n                </div>\n              </mat-form-field>\n            </div>\n          </mat-grid-tile>\n          <mat-grid-tile>\n            <div class='controls-container'>\n              <mat-form-field>\n                <input matInput type='password' formControlName='password' placeholder='Password' required>\n                <div *ngIf=\"registrationForm.controls['password'].invalid && (registrationForm.controls['password'].dirty || registrationForm.controls['password'].touched)\" class='error-msg'>\n                  <div *ngIf=\"registrationForm.controls['password'].errors.required\">Password is required.</div>\n                  <div *ngIf=\"registrationForm.controls['password'].errors.minlength\">Password must be at least 5 characters long.</div>\n                  <div *ngIf=\"registrationForm.controls['password'].errors.maxlength\">Password must be at most 10 characters long.</div>\n                </div>\n              </mat-form-field>\n              <div class='add-bottom-padding'>\n                <label mat-subheader>Gender: </label>\n                <mat-radio-group formControlName='gender'>\n                  <mat-radio-button *ngFor=\"let gender of genders\" [value]='gender.value'>\n                    {{gender.type}}\n                  </mat-radio-button>\n                  <!-- <mat-radio-button value='MALE'>Male</mat-radio-button>\n                  <mat-radio-button value='FEMALE'>Female</mat-radio-button>\n                  <mat-radio-button value='OTHER'>Other</mat-radio-button> -->\n                </mat-radio-group>\n              </div>            \n              <mat-form-field>\n                <input formControlName='dateOfBirth' matInput [matDatepicker]='picker' placeholder='Date of Birth'>\n                <mat-datepicker-toggle matSuffix [for]='picker'></mat-datepicker-toggle>\n                <mat-datepicker #picker></mat-datepicker>\n              </mat-form-field>\n            </div>\n          </mat-grid-tile>\n        </mat-grid-list>\n  \n        <!--mat-form-field [ngClass]=\"{'error': registrationForm.controls['username'].errors && registrationForm.controls['username'].dirty}\">\n          <input matInput type='text' formControlName='username' placeholder='E-Mail' required>\n          <div *ngIf=\"registrationForm.controls['username'].invalid && (registrationForm.controls['username'].dirty || registrationForm.controls['username'].touched)\" class='error-msg'>\n            <div *ngIf=\"registrationForm.controls['username'].errors.required\">Username is required.</div>\n            <div *ngIf=\"registrationForm.controls['username'].errors.minlength\">Username must be at least 2 characters long.</div>\n            <div *ngIf=\"registrationForm.controls['username'].errors.patternInvalid\">Username must be a valid E-Mail address.</div>\n          </div>\n        </mat-form-field>\n        <mat-form-field [ngClass]=\"{'error': registrationForm.controls['firstName'].errors && registrationForm.controls['firstName'].dirty}\">\n          <input matInput type='text' formControlName='firstName' placeholder='First Name' required>\n          <div *ngIf=\"registrationForm.controls['firstName'].invalid && (registrationForm.controls['firstName'].dirty || registrationForm.controls['firstName'].touched)\" class='error-msg'>\n            <div *ngIf=\"registrationForm.controls['firstName'].errors.required\">First Name is required.</div>\n            <div *ngIf=\"registrationForm.controls['firstName'].errors.minlength\">First Name must be at least 2 characters long.</div>\n          </div>\n        </mat-form-field>\n        <mat-form-field [ngClass]=\"{'error': registrationForm.controls['lastName'].errors && registrationForm.controls['lastName'].dirty}\">\n          <input matInput type='text' formControlName='lastName' placeholder='Last Name' required>\n          <div *ngIf=\"registrationForm.controls['lastName'].invalid && (registrationForm.controls['lastName'].dirty || registrationForm.controls['lastName'].touched)\" class='error-msg'>\n            <div *ngIf=\"registrationForm.controls['lastName'].errors.required\">Last Name is required.</div>\n            <div *ngIf=\"registrationForm.controls['lastName'].errors.minlength\">Last Name must be at least 2 characters long.</div>\n          </div>\n        </mat-form-field>\n        <mat-form-field>\n          <input matInput type='password' formControlName='password' placeholder='Password' required>\n          <div *ngIf=\"registrationForm.controls['password'].invalid && (registrationForm.controls['password'].dirty || registrationForm.controls['password'].touched)\" class='error-msg'>\n            <div *ngIf=\"registrationForm.controls['password'].errors.required\">Password is required.</div>\n            <div *ngIf=\"registrationForm.controls['password'].errors.minlength\">Password must be at least 5 characters long.</div>\n            <div *ngIf=\"registrationForm.controls['password'].errors.maxlength\">Password must be at most 10 characters long.</div>\n          </div>\n        </mat-form-field-->\n\n      </form>\n    </mat-card-content>\n    <mat-card-actions align='right'>\n        <button mat-raised-button color='accent' class='btn' [disabled]='registrationForm.invalid' (click)='onSubmit()'>Register</button>\n        <a mat-raised-button routerLink='/login'>Login</a>\n    </mat-card-actions>\n  </mat-card>"
 
 /***/ }),
 
@@ -541,6 +840,11 @@ var RegistrationComponent = /** @class */ (function () {
         this.formBuilder = formBuilder;
         this.router = router;
         this.usrSvc = usrSvc;
+        this.genders = [
+            { value: 'MALE', type: 'Male' },
+            { value: 'FEMALE', type: 'Female' },
+            { value: 'OTHER', type: 'Other' }
+        ];
     }
     RegistrationComponent.prototype.onSubmit = function () {
         var _this = this;
@@ -553,18 +857,20 @@ var RegistrationComponent = /** @class */ (function () {
             .subscribe(function (user) {
             console.log("RegisterUsr:onSubmit user?? " + user);
             if (user === undefined) {
-                _this.errorMsg = 'Username ' + _this.registrationForm.controls['username'].value + ' exists. Please choose another username!';
+                _this.errorMsg = 'Username ' + _this.registrationForm.controls['username'].value + ' exists! Please choose another username.';
                 _this.router.navigate(['register']);
             }
             else {
                 _this.errorMsg = null;
                 _this.router.navigate(['list-user']);
             }
-        }, function (error) {
-            _this.router.navigate(['register']);
-            _this.errorMsg = 'Username exists. Please choose another username!';
-            console.log("RegisterUsr:onSubmit: FAILED because " + error + " : " + _this.registrationForm.controls['username'].value); // 2018-12-11
-        });
+        } // ,
+        // error => { // Never gets here becuse of UsrSvc error handling!
+        //   this.router.navigate(['register']);
+        //   this.errorMsg = 'Username exists. Please choose another username!';
+        // console.log(`RegisterUsr:onSubmit: FAILED because ${error} : ` + this.registrationForm.controls['username'].value); // 2018-12-11
+        // }
+        );
     };
     RegistrationComponent.prototype.ngOnInit = function () {
         this.registrationForm = this.formBuilder.group({
@@ -582,6 +888,8 @@ var RegistrationComponent = /** @class */ (function () {
             phones: [null],
             emails: [null],
             showpassword: '',
+            dateOfBirth: [new Date().toISOString()],
+            gender: ['OTHER'],
             createDt: [null],
             updateDt: [null],
             updateBy: [''],
@@ -623,7 +931,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card *ngIf='errorMsg'>\n  <mat-card-content align='center'>\n    <div *ngIf='errorMsg' [ngClass]=\"{'error': errorMsg}\">\n      {{errorMsg}}\n    </div>\n  </mat-card-content>\n</mat-card>\n\n<mat-card>\n    <mat-card-title align='center'>\n      Add User\n      <mat-divider></mat-divider>\n    </mat-card-title>\n    <mat-card-content align='center'>\n      <form [formGroup]='addForm' class='login-form-container'>\n  \n        <mat-form-field [ngClass]=\"{'error': addForm.controls['username'].errors && addForm.controls['username'].dirty}\">\n          <input matInput type='text' formControlName='username' placeholder='E-Mail' required>\n          <div *ngIf=\"addForm.controls['username'].invalid && (addForm.controls['username'].dirty || addForm.controls['username'].touched)\" class='error-msg'>\n            <div *ngIf=\"addForm.controls['username'].errors.required\">Username is required.</div>\n            <div *ngIf=\"addForm.controls['username'].errors.minlength\">Username must be at least 2 characters long.</div>\n            <div *ngIf=\"addForm.controls['username'].errors.patternInvalid\">Username must be a valid E-Mail address.</div>\n          </div>\n        </mat-form-field>\n  \n        <mat-form-field [ngClass]=\"{'error': addForm.controls['firstName'].errors && addForm.controls['firstName'].dirty}\">\n            <input matInput type='text' formControlName='firstName' placeholder='First Name' required>\n            <div *ngIf=\"addForm.controls['firstName'].invalid && (addForm.controls['firstName'].dirty || addForm.controls['firstName'].touched)\" class='error-msg'>\n              <div *ngIf=\"addForm.controls['firstName'].errors.required\">First Name is required.</div>\n              <div *ngIf=\"addForm.controls['firstName'].errors.minlength\">First Name must be at least 2 characters long.</div>\n            </div>\n          </mat-form-field>\n          <mat-form-field [ngClass]=\"{'error': addForm.controls['lastName'].errors && addForm.controls['lastName'].dirty}\">\n            <input matInput type='text' formControlName='lastName' placeholder='Last Name' required>\n            <div *ngIf=\"addForm.controls['lastName'].invalid && (addForm.controls['lastName'].dirty || addForm.controls['lastName'].touched)\" class='error-msg'>\n              <div *ngIf=\"addForm.controls['lastName'].errors.required\">Last Name is required.</div>\n              <div *ngIf=\"addForm.controls['lastName'].errors.minlength\">Last Name must be at least 2 characters long.</div>\n            </div>\n          </mat-form-field>\n  \n        <mat-form-field>\n          <input matInput type='password' formControlName='password' placeholder='Password' required>\n          <div *ngIf=\"addForm.controls['password'].invalid && (addForm.controls['password'].dirty || addForm.controls['password'].touched)\" class='error-msg'>\n            <div *ngIf=\"addForm.controls['password'].errors.required\">Password is required.</div>\n            <div *ngIf=\"addForm.controls['password'].errors.minlength\">Password must be at least 5 characters long.</div>\n            <div *ngIf=\"addForm.controls['password'].errors.maxlength\">Password must be at most 10 characters long.</div>\n          </div>\n        </mat-form-field>      \n      </form>\n    </mat-card-content>\n    <mat-card-actions align='right'>\n        <a mat-raised-button routerLink='/list-user'>Cancel</a>\n        <button mat-raised-button color='accent' class='btn' [disabled]='addForm.invalid' (click)='onSubmit()'>Add User</button>\n    </mat-card-actions>\n  </mat-card>"
+module.exports = "<!-- <mat-card *ngIf='errorMsg'>\n  <mat-card-content align='center'>\n    <div *ngIf='errorMsg' [ngClass]=\"{'error': errorMsg}\">\n      {{errorMsg}}\n    </div>\n  </mat-card-content>\n</mat-card> -->\n\n<mat-card>\n    <mat-card-title align='center'>\n\n      <mat-card *ngIf='errorMsg'>\n          <mat-card-content align='center'>\n              <div *ngIf='errorMsg' [ngClass]=\"{'error': errorMsg}\">{{errorMsg}}</div>\n          </mat-card-content>\n      </mat-card>\n\n      Add User\n      <mat-divider></mat-divider>\n    </mat-card-title>\n    <mat-card-content align='center'>\n      <!-- <form [formGroup]='addUserForm' class='login-form-container'> -->\n      <form [formGroup]='addUserForm' class='normal-form'>\n        <input type='hidden' formControlName='id'>\n        <input type='hidden' formControlName='userId'>\n        <mat-grid-list cols='2' rowHeight='300px'>\n          <mat-grid-tile>\n            <div class='controls-container'>\n              <mat-form-field [ngClass]=\"{'error': addUserForm.controls['username'].errors && addUserForm.controls['username'].dirty}\">\n                <input matInput type='text' formControlName='username' placeholder='E-Mail' required>\n                <div *ngIf=\"addUserForm.controls['username'].invalid && (addUserForm.controls['username'].dirty || addUserForm.controls['username'].touched)\" class='error-msg'>\n                  <div *ngIf=\"addUserForm.controls['username'].errors.required\">Username is required.</div>\n                  <div *ngIf=\"addUserForm.controls['username'].errors.minlength\">Username must be at least 2 characters long.</div>\n                  <div *ngIf=\"addUserForm.controls['username'].errors.patternInvalid\">Username must be a valid E-Mail address.</div>\n                </div>\n              </mat-form-field>\n              <mat-form-field [ngClass]=\"{'error': addUserForm.controls['firstName'].errors && addUserForm.controls['firstName'].dirty}\">\n                <input matInput type='text' formControlName='firstName' placeholder='First Name' required>\n                <div *ngIf=\"addUserForm.controls['firstName'].invalid && (addUserForm.controls['firstName'].dirty || addUserForm.controls['firstName'].touched)\" class='error-msg'>\n                  <div *ngIf=\"addUserForm.controls['firstName'].errors.required\">First Name is required.</div>\n                  <div *ngIf=\"addUserForm.controls['firstName'].errors.minlength\">First Name must be at least 2 characters long.</div>\n                </div>\n              </mat-form-field>\n              <mat-form-field [ngClass]=\"{'error': addUserForm.controls['lastName'].errors && addUserForm.controls['lastName'].dirty}\">\n                <input matInput type='text' formControlName='lastName' placeholder='Last Name' required>\n                <div *ngIf=\"addUserForm.controls['lastName'].invalid && (addUserForm.controls['lastName'].dirty || addUserForm.controls['lastName'].touched)\" class='error-msg'>\n                  <div *ngIf=\"addUserForm.controls['lastName'].errors.required\">Last Name is required.</div>\n                  <div *ngIf=\"addUserForm.controls['lastName'].errors.minlength\">Last Name must be at least 2 characters long.</div>\n                </div>\n              </mat-form-field>\n            </div>\n          </mat-grid-tile>\n          <mat-grid-tile>\n            <div class='controls-container'>\n              <mat-form-field>\n                <input matInput type='password' formControlName='password' placeholder='Password' required>\n                <div *ngIf=\"addUserForm.controls['password'].invalid && (addUserForm.controls['password'].dirty || addUserForm.controls['password'].touched)\" class='error-msg'>\n                  <div *ngIf=\"addUserForm.controls['password'].errors.required\">Password is required.</div>\n                  <div *ngIf=\"addUserForm.controls['password'].errors.minlength\">Password must be at least 5 characters long.</div>\n                  <div *ngIf=\"addUserForm.controls['password'].errors.maxlength\">Password must be at most 10 characters long.</div>\n                </div>\n              </mat-form-field>\n              <div class='add-bottom-padding'>\n                <!-- <div> -->\n                <label>Gender : </label>\n                <mat-radio-group formControlName='gender'>\n                    <mat-radio-button *ngFor=\"let gender of genders\" [value]='gender.value'>\n                        {{gender.type}}\n                      </mat-radio-button>\n                  <!-- <mat-radio-button value='MALE'>Male</mat-radio-button>\n                  <mat-radio-button value='FEMALE'>Female</mat-radio-button>\n                  <mat-radio-button value='OTHER'>Other</mat-radio-button> -->\n                </mat-radio-group>\n              </div>            \n              <mat-form-field>\n                <input formControlName='dateOfBirth' matInput [matDatepicker]='picker' placeholder='Date of Birth'>\n                <mat-datepicker-toggle matSuffix [for]='picker'></mat-datepicker-toggle>\n                <mat-datepicker #picker></mat-datepicker>\n              </mat-form-field>\n            </div>\n          </mat-grid-tile>\n        </mat-grid-list>        \n  \n        <!--mat-form-field [ngClass]=\"{'error': addUserForm.controls['username'].errors && addUserForm.controls['username'].dirty}\">\n          <input matInput type='text' formControlName='username' placeholder='E-Mail' required>\n          <div *ngIf=\"addUserForm.controls['username'].invalid && (addUserForm.controls['username'].dirty || addUserForm.controls['username'].touched)\" class='error-msg'>\n            <div *ngIf=\"addUserForm.controls['username'].errors.required\">Username is required.</div>\n            <div *ngIf=\"addUserForm.controls['username'].errors.minlength\">Username must be at least 2 characters long.</div>\n            <div *ngIf=\"addUserForm.controls['username'].errors.patternInvalid\">Username must be a valid E-Mail address.</div>\n          </div>\n        </mat-form-field>\n        <mat-form-field [ngClass]=\"{'error': addUserForm.controls['firstName'].errors && addUserForm.controls['firstName'].dirty}\">\n          <input matInput type='text' formControlName='firstName' placeholder='First Name' required>\n          <div *ngIf=\"addUserForm.controls['firstName'].invalid && (addUserForm.controls['firstName'].dirty || addUserForm.controls['firstName'].touched)\" class='error-msg'>\n            <div *ngIf=\"addUserForm.controls['firstName'].errors.required\">First Name is required.</div>\n            <div *ngIf=\"addUserForm.controls['firstName'].errors.minlength\">First Name must be at least 2 characters long.</div>\n          </div>\n        </mat-form-field>\n        <mat-form-field [ngClass]=\"{'error': addUserForm.controls['lastName'].errors && addUserForm.controls['lastName'].dirty}\">\n          <input matInput type='text' formControlName='lastName' placeholder='Last Name' required>\n          <div *ngIf=\"addUserForm.controls['lastName'].invalid && (addUserForm.controls['lastName'].dirty || addUserForm.controls['lastName'].touched)\" class='error-msg'>\n            <div *ngIf=\"addUserForm.controls['lastName'].errors.required\">Last Name is required.</div>\n            <div *ngIf=\"addUserForm.controls['lastName'].errors.minlength\">Last Name must be at least 2 characters long.</div>\n          </div>\n        </mat-form-field>\n        <mat-form-field>\n          <input matInput type='password' formControlName='password' placeholder='Password' required>\n          <div *ngIf=\"addUserForm.controls['password'].invalid && (addUserForm.controls['password'].dirty || addUserForm.controls['password'].touched)\" class='error-msg'>\n            <div *ngIf=\"addUserForm.controls['password'].errors.required\">Password is required.</div>\n            <div *ngIf=\"addUserForm.controls['password'].errors.minlength\">Password must be at least 5 characters long.</div>\n            <div *ngIf=\"addUserForm.controls['password'].errors.maxlength\">Password must be at most 10 characters long.</div>\n          </div>\n        </mat-form-field-->\n\n      </form>\n    </mat-card-content>\n    <mat-card-actions align='right'>\n        <a mat-raised-button routerLink='/list-user'>Cancel</a>\n        <button mat-raised-button color='accent' class='btn' [disabled]='addUserForm.invalid' (click)='onSubmit()'>Add User</button>\n    </mat-card-actions>\n  </mat-card>"
 
 /***/ }),
 
@@ -654,9 +962,14 @@ var AddUserComponent = /** @class */ (function () {
         this.formBuilder = formBuilder;
         this.router = router;
         this.usrSvc = usrSvc;
+        this.genders = [
+            { value: 'MALE', type: 'Male' },
+            { value: 'FEMALE', type: 'Female' },
+            { value: 'OTHER', type: 'Other' }
+        ];
     }
     AddUserComponent.prototype.ngOnInit = function () {
-        this.addForm = this.formBuilder.group({
+        this.addUserForm = this.formBuilder.group({
             id: [''],
             userId: [0],
             username: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email]],
@@ -671,6 +984,8 @@ var AddUserComponent = /** @class */ (function () {
             phones: [null],
             emails: [null],
             showpassword: '',
+            dateOfBirth: [new Date().toISOString()],
+            gender: ['OTHER'],
             createDt: [null],
             updateDt: [null],
             updateBy: [''],
@@ -679,11 +994,11 @@ var AddUserComponent = /** @class */ (function () {
     };
     AddUserComponent.prototype.onSubmit = function () {
         var _this = this;
-        this.usrSvc.addUser(this.addForm.value)
+        this.usrSvc.addUser(this.addUserForm.value)
             .subscribe(function (user) {
-            console.log("AddUsr:onSubmit user?? " + user);
+            console.log("AddUsr:onSubmit user?? " + user); // console.log(`AddUsr:onSubmit user?? ${user.username}`);
             if (user === undefined) {
-                _this.errorMsg = 'Username ' + _this.addForm.controls['username'].value + ' exists. Please choose another username!';
+                _this.errorMsg = 'Username ' + _this.addUserForm.controls['username'].value + ' exists! Please choose another username.';
                 _this.router.navigate(['add-user']);
             }
             else {
@@ -716,7 +1031,7 @@ var AddUserComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3VzZXIvZWRpdC11c2VyL2VkaXQtdXNlci5jb21wb25lbnQuY3NzIn0= */"
+module.exports = "/* .example-month-picker .mat-calendar-period-button {\r\n    pointer-events: none;\r\n  }\r\n  \r\n  .example-month-picker .mat-calendar-arrow {\r\n    display: none;\r\n  } */\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvdXNlci9lZGl0LXVzZXIvZWRpdC11c2VyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztNQU1NIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvdXNlci9lZGl0LXVzZXIvZWRpdC11c2VyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiAuZXhhbXBsZS1tb250aC1waWNrZXIgLm1hdC1jYWxlbmRhci1wZXJpb2QtYnV0dG9uIHtcclxuICAgIHBvaW50ZXItZXZlbnRzOiBub25lO1xyXG4gIH1cclxuICBcclxuICAuZXhhbXBsZS1tb250aC1waWNrZXIgLm1hdC1jYWxlbmRhci1hcnJvdyB7XHJcbiAgICBkaXNwbGF5OiBub25lO1xyXG4gIH0gKi8iXX0= */"
 
 /***/ }),
 
@@ -727,7 +1042,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\n  <mat-card-title align='center'>Edit User</mat-card-title>\n  <mat-card-content align='center'>\n    <form [formGroup]='editForm' class='login-form-container'>\n      <input type='hidden' formControlName='id'> <!-- 2018-12-22 -->\n      <input type='hidden' formControlName='userId'> <!-- 2018-12-22 -->\n      <mat-form-field [ngClass]=\"{'error': editForm.controls['username'].errors && editForm.controls['username'].dirty}\">\n        <input matInput type='text' formControlName='username' placeholder='E-Mail' required>\n        <div *ngIf=\"editForm.controls['username'].invalid && (editForm.controls['username'].dirty || editForm.controls['username'].touched)\" class='error-msg'>\n          <div *ngIf=\"editForm.controls['username'].errors.required\">Username is required.</div>\n          <div *ngIf=\"editForm.controls['username'].errors.minlength\">Username must be at least 2 characters long.</div>\n          <div *ngIf=\"editForm.controls['username'].errors.patternInvalid\">Username must be a valid E-Mail address.</div>\n        </div>\n      </mat-form-field>\n      <mat-form-field [ngClass]=\"{'error': editForm.controls['firstName'].errors && editForm.controls['firstName'].dirty}\">\n          <input matInput type='text' formControlName='firstName' placeholder='First Name' required>\n          <div *ngIf=\"editForm.controls['firstName'].invalid && (editForm.controls['firstName'].dirty || editForm.controls['firstName'].touched)\" class='error-msg'>\n            <div *ngIf=\"editForm.controls['firstName'].errors.required\">First Name is required.</div>\n            <div *ngIf=\"editForm.controls['firstName'].errors.minlength\">First Name must be at least 2 characters long.</div>\n          </div>\n        </mat-form-field>\n        <mat-form-field [ngClass]=\"{'error': editForm.controls['lastName'].errors && editForm.controls['lastName'].dirty}\">\n          <input matInput type='text' formControlName='lastName' placeholder='Last Name' required>\n          <div *ngIf=\"editForm.controls['lastName'].invalid && (editForm.controls['lastName'].dirty || editForm.controls['lastName'].touched)\" class='error-msg'>\n            <div *ngIf=\"editForm.controls['lastName'].errors.required\">Last Name is required.</div>\n            <div *ngIf=\"editForm.controls['lastName'].errors.minlength\">Last Name must be at least 2 characters long.</div>\n          </div>\n        </mat-form-field>\n      <mat-form-field>\n        <mat-checkbox class='example-margin' formControlName='showpassword' (click)='hideShowPassword()'>Show password</mat-checkbox>\n        <input matInput type={{inputType}} formControlName='password' placeholder='Password' required>\n      </mat-form-field>\n    </form>\n  </mat-card-content>\n  <mat-card-actions align='right'>\n      <a mat-raised-button routerLink='/list-user'>Cancel</a>\n      <button mat-raised-button color='accent' class='btn' [disabled]='editForm.invalid' (click)='onSubmit()'>Update User</button>\n  </mat-card-actions>\n</mat-card>"
+module.exports = "<mat-card>\n  <mat-card-title align='center'>Edit User</mat-card-title>\n  <mat-card-content align='center'>\n    <!-- <form [formGroup]='editUserForm' class='login-form-container'> -->\n    <form [formGroup]='editUserForm' class='normal-form'>\n      <input type='hidden' formControlName='id'>\n      <input type='hidden' formControlName='userId'>\n      <mat-grid-list cols='2' rowHeight='300px'>\n        <mat-grid-tile>\n          <div class='controls-container'>\n            <mat-form-field [ngClass]=\"{'error': editUserForm.controls['username'].errors && editUserForm.controls['username'].dirty}\">\n              <input matInput type='text' formControlName='username' placeholder='E-Mail' required readonly>\n              <div *ngIf=\"editUserForm.controls['username'].invalid && (editUserForm.controls['username'].dirty || editUserForm.controls['username'].touched)\" class='error-msg'>\n                <div *ngIf=\"editUserForm.controls['username'].errors.required\">Username is required.</div>\n                <div *ngIf=\"editUserForm.controls['username'].errors.minlength\">Username must be at least 2 characters long.</div>\n                <div *ngIf=\"editUserForm.controls['username'].errors.patternInvalid\">Username must be a valid E-Mail address.</div>\n              </div>\n            </mat-form-field>\n            <mat-form-field [ngClass]=\"{'error': editUserForm.controls['firstName'].errors && editUserForm.controls['firstName'].dirty}\">\n              <input matInput type='text' formControlName='firstName' placeholder='First Name' required>\n              <div *ngIf=\"editUserForm.controls['firstName'].invalid && (editUserForm.controls['firstName'].dirty || editUserForm.controls['firstName'].touched)\" class='error-msg'>\n                <div *ngIf=\"editUserForm.controls['firstName'].errors.required\">First Name is required.</div>\n                <div *ngIf=\"editUserForm.controls['firstName'].errors.minlength\">First Name must be at least 2 characters long.</div>\n              </div>\n            </mat-form-field>\n            <mat-form-field [ngClass]=\"{'error': editUserForm.controls['lastName'].errors && editUserForm.controls['lastName'].dirty}\">\n              <input matInput type='text' formControlName='lastName' placeholder='Last Name' required>\n              <div *ngIf=\"editUserForm.controls['lastName'].invalid && (editUserForm.controls['lastName'].dirty || editUserForm.controls['lastName'].touched)\" class='error-msg'>\n                <div *ngIf=\"editUserForm.controls['lastName'].errors.required\">Last Name is required.</div>\n                <div *ngIf=\"editUserForm.controls['lastName'].errors.minlength\">Last Name must be at least 2 characters long.</div>\n              </div>\n            </mat-form-field>\n          </div>\n        </mat-grid-tile>\n        <mat-grid-tile>\n          <div class='controls-container'>            \n            <mat-form-field>\n              <mat-checkbox class='example-margin' formControlName='showpassword' (click)='hideShowPassword()'>Show password</mat-checkbox>\n              <input matInput type={{inputType}} formControlName='password' placeholder='Password' required>\n            </mat-form-field>\n\n            <!-- <label>Gender</label> -->\n            <div class='add-bottom-padding'>\n            <!-- <div> -->\n              <label>Gender: </label>\n              <mat-radio-group formControlName='gender'>\n                  <mat-radio-button *ngFor=\"let gender of genders\" [value]='gender.value'>\n                    {{gender.type}}\n                  </mat-radio-button>\n              </mat-radio-group>\n            </div>\n            <mat-form-field>\n              <input formControlName='dateOfBirth' matInput [matDatepicker]='myDatepicker' placeholder='Date of Birth'>\n              <mat-datepicker-toggle matSuffix [for]='myDatepicker'></mat-datepicker-toggle>\n              <mat-datepicker #myDatepicker></mat-datepicker>\n            </mat-form-field>\n\n\n          </div>\n        </mat-grid-tile>\n      </mat-grid-list>\n\n      <!--mat-form-field [ngClass]=\"{'error': editUserForm.controls['username'].errors && editUserForm.controls['username'].dirty}\">\n        <input matInput type='text' formControlName='username' placeholder='E-Mail' required>\n        <div *ngIf=\"editUserForm.controls['username'].invalid && (editUserForm.controls['username'].dirty || editUserForm.controls['username'].touched)\" class='error-msg'>\n          <div *ngIf=\"editUserForm.controls['username'].errors.required\">Username is required.</div>\n          <div *ngIf=\"editUserForm.controls['username'].errors.minlength\">Username must be at least 2 characters long.</div>\n          <div *ngIf=\"editUserForm.controls['username'].errors.patternInvalid\">Username must be a valid E-Mail address.</div>\n        </div>\n      </mat-form-field>\n      <mat-form-field [ngClass]=\"{'error': editUserForm.controls['firstName'].errors && editUserForm.controls['firstName'].dirty}\">\n        <input matInput type='text' formControlName='firstName' placeholder='First Name' required>\n        <div *ngIf=\"editUserForm.controls['firstName'].invalid && (editUserForm.controls['firstName'].dirty || editUserForm.controls['firstName'].touched)\" class='error-msg'>\n          <div *ngIf=\"editUserForm.controls['firstName'].errors.required\">First Name is required.</div>\n          <div *ngIf=\"editUserForm.controls['firstName'].errors.minlength\">First Name must be at least 2 characters long.</div>\n        </div>\n      </mat-form-field>\n      <mat-form-field [ngClass]=\"{'error': editUserForm.controls['lastName'].errors && editUserForm.controls['lastName'].dirty}\">\n        <input matInput type='text' formControlName='lastName' placeholder='Last Name' required>\n        <div *ngIf=\"editUserForm.controls['lastName'].invalid && (editUserForm.controls['lastName'].dirty || editUserForm.controls['lastName'].touched)\" class='error-msg'>\n          <div *ngIf=\"editUserForm.controls['lastName'].errors.required\">Last Name is required.</div>\n          <div *ngIf=\"editUserForm.controls['lastName'].errors.minlength\">Last Name must be at least 2 characters long.</div>\n        </div>\n      </mat-form-field>\n      <mat-form-field>\n        <mat-checkbox class='example-margin' formControlName='showpassword' (click)='hideShowPassword()'>Show password</mat-checkbox>\n        <input matInput type={{inputType}} formControlName='password' placeholder='Password' required>\n      </mat-form-field-->\n      \n    </form>\n  </mat-card-content>\n  <mat-card-actions align='right'>\n      <a mat-raised-button routerLink='/list-user'>Cancel</a>\n      <button mat-raised-button color='accent' class='btn' [disabled]='editUserForm.invalid' (click)='onSubmit()'>Update User</button>\n  </mat-card-actions>\n</mat-card>"
 
 /***/ }),
 
@@ -760,6 +1075,11 @@ var EditUserComponent = /** @class */ (function () {
         this.formBuilder = formBuilder;
         this.router = router;
         this.userService = userService;
+        this.genders = [
+            { value: 'MALE', type: 'Male' },
+            { value: 'FEMALE', type: 'Female' },
+            { value: 'OTHER', type: 'Other' }
+        ];
     }
     EditUserComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -770,7 +1090,7 @@ var EditUserComponent = /** @class */ (function () {
             this.router.navigate(['list-user']);
             return;
         }
-        this.editForm = this.formBuilder.group({
+        this.editUserForm = this.formBuilder.group({
             id: [''],
             userId: [0],
             username: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email]],
@@ -785,6 +1105,8 @@ var EditUserComponent = /** @class */ (function () {
             phones: [null],
             emails: [null],
             showpassword: 'text',
+            dateOfBirth: [new Date().toISOString()],
+            gender: ['OTHER'],
             createDt: [null],
             updateDt: [null],
             updateBy: [''],
@@ -792,14 +1114,16 @@ var EditUserComponent = /** @class */ (function () {
         });
         console.log('%%% User Id is >' + id + '<');
         this.userService.getUser(id)
-            .subscribe(function (data) {
-            console.log('Edit:Usr ngOnInit ' + JSON.stringify(data));
-            _this.editForm.setValue(data);
+            .subscribe(function (user) {
+            console.log('EditUsr: ngOnInit ' + JSON.stringify(user));
+            _this.editUserForm.setValue(user);
+            console.log('DoB : ' + new Date(user.dateOfBirth).toISOString());
+            _this.editUserForm.controls['dateOfBirth'].setValue(new Date(user.dateOfBirth).toISOString());
         });
     };
     EditUserComponent.prototype.onSubmit = function () {
         var _this = this;
-        this.userService.updateUser(this.editForm.value)
+        this.userService.updateUser(this.editUserForm.value)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])())
             .subscribe(function (data) {
             console.log('Edit:Usr onSubmit ' + JSON.stringify(data));
@@ -816,13 +1140,43 @@ var EditUserComponent = /** @class */ (function () {
             this.inputType = 'password';
         }
     };
+    EditUserComponent.prototype.onClear = function () {
+        this.editUserForm.reset();
+        this.initFormGroup();
+    };
+    EditUserComponent.prototype.initFormGroup = function () {
+        this.editUserForm.setValue({
+            id: '',
+            userId: 0,
+            username: '',
+            firstName: '',
+            lastName: '',
+            password: '',
+            token: '',
+            addresses: null,
+            roles: null,
+            country: '',
+            website: '',
+            phones: null,
+            emails: null,
+            showpassword: 'text',
+            dateOfBirth: new Date(),
+            gender: 'OTHER',
+            createDt: null,
+            updateDt: null,
+            updateBy: '',
+            deleteDt: null
+        });
+    };
     EditUserComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-edit-user',
             template: __webpack_require__(/*! ./edit-user.component.html */ "./src/app/pages/user/edit-user/edit-user.component.html"),
             styles: [__webpack_require__(/*! ./edit-user.component.css */ "./src/app/pages/user/edit-user/edit-user.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _service_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _service_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]])
     ], EditUserComponent);
     return EditUserComponent;
 }());
@@ -849,7 +1203,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\n    <mat-card-title align='center'>\n        User List\n        <br>\n        <mat-divider></mat-divider>\n    </mat-card-title>\n    <mat-card-content align='center'>\n        <!-- starting mat table -->\n        <div *ngIf='dataSource.data.length > 0'>\n            <div class='example-header'>\n                <mat-form-field>\n                    <input matInput (keyup)='applyFilter($event.target.value)' placeholder='Filter'>\n                </mat-form-field>\n            </div>\n            <div class='example-container mat-elevation-z8'>\n                <mat-table [dataSource]='dataSource' matSort>\n                    <ng-container matColumnDef='userId'>\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>\n                        <mat-cell *matCellDef='let user'>{{user.userId}}</mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef='firstName'>\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>First Name</mat-header-cell>\n                        <mat-cell *matCellDef='let user'>{{user.firstName}}</mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef='lastName'>\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</mat-header-cell>\n                        <mat-cell *matCellDef='let user'>{{user.lastName}}</mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef='username'>\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>User Name</mat-header-cell>\n                        <mat-cell *matCellDef='let user'>{{user.username}}</mat-cell>\n                    </ng-container>    \n                    <ng-container matColumnDef=\"password\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Password </mat-header-cell>\n                        <mat-cell *matCellDef=\"let user\"> {{user.password}} </mat-cell>\n                    </ng-container>        \n        \n                    <ng-container matColumnDef=\"edit\">\n                        <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>\n                        <mat-cell *matCellDef=\"let user\">\n                            <button mat-raised-button (click)='editUser(user)'>\n                                <mat-icon color='primary'>edit</mat-icon>\n                            </button>\n                        </mat-cell>\n                    </ng-container>\n            \n                    <ng-container matColumnDef=\"delete\">\n                        <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>\n                        <mat-cell *matCellDef=\"let user\">\n                            <button mat-raised-button (click)='deleteUser(user)'>\n                                <mat-icon color='accent'>\n                                    <i class=\"material-icons\">remove_circle_outline</i>\n                                </mat-icon>\n                            </button>\n                        </mat-cell>\n                    </ng-container>\n        \n                    <mat-header-row *matHeaderRowDef='displayedColumns'></mat-header-row>\n                    <mat-row *matRowDef='let user; columns: displayedColumns;'></mat-row>\n                </mat-table>\n        \n                <mat-paginator [pageSizeOptions]='[5, 10, 15]'></mat-paginator>\n            </div>\n        </div>        \n        <!-- ending mat table-->\n    </mat-card-content>\n    <mat-card-actions align='right'>\n        <button mat-raised-button color='accent' class='btn' (click)='addUser()'>Add User</button>\n        <a mat-raised-button routerLink='/register'>Register</a>\n    </mat-card-actions>\n</mat-card>"
+module.exports = "<mat-card>\n    <mat-card-title align='center'>\n        <mat-card *ngIf='errorMsg'>\n            <mat-card-content align='center'>\n                <div *ngIf='errorMsg' [ngClass]=\"{'error': errorMsg}\">{{errorMsg}}</div>\n            </mat-card-content>\n        </mat-card>\n        User List\n        <br>\n        <mat-divider></mat-divider>\n    </mat-card-title>\n    <mat-card-content align='center'>\n        <!-- starting mat table -->\n        <div *ngIf='dataSource.data.length > 0'>\n            <div class='example-header'>\n                <mat-form-field>\n                    <input matInput (keyup)='applyFilter($event.target.value)' placeholder='Filter'>\n                </mat-form-field>\n            </div>\n            <div class='example-container mat-elevation-z8'>\n                <mat-table [dataSource]='dataSource' matSort>\n                    <ng-container matColumnDef='userId'>\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>\n                        <mat-cell *matCellDef='let user'>{{user.userId}}</mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef='firstName'>\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>First Name</mat-header-cell>\n                        <mat-cell *matCellDef='let user'>{{user.firstName}}</mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef='lastName'>\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</mat-header-cell>\n                        <mat-cell *matCellDef='let user'>{{user.lastName}}</mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef='username'>\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>User Name</mat-header-cell>\n                        <mat-cell *matCellDef='let user'>{{user.username}}</mat-cell>\n                    </ng-container>    \n                    <ng-container matColumnDef=\"password\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Password </mat-header-cell>\n                        <mat-cell *matCellDef=\"let user\"> {{user.password}} </mat-cell>\n                    </ng-container>        \n        \n                    <ng-container matColumnDef=\"edit\">\n                        <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>\n                        <mat-cell *matCellDef=\"let user\">\n                            <button mat-raised-button (click)='editUser(user)'>\n                                <mat-icon color='primary'>edit</mat-icon>\n                            </button>\n                        </mat-cell>\n                    </ng-container>\n            \n                    <ng-container matColumnDef=\"delete\">\n                        <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>\n                        <mat-cell *matCellDef=\"let user\">\n                            <button mat-raised-button (click)='deleteUser(user)'>\n                                <mat-icon color='accent'>\n                                    <i class=\"material-icons\">remove_circle_outline</i>\n                                </mat-icon>\n                            </button>\n                        </mat-cell>\n                    </ng-container>\n        \n                    <mat-header-row *matHeaderRowDef='displayedColumns'></mat-header-row>\n                    <mat-row *matRowDef='let user; columns: displayedColumns;'></mat-row>\n                </mat-table>\n        \n                <mat-paginator [pageSizeOptions]='[5, 10, 15]'></mat-paginator>\n            </div>\n        </div>        \n        <!-- ending mat table-->\n    </mat-card-content>\n    <!-- <mat-card-actions align='right'> -->\n    <mat-card-actions align='center'>\n        <!-- <button mat-raised-button color='accent' class='btn' (click)='addUser()'>Add User</button>\n        <a mat-raised-button routerLink='/register'>Register</a> -->\n\n        <mat-card>\n            <mat-card-content align='right'>\n                <button mat-raised-button color='accent' class='btn' (click)='addUser()'>Add User</button>\n                <a mat-raised-button routerLink='/register'>Register</a>\n            </mat-card-content>\n        </mat-card>\n        \n    </mat-card-actions>\n</mat-card>"
 
 /***/ }),
 
@@ -868,15 +1222,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _service_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../service/user.service */ "./src/app/service/user.service.ts");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var src_app_service_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/service/auth.service */ "./src/app/service/auth.service.ts");
+
 
 
 
 
 
 var ListUserComponent = /** @class */ (function () {
-    function ListUserComponent(router, userSvc) {
+    function ListUserComponent(router, userSvc, authSvc) {
         this.router = router;
         this.userSvc = userSvc;
+        this.authSvc = authSvc;
         this.displayedColumns = ['userId', 'firstName', 'lastName', 'username', 'edit', 'delete'];
         this.populateUserTable();
     }
@@ -902,12 +1259,26 @@ var ListUserComponent = /** @class */ (function () {
     };
     ListUserComponent.prototype.deleteUser = function (user) {
         var _this = this;
-        this.userSvc.deleteUser(user)
-            .subscribe(function (data) {
-            _this.populateUserTable();
-            console.log("LstUsr:delete " + data + " usrId : " + user.userId);
-            _this.router.navigate(['list-user']); // TODO test this.
-        });
+        if (confirm('Are you sure you want to delete this user?')) {
+            console.log('LstUsr: logusr? ' + (this.authSvc.loggedInUser !== null) +
+                ' loggedin ' + this.authSvc.loggedInUser.username +
+                ' uname ' + user.username +
+                ' equal ' + (this.authSvc.loggedInUser.username === user.username) +
+                ' ?? ' + ((this.authSvc.loggedInUser !== null) && (this.authSvc.loggedInUser.username === user.username)));
+            if ((this.authSvc.loggedInUser !== null) && (this.authSvc.loggedInUser.username === user.username)) {
+                this.errorMsg = 'Sorry! Cannot delete yourself! Please contact admin.';
+                this.router.navigate(['list-user']);
+            }
+            else {
+                this.errorMsg = null;
+                this.userSvc.deleteUser(user)
+                    .subscribe(function (data) {
+                    _this.populateUserTable();
+                    console.log("LstUsr:delete " + data + " usrId : " + user.userId);
+                    _this.router.navigate(['list-user']);
+                });
+            }
+        }
     };
     ListUserComponent.prototype.editUser = function (user) {
         console.log('ListUsr:editUser userId >' + user.userId + '<');
@@ -934,7 +1305,9 @@ var ListUserComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./list-user.component.html */ "./src/app/pages/user/list-user/list-user.component.html"),
             styles: [__webpack_require__(/*! ./list-user.component.css */ "./src/app/pages/user/list-user/list-user.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _service_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _service_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+            src_app_service_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"]])
     ], ListUserComponent);
     return ListUserComponent;
 }());
@@ -1080,7 +1453,7 @@ var AuthService = /** @class */ (function () {
             if (error.status === 401) {
                 localStorage.removeItem('currentUser');
                 _this.router.navigateByUrl('/login');
-                console.log('@@@@@ Authentication error');
+                console.log('@@@@ Authentication error');
             }
             else if (error.status === 403) {
                 console.log('%%%% Duplicate user error');
@@ -1123,6 +1496,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 
@@ -1130,9 +1505,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var UserService = /** @class */ (function () {
-    function UserService(http, authSvc) {
+    function UserService(http, authSvc, router) {
         this.http = http;
         this.authSvc = authSvc;
+        this.router = router;
         this.usrUrl = 'api/user';
     }
     UserService.prototype.getHeaders = function () {
@@ -1160,7 +1536,7 @@ var UserService = /** @class */ (function () {
     UserService.prototype.getUser = function (id) {
         var _this = this;
         var url = this.usrUrl + "/" + id;
-        return this.http.get(url, this.getHeaders()).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("Fetched one user id=" + id); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError("getUser id=" + id)));
+        return this.http.get(url, this.getHeaders()).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("Fetched one user id=" + id); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (usr) { return _this.log("Fetched one user w/ dateOfBirth=" + usr.dateOfBirth); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError("getUser id=" + id)));
     };
     UserService.prototype.getUserByUsername = function (username) {
         var _this = this;
@@ -1212,6 +1588,8 @@ var UserService = /** @class */ (function () {
             }
             else if (error.status === 500) {
                 console.log('#### Error 500 happened. Ooops!');
+                _this.authSvc.logout();
+                _this.router.navigateByUrl('/login');
             }
             // Let the app keep running by returning an empty result.
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
@@ -1222,9 +1600,98 @@ var UserService = /** @class */ (function () {
             providedIn: 'root'
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"],
-            _auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]])
+            _auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]])
     ], UserService);
     return UserService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/util/error-interceptor.ts":
+/*!*******************************************!*\
+  !*** ./src/app/util/error-interceptor.ts ***!
+  \*******************************************/
+/*! exports provided: ErrorInterceptor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorInterceptor", function() { return ErrorInterceptor; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
+
+
+
+
+var ErrorInterceptor = /** @class */ (function () {
+    function ErrorInterceptor(injector) {
+        this.injector = injector;
+    }
+    ErrorInterceptor.prototype.intercept = function (request, next) {
+        // return next.handle(request);
+        //////////////////////////
+        // const idToken = localStorage.getItem('id_token');
+        var _this = this;
+        // if (idToken) {
+        //     const cloned = request.clone({
+        //         headers: request.headers.set('Authorization',
+        //             'Bearer ' + idToken)
+        //     });
+        //     return next.handle(cloned);
+        // } else {
+        //     return next.handle(request);
+        // }
+        ////////////////////////
+        // Let's then break down how this code works line by line:
+        // 1. we first start by retrieving the JWT string from Local Storage directly
+        // 2. then we are going to check if the JWT is present
+        // 3. if the JWT is not present, then the request goes through to the server unmodified
+        // 4. if the JWT is present, then we will clone the HTTP headers, and add an extra Authorization header, which will contain the JWT
+        ///////////////////////////////
+        return next.handle(request)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (event) {
+            if (event instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpResponse"]) {
+                // if the token is valid
+            }
+        }, function (error) {
+            // if the token has expired.
+            if (error instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpErrorResponse"]) {
+                if (error.status === 401) {
+                    // this is where you can do anything like navigating
+                    _this.router.navigateByUrl('/login'); // send user to login 2018-12-24
+                }
+                if (error.status === 403) {
+                    // this is where you can do anything like navigating
+                    _this.router.navigateByUrl('/register'); // send user to registration page 2018-12-24
+                }
+                if (error.status === 500) {
+                    _this.router.navigateByUrl('/login');
+                }
+                console.error("ErrIntercept: Backend returned code " + error.status + ", " +
+                    ("body was: " + error.error));
+            }
+        }));
+        ////////////////
+    };
+    Object.defineProperty(ErrorInterceptor.prototype, "router", {
+        get: function () {
+            return this.injector.get(_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ErrorInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
+    ], ErrorInterceptor);
+    return ErrorInterceptor;
 }());
 
 
@@ -1247,6 +1714,58 @@ function forbiddenNameValidator(nameRe) {
         return forbidden ? { 'forbiddenName': { value: control.value } } : null;
     };
 }
+
+
+/***/ }),
+
+/***/ "./src/app/util/index.ts":
+/*!*******************************!*\
+  !*** ./src/app/util/index.ts ***!
+  \*******************************/
+/*! exports provided: httpInterceptorProviders, MY_FORMATS, datePickerProviders, Index */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "httpInterceptorProviders", function() { return httpInterceptorProviders; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MY_FORMATS", function() { return MY_FORMATS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "datePickerProviders", function() { return datePickerProviders; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Index", function() { return Index; });
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _error_interceptor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./error-interceptor */ "./src/app/util/error-interceptor.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_material_moment_adapter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material-moment-adapter */ "./node_modules/@angular/material-moment-adapter/esm5/material-moment-adapter.es5.js");
+
+
+
+
+/** Http Interceptor providers in outside-in order */
+var httpInterceptorProviders = [
+    { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HTTP_INTERCEPTORS"], useClass: _error_interceptor__WEBPACK_IMPORTED_MODULE_1__["ErrorInterceptor"], multi: true },
+];
+var MY_FORMATS = {
+    parse: {
+        dateInput: 'MM-DD-YYYY',
+    },
+    display: {
+        dateInput: 'MM-DD-YYYY',
+        monthYearLabel: 'MMM YYYY',
+        dateA11yLabel: 'LL',
+        monthYearA11yLabel: 'MMMM YYYY',
+    },
+};
+var datePickerProviders = [
+    // { provide: DateAdapter, useClass: AppDateAdapter },
+    // { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS },
+    { provide: _angular_material__WEBPACK_IMPORTED_MODULE_2__["DateAdapter"], useClass: _angular_material_moment_adapter__WEBPACK_IMPORTED_MODULE_3__["MomentDateAdapter"], deps: [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DATE_LOCALE"]] },
+    { provide: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DATE_FORMATS"], useValue: MY_FORMATS },
+];
+var Index = /** @class */ (function () {
+    function Index() {
+    }
+    return Index;
+}());
+
 
 
 /***/ }),

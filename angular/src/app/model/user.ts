@@ -18,6 +18,9 @@ export class User {
     phones: Phone[];
     emails: Email[];
 
+    dateOfBirth: Date;
+    gender: string;
+
     createDt: Date;
     updateDt: Date;
     updateBy: string;

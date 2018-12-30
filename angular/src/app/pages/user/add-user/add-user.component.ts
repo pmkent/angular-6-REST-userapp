@@ -11,7 +11,7 @@ import { forbiddenNameValidator } from '../../../util/forbiddenNameValidator';
 })
 export class AddUserComponent implements OnInit {
 
-  addForm: FormGroup;
+  addUserForm: FormGroup;
   errorMsg: any;
 
   constructor(
@@ -21,7 +21,7 @@ export class AddUserComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.addForm = this.formBuilder.group(
+    this.addUserForm = this.formBuilder.group(
       {
         id: [ '' ], // TODO test
 
@@ -39,6 +39,9 @@ export class AddUserComponent implements OnInit {
         emails: [ null ],
         showpassword: '', // bug fix, must add to backend User POJO
 
+        dob: [''],
+        gender: ['OTHER'],
+
         createDt: [ null ],
         updateDt: [ null ],
         updateBy: [ '' ],
@@ -48,12 +51,12 @@ export class AddUserComponent implements OnInit {
   }
 
   onSubmit() {
-    this.usrSvc.addUser(this.addForm.value)
+    this.usrSvc.addUser(this.addUserForm.value)
       .subscribe(
         user => {
           console.log(`AddUsr:onSubmit user?? ${user}`);
           if (user === undefined) {
-            this.errorMsg = 'Username ' + this.addForm.controls['username'].value + ' exists. Please choose another username!';
+            this.errorMsg = 'Username ' + this.addUserForm.controls['username'].value + ' exists. Please choose another username!';
             this.router.navigate(['add-user']);
           } else {
             this.errorMsg = null;
