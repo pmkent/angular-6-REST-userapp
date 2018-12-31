@@ -1,7 +1,11 @@
-<mat-toolbar class='primary' style='height: 50px;'>
+<mat-toolbar style='height:40px;'>  
+  <div class='hint-msg' *ngIf='authSvc.loggedInUser'>Thank you for visiting! <a routerLink='/login'>Logout</a></div>
+  <div class='hint-msg' *ngIf='!authSvc.loggedInUser'>Please <a routerLink='/login'>login</a> to enjoy all our cool features!</div>
+
   <span class='spacer'></span>
-  <div class='hint-msg'>
-    © Copyright Angular-User-CRUD. {{buildDate | date:'yyyy'}}
-  </div>  
+    <div class='hint-msg'>© Copyright Angular-User-CRUD. {{buildDate | date:'yyyy'}}</div>
   <span class='spacer'></span>
+
+  <div *ngIf='authSvc.loggedInUser' class='hint-msg'>Your are logged in as:  {{authSvc.loggedInUser.lastName}}, {{authSvc.loggedInUser.firstName}}</div>
+  <div *ngIf='!authSvc.loggedInUser' class='hint-msg'>You are NOT logged in!</div>
 </mat-toolbar>

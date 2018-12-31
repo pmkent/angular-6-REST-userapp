@@ -17,6 +17,12 @@ export class RegistrationComponent implements OnInit {
 
   errorMsg: any;
 
+  genders = [
+    { value: 'MALE', type: 'Male' },
+    { value: 'FEMALE', type: 'Female' },
+    { value: 'OTHER', type: 'Other' }
+  ];
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -34,18 +40,18 @@ export class RegistrationComponent implements OnInit {
         user => {
           console.log(`RegisterUsr:onSubmit user?? ${user}`);
           if (user === undefined) {
-            this.errorMsg = 'Username ' + this.registrationForm.controls['username'].value + ' exists. Please choose another username!';
+            this.errorMsg = 'Username ' + this.registrationForm.controls['username'].value + ' exists! Please choose another username.';
             this.router.navigate(['register']);
           } else {
             this.errorMsg = null;
             this.router.navigate(['list-user']);
           }
-        },
-        error => { // Never gets here becuse of UsrSvc error handling!
-          this.router.navigate(['register']);
-          this.errorMsg = 'Username exists. Please choose another username!';
-          console.log(`RegisterUsr:onSubmit: FAILED because ${error} : ` + this.registrationForm.controls['username'].value); // 2018-12-11
-        }
+        }// ,
+        // error => { // Never gets here becuse of UsrSvc error handling!
+        //   this.router.navigate(['register']);
+        //   this.errorMsg = 'Username exists. Please choose another username!';
+        // console.log(`RegisterUsr:onSubmit: FAILED because ${error} : ` + this.registrationForm.controls['username'].value); // 2018-12-11
+        // }
     );
   }
 
@@ -68,8 +74,8 @@ export class RegistrationComponent implements OnInit {
         emails: [ null ],
         showpassword: '', // bug fix, must add to backend User POJO
 
-        dob: null,
-        gender: '',
+        dateOfBirth: [ new Date().toISOString() ], // moment() ],
+        gender: ['OTHER'],
 
         createDt: [ null ],
         updateDt: [ null ],

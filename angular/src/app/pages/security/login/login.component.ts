@@ -53,19 +53,9 @@ export class LoginComponent {
             this.errorMsg = null;
             this.authSvc.loggedInUser = user;
             this.router.navigate(['list-user']);
+            console.log('Successfully logged in user : ' + JSON.stringify(user));
           }
-        },
-        // error => { // Never reach here because of service error catching!!!
-        //   this.errorMsg = 'Username and/or password do not match!';
-        //   console.log(`Login: FAILED because ${error} : ` + this.loginForm.controls['email'].value + ' ' +
-        //   this.loginForm.controls['password'].value + ' :=> ' + this.errorMsg); // 2018-12-11
-
-        //   console.log('Login failure usr? '); // TODO test
-        //   this.authSvc.loggedInUser = null;
-
-        //   this.router.navigate(['login']);
-        //   this.loading = false;
-        //  }
+        }
       );
   }
 

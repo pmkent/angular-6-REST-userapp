@@ -1,0 +1,15 @@
+Security
+-The app is secured in the back-end using JWT token.
+-On successful login a 15 minute token is generated
+-The token contains the user username (email), roles, encrypted password among other details
+-User password is first salted then hashed before being saved into the database. You cannot recreate the password stored in the database. If forgotten you must change the password.
+-On successful login the user information is displayed on the header and on the footer.
+
+Roles:
+-There are three user roles: ADMIN, USER and GUEST (default)
+-Logging in as a GUEST you can only access your user information, change it, cannot delete it. Users with the USER role can view all other user's and guests' user information, change it, but cannot delete. ADMIN users can view all user information, change and delete it as long as they are not deleting their own user information.
+
+Deleting:
+1. A user cannot delete themselves.
+2. Only ADMIN users can delete users.
+3. When deleting, you'll be promted to confirm the action.

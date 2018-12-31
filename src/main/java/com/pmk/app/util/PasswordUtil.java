@@ -2,8 +2,6 @@ package com.pmk.app.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 
 /**
  * 2018-12-22

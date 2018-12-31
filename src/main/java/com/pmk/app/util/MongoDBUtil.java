@@ -259,7 +259,6 @@ public class MongoDBUtil {
 
         List<String> adminUsers = new ArrayList<>();
         adminUsers.add("userone@gmail.com");
-        adminUsers.add("usertwo@gmail.com");
 
         userRoleList.add(createUserRole(1, "ADMIN","Administrator",1,adminUsers));
         userRoleList.add(createUserRole(2, "USER","User",2,users));

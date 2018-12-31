@@ -137,11 +137,17 @@ public class UserService {
     }
 
     /* */
-    public void deleteUser(String id) {
-        User delete = iUserRepo.fetchOne(id);
+    public User deleteUser(String id) {
+        User deleteUsr = null, loggedInUsr = getLoggedInUser();
+        // New rule. Only ADMIN can delete users!
+        if ((loggedInUsr != null) && (getUserRoles(loggedInUsr.getUsername()).contains("ADMIN"))) {
+            deleteUsr = iUserRepo.fetchOne(id);
+            if (!loggedInUsr.getUsername().equals(deleteUsr.getUsername())) // New rule. Can't delete yourself
+                iUserRepo.delete(deleteUsr);
+        }
         //System.out.println("UsrSvc:deleteUser id : " + id + " user "+delete);
-        iUserRepo.delete(delete);
-        System.out.println("UsrSvc:deleteUser DONE deleting id : " + id);
+        System.out.println("UsrSvc:deleteUser DONE deleting deleteUsr : " + deleteUsr);
+        return deleteUsr;
     }
 
     // User Authentication

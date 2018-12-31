@@ -1,0 +1,94 @@
+
++----- dist
++----- +----- userapp
++----- +----- * favicon.ico
++----- +----- * index.html
++----- +----- * main.js
++----- +----- * main.js.map
++----- +----- * polyfills.js
++----- +----- * polyfills.js.map
++----- +----- * runtine.js
++----- +----- * runtine.js.map
++----- +----- * styles.js
++----- +----- * styles.js.map
++----- +----- * vendor.js
++----- +----- * vendor.js.map
++----- node_modules
++----- src
++----- * styles.css
++----- * themes.scss
++----- * index.html
++----- +----- app
++----- +----- * angular-material.module.ts
++----- +----- * app-routing.module.ts
++----- +----- * app.component.css
++----- +----- * app.component.html
++----- +----- * app.component.spec.ts
++----- +----- * app.component.ts
++----- +----- * app.module.ts
++----- +----- model
++----- +----- * address.model.ts
++----- +----- * email.model.ts
++----- +----- * phone.model.ts
++----- +----- * user.ts
++----- +----- pages
++----- +----- +----- footer
++----- +----- +----- * footer.component.css
++----- +----- +----- * footer.component.html
++----- +----- +----- * footer.component.spec.ts
++----- +----- +----- * footer.component.ts
++----- +----- +----- header
++----- +----- +----- * header.component.css
++----- +----- +----- * header.component.html
++----- +----- +----- * header.component.spec.ts
++----- +----- +----- * header.component.ts
++----- +----- +----- security
++----- +----- +----- +----- login
++----- +----- +----- +----- * login.component.css
++----- +----- +----- +----- * login.component.html
++----- +----- +----- +----- * login.component.spec.ts
++----- +----- +----- +----- * login.component.ts
++----- +----- +----- +----- registration
++----- +----- +----- +----- * registration.component.css
++----- +----- +----- +----- * registration.component.html
++----- +----- +----- +----- * registration.component.spec.ts
++----- +----- +----- +----- * registration.component.ts
++----- +----- +----- user
++----- +----- +----- +----- add-user
++----- +----- +----- +----- * add-user.component.css
++----- +----- +----- +----- * add-user.component.html
++----- +----- +----- +----- * add-user.component.spec.ts
++----- +----- +----- +----- * add-user.component.ts
++----- +----- +----- +----- edit-user
++----- +----- +----- +----- * add-user.component.css
++----- +----- +----- +----- * add-user.component.html
++----- +----- +----- +----- * add-user.component.spec.ts
++----- +----- +----- +----- * add-user.component.ts
++----- +----- +----- +----- list-user
++----- +----- +----- +----- * list-user.component.css
++----- +----- +----- +----- * list-user.component.html
++----- +----- +----- +----- * list-user.component.spec.ts
++----- +----- +----- +----- * list-user.component.ts
++----- +----- service
++----- +----- * auth-guard.service.spec.ts
++----- +----- * auth-guard.service.ts
++----- +----- * auth.service.spec.ts
++----- +----- * auth.service.ts
++----- +----- * message.service.spec.ts
++----- +----- * message.service.ts
++----- +----- * user.service.spec.ts
++----- +----- * user.service.ts
++----- +----- util
++----- +----- * app-date-adapter.ts
++----- +----- * error-interceptor.ts
++----- +----- * forbiddenNameValidator.ts
++----- +----- * index.ts
++----- +----- * patternValidator.ts
++----- +----- * refresh-token-interceptor.ts
++----- +----- assets
+
+
+
+Future suggestions:
+* Change user.ts to user.model.ts
+* Change angular-material.module.ts to app-material.module.ts

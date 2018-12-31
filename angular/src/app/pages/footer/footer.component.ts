@@ -1,18 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
 
-  buildDate;
+  buildDate: Date;
 
-  constructor() {
+  constructor(public authSvc: AuthService) {
     this.buildDate = new Date();
   }
-
-  ngOnInit() {}
 
 }

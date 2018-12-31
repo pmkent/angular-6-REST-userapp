@@ -1,5 +1,10 @@
 <mat-card>
     <mat-card-title align='center'>
+        <mat-card *ngIf='errorMsg'>
+            <mat-card-content align='center'>
+                <div *ngIf='errorMsg' [ngClass]="{'error': errorMsg}">{{errorMsg}}</div>
+            </mat-card-content>
+        </mat-card>
         User List
         <br>
         <mat-divider></mat-divider>
@@ -33,7 +38,11 @@
                     <ng-container matColumnDef="password">
                         <mat-header-cell *matHeaderCellDef mat-sort-header> Password </mat-header-cell>
                         <mat-cell *matCellDef="let user"> {{user.password}} </mat-cell>
-                    </ng-container>        
+                    </ng-container>             
+                    <ng-container matColumnDef="dateOfBirth">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> DoB </mat-header-cell>
+                        <mat-cell *matCellDef="let user"> {{user.dateOfBirth | date}} </mat-cell>
+                    </ng-container>
         
                     <ng-container matColumnDef="edit">
                         <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
@@ -62,10 +71,18 @@
                 <mat-paginator [pageSizeOptions]='[5, 10, 15]'></mat-paginator>
             </div>
         </div>        
-        <!-- ending mat table-->
+        <!-- ending mat table--> 
     </mat-card-content>
-    <mat-card-actions align='right'>
-        <button mat-raised-button color='accent' class='btn' (click)='addUser()'>Add User</button>
-        <a mat-raised-button routerLink='/register'>Register</a>
+    <!-- <mat-card-actions align='right'> -->
+    <mat-card-actions align='center'>
+        <!-- <button mat-raised-button color='accent' class='btn' (click)='addUser()'>Add User</button>
+        <a mat-raised-button routerLink='/register'>Register</a> -->
+        <mat-card>
+            <mat-card-content align='right'>
+                <button mat-raised-button color='accent' class='btn' (click)='addUser()'>Add User</button>
+                <a mat-raised-button routerLink='/register'>Register</a>
+            </mat-card-content>
+        </mat-card>
+        
     </mat-card-actions>
 </mat-card>

@@ -1,5 +1,8 @@
 Saturday, December 29, 2018
 
+cmd /c ng build --base-href /
+cmd /c xcopy  ".\dist\userapp" "..\..\..\java\userapp\src\main\webapp" /s /e /y /i
+
 ng generate class util/app-date-adapter
 
 npm install --save moment

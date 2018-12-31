@@ -13,7 +13,7 @@
 }
 
 .error {
-    color: red;
+    color: crimson;
 }
 .error-msg {
     display: block;
@@ -23,7 +23,7 @@
 }
 
 .hint-msg {
-    color: blueviolet;
+    color: teal; /* crimson brown indianred burlywood indigo blueviolet teal */
     font-size: 52%;
 }
 
@@ -45,7 +45,7 @@ form.normal-form {
     padding-bottom: 10px;
 }
 mat-radio-group mat-radio-button {
-    margin-left: 5px;
+    margin-left: 10px;
 }
 .button-row button {
     margin: 5px;

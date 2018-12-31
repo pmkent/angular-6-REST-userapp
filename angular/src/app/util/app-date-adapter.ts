@@ -1,6 +1,6 @@
-// import { NativeDateAdapter, DateAdapter, MAT_DATE_FORMATS, MatDateFormats } from '@angular/material';
+import { NativeDateAdapter } from '@angular/material';
 
-export class AppDateAdapter {
+export class AppDateAdapter extends NativeDateAdapter {
     parse(value: any): Date | null {
         if ((typeof value === 'string') && (value.indexOf('/') > -1)) {
           const str = value.split('/');
@@ -11,13 +11,14 @@ export class AppDateAdapter {
         }
         const timestamp = typeof value === 'number' ? value : Date.parse(value);
         return isNaN(timestamp) ? null : new Date(timestamp);
-      }
-   format(date: Date, displayFormat: string): string {
+    }
+
+    format(date: Date, displayFormat: string): string {
        if (displayFormat === 'input') {
           const day = date.getDate();
           const month = date.getMonth() + 1;
           const year = date.getFullYear();
-          return this._to2digit(day) + '/' + this._to2digit(month) + '/' + year;
+          return this._to2digit(month) + '-' + this._to2digit(day) + '-' + year;
        } else if (displayFormat === 'inputMonth') {
            const month = date.getMonth() + 1;
            const year = date.getFullYear();
@@ -38,9 +39,7 @@ export const APP_DATE_FORMATS = {
        dateInput: {month: 'short', year: 'numeric', day: 'numeric'}
    },
    display: {
-       // dateInput: { month: 'short', year: 'numeric', day: 'numeric' },
        dateInput: 'input',
-       // monthYearLabel: { month: 'short', year: 'numeric', day: 'numeric' },
        monthYearLabel: 'inputMonth',
        dateA11yLabel: {year: 'numeric', month: 'long', day: 'numeric'},
        monthYearA11yLabel: {year: 'numeric', month: 'long'},

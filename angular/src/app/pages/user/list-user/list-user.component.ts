@@ -5,6 +5,7 @@ import { UserService } from '../../../service/user.service';
 import { User } from '../../../model/user';
 
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-list-user',
@@ -14,20 +15,37 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 export class ListUserComponent {
 
   dataSource: MatTableDataSource<User>;
-  displayedColumns = ['userId', 'firstName', 'lastName', 'username', 'edit', 'delete'];
+  displayedColumns = ['userId', 'firstName', 'lastName', 'username', 'dateOfBirth', 'edit', 'delete'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private router: Router, private userSvc: UserService) {
+  errorMsg: any;
+
+  constructor(
+    private router: Router,
+    private userSvc: UserService,
+    private authSvc: AuthService
+  ) {
       this.populateUserTable();
   }
 
   private populateUserTable() {
+    this.userSvc.getUsers()
+      .subscribe(usrs => this.dataSource.data = usrs);
     const users: User[] = [];
-      this.userSvc.getUsers()
-        .subscribe(usrs => this.dataSource.data = usrs);
-      this.dataSource = new MatTableDataSource(users);
+    this.dataSource = new MatTableDataSource(users);
+    ////////////////////////////////
+    // this.userSvc.getUsers()
+    //   .subscribe(
+    //     usrs => this.dataSource.data = usrs,
+    //     users => {
+    //       console.log(`LstComp:populate() Fetched all ${users} : users.`);
+    //       this.dataSource.data = users,
+    //       this.dataSource = new MatTableDataSource(users);
+    //     }
+    //   );
+    //////////////////
   }
 
   /**
@@ -46,14 +64,35 @@ export class ListUserComponent {
   }
 
   deleteUser(user: User): void {
-    this.userSvc.deleteUser(user)
-      .subscribe(
-        data => {
-          this.populateUserTable();
-          console.log(`LstUsr:delete ${data} usrId : ` + user.userId);
-          this.router.navigate(['list-user']);  // TODO test this.
-        }
+    if (confirm('Are you sure you want to delete this user?')) {
+      console.log('LstUsr: logusr? ' + (this.authSvc.loggedInUser !== null) +
+        ' loggedin ' + this.authSvc.loggedInUser.username +
+        ' uname ' + user.username +
+        ' equal ' + (this.authSvc.loggedInUser.username === user.username) +
+        ' ?? ' + ((this.authSvc.loggedInUser !== null) && (this.authSvc.loggedInUser.username === user.username))
       );
+      if ((this.authSvc.loggedInUser !== null) && (this.authSvc.loggedInUser.username === user.username)) {
+        this.errorMsg = 'Sorry! Cannot delete yourself! Please contact admin.';
+        this.router.navigate(['list-user']);
+      } else {
+        this.errorMsg = null;
+        this.userSvc.deleteUser(user)
+        .subscribe(
+          data => {
+            console.log(`LstUsr:deleteUsr user?? ${user}`);
+            if (data === undefined) {
+              this.errorMsg = 'Unable to delete ' + user.username + '! Please contact admin.';
+              this.router.navigate(['list-user']);
+            } else {
+              this.errorMsg = null;
+              console.log(`LstUsr:delete ${data} usrId : ` + user.username);
+              this.populateUserTable();
+              this.router.navigate(['list-user']);
+            }
+          }
+        );
+      }
+    }
   }
 
   editUser(user: User): void {

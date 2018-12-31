@@ -22,7 +22,8 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     Material.MatDatepickerModule,
     Material.MatNativeDateModule,
     Material.MatRadioModule,
-    MatMomentDateModule
+    Material.MatListModule
+    // MatMomentDateModule
   ],
   exports: [
     Material.MatToolbarModule,
@@ -41,7 +42,8 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     Material.MatDatepickerModule,
     Material.MatNativeDateModule,
     Material.MatRadioModule,
-    MatMomentDateModule
+    Material.MatListModule
+    // MatMomentDateModule
   ]
 })
 export class AngularMaterialModule { }

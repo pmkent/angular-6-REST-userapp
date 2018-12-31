@@ -20,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './pages/security/registration/registration.component';
 
 import { AuthService } from './service/auth.service';
-// import { httpInterceptorProviders } from './util/index';
+import { httpInterceptorProviders, datePickerProviders } from './util/index';
 
 
 @NgModule({
@@ -45,7 +45,8 @@ import { AuthService } from './service/auth.service';
   providers: [
     UserService,
     AuthService,
-    // httpInterceptorProviders
+    // httpInterceptorProviders,
+    datePickerProviders
   ],
   bootstrap: [AppComponent]
 })

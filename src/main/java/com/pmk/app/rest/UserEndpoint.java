@@ -88,8 +88,11 @@ public class UserEndpoint {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response deleteUser(@PathParam("userId") String userId) {
         System.out.println("UsrREST:deleteUser userId : "+userId);
-        getUserService().deleteUser(userId);
-        return Response.status(201).entity("User id "+userId+" successfully DELETED.").build();
+        User deleteUsr = getUserService().deleteUser(userId);
+        if (deleteUsr == null)
+            return Response.status(403).entity("OOPS! Cannot delete "+userId+". Please contact admin.").build();
+        else
+            return Response.status(201).entity("User id "+userId+" successfully DELETED.").build();
     }
 
     @GET

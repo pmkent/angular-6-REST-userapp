@@ -48,7 +48,7 @@ export class AuthService {
             ) {
               this.router.navigate(['login']);
             } else {
-              this.log(`Logged in user username=${username} password${password}`);
+              this.log(`Logged in username=${username} password${password}`);
               localStorage.setItem('currentUser', JSON.stringify(user));
             }
           }

@@ -14,6 +14,12 @@ export class AddUserComponent implements OnInit {
   addUserForm: FormGroup;
   errorMsg: any;
 
+  genders = [
+    { value: 'MALE', type: 'Male' },
+    { value: 'FEMALE', type: 'Female' },
+    { value: 'OTHER', type: 'Other' }
+  ];
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -39,7 +45,7 @@ export class AddUserComponent implements OnInit {
         emails: [ null ],
         showpassword: '', // bug fix, must add to backend User POJO
 
-        dob: [''],
+        dateOfBirth: [ new Date().toISOString() ],
         gender: ['OTHER'],
 
         createDt: [ null ],
@@ -54,9 +60,9 @@ export class AddUserComponent implements OnInit {
     this.usrSvc.addUser(this.addUserForm.value)
       .subscribe(
         user => {
-          console.log(`AddUsr:onSubmit user?? ${user}`);
+          console.log(`AddUsr:onSubmit user?? ${user}`); // console.log(`AddUsr:onSubmit user?? ${user.username}`);
           if (user === undefined) {
-            this.errorMsg = 'Username ' + this.addUserForm.controls['username'].value + ' exists. Please choose another username!';
+            this.errorMsg = 'Username ' + this.addUserForm.controls['username'].value + ' exists! Please choose another username.';
             this.router.navigate(['add-user']);
           } else {
             this.errorMsg = null;

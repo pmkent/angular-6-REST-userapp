@@ -5,6 +5,7 @@ import { AuthService } from './auth.service';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class UserService {
 
   constructor(
     private http: HttpClient,
-    private authSvc: AuthService
+    private authSvc: AuthService,
+    private router: Router
   ) {}
 
   getHeaders(): { headers: HttpHeaders } {
@@ -44,6 +46,7 @@ export class UserService {
 
     return this.http.delete<User>(url, this.getHeaders()).pipe(
       tap(_ => this.log(`Deleted user userId=${id}`)),
+      tap((usr: User) => this.log(`Deleted user w/ username=${usr.username}`)),
       catchError(this.handleError<User>('deleteUser'))
     );
   }
@@ -122,6 +125,7 @@ export class UserService {
       } else if (error.status === 500) {
         console.log('#### Error 500 happened. Ooops!');
         this.authSvc.logout();
+        this.router.navigateByUrl('/login');
       }
 
       // Let the app keep running by returning an empty result.
